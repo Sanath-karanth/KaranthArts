@@ -1,7 +1,8 @@
 import React, { memo, useState, useEffect, useContext } from 'react'
 import '../css/MainScreenstyle.css';
 import { ThemeContext } from '../contexts/themeContext';
-import HeaderScreen from '../common/headerScreen';
+import HeaderScreen,{cardgo} from '../common/headerScreen';
+import FooterScreen from '../common/footerScreen';
 import { makeStyles } from '@mui/styles';
 import { Container, Row, Col, Button, Card, Navbar, Nav } from 'react-bootstrap';
 import PropTypes from 'prop-types';
@@ -62,6 +63,8 @@ const MainScreen = memo((props) => {
     children: PropTypes.element.isRequired,
     window: PropTypes.func,
   };
+
+  
     
   return (
     <React.Fragment>
@@ -75,7 +78,11 @@ const MainScreen = memo((props) => {
                   className='mainheader' 
                   style={{backgroundColor:theme.backgroundColor, color: theme.color}}>
              <div id="back-to-top-anchor"></div>
-             
+             <div>
+               <Button onClick={cardgo}>
+                 save
+               </Button>
+             </div>
               <Card style={{ width: '18rem',backgroundColor:theme.cardColor, color: theme.color }}>
                 <Card.Body>
                   <Card.Title>Card Title</Card.Title>
@@ -106,7 +113,7 @@ const MainScreen = memo((props) => {
                   <Button variant="primary" className='buttonofgo'>Go somewhere</Button>
                 </Card.Body>
               </Card>
-              <Card style={{ width: '18rem',backgroundColor:theme.cardColor, color: theme.color }}>
+              <Card id='card4' style={{ width: '18rem',backgroundColor:theme.cardColor, color: theme.color }}>
                 <Card.Body>
                   <Card.Title>Card Title</Card.Title>
                   <Card.Text>
@@ -116,7 +123,7 @@ const MainScreen = memo((props) => {
                   <Button variant="primary" className='buttonofgo'>Go somewhere</Button>
                 </Card.Body>
               </Card>
-              
+              <FooterScreen />
             </Container>
             
             <ScrollTop {...props}>

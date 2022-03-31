@@ -6,7 +6,7 @@
     align-items: center;
     justify-content: center;
     transition: all .5s;
-    /* color: white; */
+    --bs-gutter-x: 0px;
   }
 
 /* Mobile View */

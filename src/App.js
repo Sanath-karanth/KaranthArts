@@ -9,13 +9,13 @@ import {
 } from "react-router-dom";
 // import { AuthProvider } from "./contexts/AuthContext"
 import MainPage from './components/MainScreen';
-
+import AboutPage from './components/aboutScreen';
 
 
 const App = () => {
   let routes = useRoutes([
     { path: "/", element: <MainPage /> },
-    // { path: "component2", element: <Component2 /> }
+    { path: "/about", element: <AboutPage /> }
     
   ]);
   return routes;
