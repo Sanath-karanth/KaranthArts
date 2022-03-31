@@ -11,7 +11,7 @@ import { faHome, faPalette, faImage, faCircleUser, faPenToSquare } from '@fortaw
 import { Link,useNavigate  } from "react-router-dom";
 
 const HeaderScreen = memo((props) => {
-    const [{theme, isDark}, toggleTheme] = useContext(ThemeContext);
+    const [{theme}, toggleTheme] = useContext(ThemeContext);
     const navigate  = useNavigate();
 
     const homeClick = () => {

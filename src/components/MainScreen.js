@@ -3,12 +3,10 @@ import '../css/MainScreenstyle.css';
 import { ThemeContext } from '../contexts/themeContext';
 import HeaderScreen,{cardgo} from '../common/headerScreen';
 import FooterScreen from '../common/footerScreen';
+import { slideData } from "../json/jsonData"
 import { makeStyles } from '@mui/styles';
 import { Container, Row, Col, Button, Card, Carousel, Nav } from 'react-bootstrap';
 import PropTypes from 'prop-types';
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 import CssBaseline from '@mui/material/CssBaseline';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
 import Box from '@mui/material/Box';
@@ -16,14 +14,30 @@ import Fab from '@mui/material/Fab';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import Zoom from '@mui/material/Zoom';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((thememui) => ({
 
 }))
 
 const MainScreen = memo((props) => {
-  const classes = useStyles();
-  const [{theme, isDark}, toggleTheme] = useContext(ThemeContext);
-  console.log("theme" ,theme);
+    const classes = useStyles();
+    const [{theme, isDark}, toggleTheme] = useContext(ThemeContext);
+    console.log("theme" ,theme);
+    const colors = [
+      "linear-gradient(to left, #ee9ca7  0%,rgba(0,0,0,0) 60%), url('./images/banner/slider2.jpg') no-repeat",
+    "linear-gradient(to left, #ee9ca7  0%,rgba(0,0,0,0) 60%), url('./images/banner/slider1.jpg') no-repeat",
+    "linear-gradient(286deg, #5563A926  0%,#E9EAF4E6 35%, #FCFCFD 72%, #FFFFFF 100%), url('./images/banner/slider3.jpg') no-repeat"
+    ];
+    const delay = 2500;
+  
+  
+    const [index, setIndex] = React.useState(0);
+    const timeoutRef = React.useRef(null);
+  
+    function resetTimeout() {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    }
 
   function ScrollTop(props) {
     const { children, window } = props;
@@ -64,22 +78,7 @@ const MainScreen = memo((props) => {
     window: PropTypes.func,
   };
 
-  const colors = [
-    "linear-gradient(to left, #ee9ca7  0%,rgba(0,0,0,0) 60%), url('./images/banner/slider2.jpg') no-repeat",
-   "linear-gradient(to left, #ee9ca7  0%,rgba(0,0,0,0) 60%), url('./images/banner/slider1.jpg') no-repeat",
-   "linear-gradient(286deg, #5563A926  0%,#E9EAF4E6 35%, #FCFCFD 72%, #FFFFFF 100%), url('./images/banner/slider3.jpg') no-repeat"
-  ];
-  const delay = 2500;
-  
-  
-    const [index, setIndex] = React.useState(0);
-    const timeoutRef = React.useRef(null);
-  
-    function resetTimeout() {
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-      }
-    }
+ 
   
     React.useEffect(() => {
       resetTimeout();
@@ -108,35 +107,30 @@ const MainScreen = memo((props) => {
             <Container fluid 
                   className='mainheader' 
                   style={{backgroundColor:theme.backgroundColor, color: theme.color}}>
-             <div id="back-to-top-anchor"></div>
-              <div className='carousel-container w-100'>
-                <Carousel>
-                  <Carousel.Item>
+            <div id="back-to-top-anchor"></div>
+
+            {/* -----------   Slide Show design   ----------- */}
+              
+            <div className='carousel-container w-100'>
+              <Carousel>
+                { slideData.map((slideitem,key) => {
+                  return(
+                  <Carousel.Item key={key}>
                     <img
-                      className="d-block w-100"
-                      src="./images/banner/slider1.jpg"
-                      style={{height:'400px',objectFit:'cover'}}
+                      className="d-block w-100 carousel-img"
+                      src={slideitem.imgUrl}
                       alt="First slide"
                     />
-                    <Carousel.Caption>
-                      <h5>Portrait Sketching</h5>
-                      <p>Portrait painting is a genre in painting, where the intent is to represent a specific human subject.</p>
+                    <Carousel.Caption className='carousel-content'>
+                      <h5>{slideitem.title}</h5>
+                      <p>{slideitem.description}</p>
                     </Carousel.Caption>
                   </Carousel.Item>
-                  <Carousel.Item>
-                    <img
-                      className="d-block w-100"
-                      src="./images/banner/slider2.jpg"
-                      style={{height:'400px',objectFit:'cover'}}
-                      alt="Second slide"
-                    />
-                    <Carousel.Caption>
-                      <h5>Second slide label</h5>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    </Carousel.Caption>
-                  </Carousel.Item>
-                </Carousel>
-              </div>
+                  )
+                  })
+                }
+              </Carousel>
+            </div>
              
 
 

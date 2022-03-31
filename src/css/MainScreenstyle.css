@@ -1,3 +1,5 @@
+
+/* --------------    parent container styles    ------------------- */
 .mainheader {
     /* min-height: 100vh; */
     /* display: flex; */
@@ -7,6 +9,25 @@
     --bs-gutter-x: 0px !important;
   }
 
+  /*-----------------   Carousel styles   --------------------  */
+
+  .carousel-img{
+      height: 400px;
+      width: 100%;
+      object-fit: cover;
+  }
+  .carousel-content h5{
+    font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bolder;
+  }
+  .carousel-content p{
+    font-size: 12px;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+
+/* ------------------   custum slideshow  styles    ------------------ */
   .slideshow {
     margin: 0 auto;
     overflow: hidden;
@@ -24,8 +45,6 @@
     object-fit: cover;
     width: 100%;
   }
-  
-  /* Buttons */
   
   .slideshowDots {
     text-align: center;
@@ -46,6 +65,8 @@
   .slideshowDot.active {
     background-color: #7d7b7e;
   }
+
+
 
 /* Mobile View */
 @media (max-width: 767px) {
