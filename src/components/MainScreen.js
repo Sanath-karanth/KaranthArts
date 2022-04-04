@@ -103,7 +103,7 @@ const MainScreen = memo((props) => {
           duration: 800,
           delay: 300,
           once: false,
-          disable: 'mobile'
+          // disable: 'mobile'
       });
       // AOS.refresh();
     }, []);
