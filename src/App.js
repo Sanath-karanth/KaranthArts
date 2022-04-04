@@ -10,12 +10,13 @@ import {
 // import { AuthProvider } from "./contexts/AuthContext"
 import MainPage from './components/MainScreen';
 import AboutPage from './components/aboutScreen';
-
+import DemoPage from './components/demo';
 
 const App = () => {
   let routes = useRoutes([
     { path: "/", element: <MainPage /> },
-    { path: "/about", element: <AboutPage /> }
+    { path: "/about", element: <AboutPage /> },
+    { path: "/demo", element: <DemoPage /> },
     
   ]);
   return routes;

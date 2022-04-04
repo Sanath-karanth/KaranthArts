@@ -16,7 +16,7 @@ const HeaderScreen = memo((props) => {
 
     const homeClick = () => {
       console.log("home clicked")
-      navigate("/about");
+      navigate("/demo");
     }
 
   useEffect(() => {
@@ -32,7 +32,7 @@ const HeaderScreen = memo((props) => {
                 bg={theme.headercolor} 
                 variant={theme.headercolor}>
           <Container fluid>
-          <Navbar.Brand className='artanimation'  href="#home">
+          <Navbar.Brand className='artanimation'>
             <span className='word' style={{color:theme.headericoncolor}}>ART</span>{' '} 
             <span className='word' style={{color:theme.headericoncolor}}>GALLERY</span>
           </Navbar.Brand>

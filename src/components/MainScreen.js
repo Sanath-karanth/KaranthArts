@@ -13,6 +13,7 @@ import Box from '@mui/material/Box';
 import Fab from '@mui/material/Fab';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import Zoom from '@mui/material/Zoom';
+import AOS from 'aos';
 
 const useStyles = makeStyles((thememui) => ({
 
@@ -22,22 +23,22 @@ const MainScreen = memo((props) => {
     const classes = useStyles();
     const [{theme, isDark}, toggleTheme] = useContext(ThemeContext);
     console.log("theme" ,theme);
-    const colors = [
-      "linear-gradient(to left, #ee9ca7  0%,rgba(0,0,0,0) 60%), url('./images/banner/slider2.jpg') no-repeat",
-    "linear-gradient(to left, #ee9ca7  0%,rgba(0,0,0,0) 60%), url('./images/banner/slider1.jpg') no-repeat",
-    "linear-gradient(286deg, #5563A926  0%,#E9EAF4E6 35%, #FCFCFD 72%, #FFFFFF 100%), url('./images/banner/slider3.jpg') no-repeat"
-    ];
-    const delay = 2500;
+    // const colors = [
+    //   "linear-gradient(to left, #ee9ca7  0%,rgba(0,0,0,0) 60%), url('./images/banner/slider2.jpg') no-repeat",
+    // "linear-gradient(to left, #ee9ca7  0%,rgba(0,0,0,0) 60%), url('./images/banner/slider1.jpg') no-repeat",
+    // "linear-gradient(286deg, #5563A926  0%,#E9EAF4E6 35%, #FCFCFD 72%, #FFFFFF 100%), url('./images/banner/slider3.jpg') no-repeat"
+    // ];
+    // const delay = 2500;
   
   
-    const [index, setIndex] = React.useState(0);
-    const timeoutRef = React.useRef(null);
+    // const [index, setIndex] = React.useState(0);
+    // const timeoutRef = React.useRef(null);
   
-    function resetTimeout() {
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-      }
-    }
+    // function resetTimeout() {
+    //   if (timeoutRef.current) {
+    //     clearTimeout(timeoutRef.current);
+    //   }
+    // }
 
   function ScrollTop(props) {
     const { children, window } = props;
@@ -80,22 +81,33 @@ const MainScreen = memo((props) => {
 
  
   
-    React.useEffect(() => {
-      resetTimeout();
-      timeoutRef.current = setTimeout(
-        () =>
-          setIndex((prevIndex) =>
-            prevIndex === colors.length - 1 ? 0 : prevIndex + 1
-          ),
-        delay
-      );
+    // React.useEffect(() => {
+    //   resetTimeout();
+    //   timeoutRef.current = setTimeout(
+    //     () =>
+    //       setIndex((prevIndex) =>
+    //         prevIndex === colors.length - 1 ? 0 : prevIndex + 1
+    //       ),
+    //     delay
+    //   );
   
-      return () => {
-        resetTimeout();
-      };
-    }, [index]);
+    //   return () => {
+    //     resetTimeout();
+    //   };
+    // }, [index]);
   
-    
+    useEffect(() => {
+      AOS.init({
+          // Global settings:
+          easing: 'ease-out-back',
+          duration: 800,
+          delay: 300,
+          once: false,
+          disable: 'mobile'
+      });
+      // AOS.refresh();
+    }, []);
+
   return (
     <React.Fragment>
       <div className='MainContainer'>
@@ -131,8 +143,52 @@ const MainScreen = memo((props) => {
                 }
               </Carousel>
             </div>
-             
 
+             {/*--------------   Sketchings design part   ---------  */}
+
+             <div className='maincontentContainer'>
+               <Container>
+                <div className='headertextContent'>
+                  <h2>Portrait Arts and Sketchings</h2>
+                </div>
+                
+                <div className='mb-4 mt-4 pt-2'>
+                  <div className='indiamap-mainbox' data-aos="fade-up">
+                    <Row className='gx-0'>
+                      <Col xxs="12" xs="12" sm="12" md="5" lg="5" xl="5" xxl="5" xxxl="5">
+                        <Card style={{border: 'none',borderRadius:'0'}}>
+                          <Card.Img variant="top" src="./images/art/indiamap.jpg" width="100%" height="500" />
+                        </Card>
+                      </Col>
+                      <Col xxs="12" xs="12" sm="12" md="7" lg="7" xl="7" xxl="7" xxxl="7">
+                        <Card style={{border: 'none',borderRadius:'0'}}>
+                        <Card.Body>
+                              <Card.Title>Card Title</Card.Title>
+                              <Card.Text>
+                                Some quick example text to build on the card title and make up the bulk of
+                                the card's content.
+                              </Card.Text>
+                              <Button variant="primary">Go somewhere</Button>
+                            </Card.Body>
+                        </Card>
+                      </Col>
+                    </Row>
+                  </div>
+                  <div className='indiamap-borderbox pb-2 mb-3'
+                       data-aos="zoom-in">
+                  </div>
+                </div>  
+              </Container>
+              <Container fluid >
+                <div className='bg-dark'>
+                  <Row className='gx-0'>
+                    <Col>
+                        <h2>Div container 2</h2>
+                    </Col>
+                  </Row>
+                </div> 
+              </Container>
+            </div>
 
              {/* <div className="slideshow">
                 <div
@@ -163,7 +219,7 @@ const MainScreen = memo((props) => {
                 </div>
               </div> */}
 
-             <div>
+             {/* <div>
                <Button onClick={cardgo}>
                  save
                </Button>
@@ -209,7 +265,7 @@ const MainScreen = memo((props) => {
                   <Button variant="primary" className='buttonofgo'>Go somewhere</Button>
                 </Card.Body>
               </Card>
-             </div>
+             </div> */}
               
               <FooterScreen />
             </Container>

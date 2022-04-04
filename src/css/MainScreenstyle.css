@@ -5,8 +5,16 @@
     /* display: flex; */
     /* flex-direction: column; */
     /* align-items: center; */
+    /* min-height: fit-content; */
+    min-width: fit-content;
     justify-content: center;
     --bs-gutter-x: 0px !important;
+  }
+  .indiamap-borderbox{
+    background-color: aqua;
+    height: fit-content;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
   }
 
   /*-----------------   Carousel styles   --------------------  */
@@ -66,11 +74,41 @@
     background-color: #7d7b7e;
   }
 
+  /* -----------------   Main content styles    -------- */
+  .square {
+    width: 200px;
+    height: 200px;
+    background: teal;
+    border-radius: 8px;
+    opacity: 0;
+    transform: scale(1.2);
+}
 
+@media (prefers-reduced-motion: no-preference) {
+  .square {
+    transition: opacity 1.5s ease, transform 1.5s ease;
+  }
+}
+
+.square-transition {
+    opacity: 1;
+    transform: none;
+}
+  
 
 /* Mobile View */
 @media (max-width: 767px) {
-    
+  .maincontentContainer{
+    margin: 0 20px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  .headertextContent h2{
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bolder;
+    text-align: left;
+  }
 }
 
 /* Tablet View */
@@ -79,14 +117,36 @@
         width: 100%;
         height: fit-content;
     }    
+    .maincontentContainer{
+      margin: 0 auto;
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+    .headertextContent h2{
+      font-size: 26px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: bolder;
+      text-align: left;
+    }
 }
 
 /* Desktop View */
 @media (min-width: 1200px) {
     .HeadContainer{
-        margin: 0 auto;
-        max-width: 1280px;
-        height: fit-content;
+      margin: 0 auto;
+      max-width: 1280px;
+      height: fit-content;
+    }
+    .maincontentContainer{
+      margin: 0 auto;
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+    .headertextContent h2{
+      font-size: 32px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: bolder;
+      text-align: left;
     }
     
 }
@@ -108,3 +168,22 @@
         height: fit-content;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
