@@ -156,7 +156,8 @@ const MainScreen = memo((props) => {
                 
                 <div className='mb-4 mt-4 pt-4 pb-4'>
                   <div className='shadow-lg bg-white rounded' 
-                       data-aos="fade-up" 
+                       data-aos="fade-up"
+                       data-aos-duration="2000" 
                        >
                     <Card 
                       style={{
@@ -235,7 +236,8 @@ const MainScreen = memo((props) => {
               <Container>
                 <div className='mb-4 mt-4 pt-4 pb-4'>
                   <div className='shadow-lg bg-white rounded' 
-                       data-aos="fade-down" 
+                       data-aos="fade-down"
+                       data-aos-duration="2000" 
                        >
                     <Card 
                       style={{
