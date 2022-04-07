@@ -1,9 +1,10 @@
 import React, { memo, useState, useEffect, useContext } from 'react'
+import {Link, useRoutes} from "react-router-dom";
 import '../css/MainScreenstyle.css';
 import { ThemeContext } from '../contexts/themeContext';
 import HeaderScreen,{cardgo} from '../common/headerScreen';
 import FooterScreen from '../common/footerScreen';
-import { slideData } from "../json/jsonData"
+import { slideData, indiamapCardData } from "../json/jsonData"
 import { makeStyles } from '@mui/styles';
 import { Container, Row, Col, Button, Card, Carousel, Nav } from 'react-bootstrap';
 import PropTypes from 'prop-types';
@@ -14,6 +15,7 @@ import Fab from '@mui/material/Fab';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import Zoom from '@mui/material/Zoom';
 import AOS from 'aos';
+import { height } from '@mui/system';
 
 const useStyles = makeStyles((thememui) => ({
 
@@ -98,14 +100,10 @@ const MainScreen = memo((props) => {
   
     useEffect(() => {
       AOS.init({
-          // Global settings:
           easing: 'ease-out-back',
-          duration: 800,
-          delay: 300,
           once: false,
-          // disable: 'mobile'
       });
-      // AOS.refresh();
+      AOS.refresh();
     }, []);
 
   return (
@@ -146,39 +144,91 @@ const MainScreen = memo((props) => {
 
              {/*--------------   Sketchings design part   ---------  */}
 
-             <div className='maincontentContainer'>
+             <div className='maincontentContainer'>   {/* main div open */}
+
                <Container>
                 <div className='headertextContent'>
-                  <h2>Portrait Arts and Sketchings</h2>
+                  <h2 style={{color:theme.maincontentheadtextcolor}}>Portrait Arts and Sketchings</h2>
                 </div>
                 
-                <div className='mb-4 mt-4 pt-2'>
-                  <div className='indiamap-mainbox' data-aos="fade-up">
-                    <Row className='gx-0'>
-                      <Col xxs="12" xs="12" sm="12" md="5" lg="5" xl="5" xxl="5" xxxl="5">
-                        <Card style={{border: 'none',borderRadius:'0'}}>
-                          <Card.Img variant="top" src="./images/art/indiamap.jpg" width="100%" height="500" />
-                        </Card>
-                      </Col>
-                      <Col xxs="12" xs="12" sm="12" md="7" lg="7" xl="7" xxl="7" xxxl="7">
-                        <Card style={{border: 'none',borderRadius:'0'}}>
-                        <Card.Body>
-                              <Card.Title>Card Title</Card.Title>
-                              <Card.Text>
-                                Some quick example text to build on the card title and make up the bulk of
-                                the card's content.
-                              </Card.Text>
-                              <Button variant="primary">Go somewhere</Button>
-                            </Card.Body>
-                        </Card>
-                      </Col>
-                    </Row>
+                <div className='mb-4 mt-4 pt-4 pb-4'>
+                  <div className='indiamap-mainbox shadow-lg bg-white rounded' 
+                       data-aos="fade-up" 
+                       >
+                    <Card 
+                      style={{
+                          border: 'none',
+                          borderRadius:'0',
+                          backgroundColor:theme.cardbgColor, 
+                          color: theme.color
+                          }}>
+                    {indiamapCardData.map((item,key) => {
+                      return(
+                        <Row className='gx-0' key={key}>
+                        <Col xxs="12" xs="12" sm="12" md="5" lg="5" xl="5" xxl="5" xxxl="5">
+                          <Card className='image-card-content' style={{border: 'none',borderRadius:'0'}}>
+                            <div className='card-image shadow p-3 bg-white rounded'>
+                              <img
+                                  className='p-0' 
+                                  data-aos="flip-right" 
+                                  data-aos-duration="2000"
+                                  src={item.imgUrl}
+                                  alt='Cardimages here'
+                                  >
+                              </img>
+                            </div>
+                          </Card>
+                        </Col>
+                        <Col xxs="12" xs="12" sm="12" md="7" lg="7" xl="7" xxl="7" xxxl="7">
+                          <div className='cardtext-contentContainer'>
+                            <div className='singlecard-title-content'>
+                              <h3 style={{color:theme.cardtitletextcolor}}>{item.title}</h3>
+                            </div>
+                            <div className='singlecard-quotedesp-content'>
+                              <p>
+                                <i className="fa fa-quote-left p-2"></i> 
+                                  {item.quotedescription}
+                                <i className="fa fa-quote-right p-2"></i>
+                              </p>
+                            </div>
+                            <div className='singlecard-desp-content'>
+                              <p>
+                                {item.description}
+                              </p>
+                            </div>
+                            <div className='singlecard-artdesp-content'>
+                              <p>Art Creation Date:&nbsp;
+                                <small style={{color:theme.cardartdatetextcolor}}>{item.artdate}</small>
+                              </p>
+                            </div>
+                            <div className='singlecard-button-content'>
+                           
+                              <Button 
+                                className='buttonanchor'
+                                variant={`outline-${theme.cardbuttoncolor}`}>
+                                  <a 
+                                    target="_blank"
+                                    rel="noopener noreferrer" 
+                                    href={item.aboutUrl}>
+                                      {item.abouttext}
+                                  </a>
+                              </Button>
+                            </div>
+                          </div>
+                        </Col>
+                      </Row>
+                      )
+                    })}
+                    </Card>
                   </div>
-                  <div className='indiamap-borderbox pb-2 mb-3'
-                       data-aos="zoom-in">
+                  <div className='indiamap-borderbox pb-2'
+                       style={{backgroundColor:theme.bordercoloraqua}}
+                       data-aos="zoom-in"
+                       data-aos-duration="2000">
                   </div>
-                </div>  
+                </div>
               </Container>
+
               <Container fluid >
                 <div className='bg-dark'>
                   <Row className='gx-0'>
@@ -188,7 +238,8 @@ const MainScreen = memo((props) => {
                   </Row>
                 </div> 
               </Container>
-            </div>
+
+            </div>    {/* main div close */}
 
              {/* <div className="slideshow">
                 <div

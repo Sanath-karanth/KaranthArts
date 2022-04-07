@@ -6,24 +6,34 @@ const themes = {
         color:"white",
         headercolor:'dark',
         headericoncolor:'#61DBFB',
+        headerheadtextcolor:'#61DBFB',
         footerbgcolor:'#292b2c',
         footerheadtext:'#61DBFB',
         footericoncolor:'#61DBFB',
         footerCopyrighttext:'#61DBFB',
-
-        cardColor:'#343a40',
+        maincontentheadtextcolor:'#61DBFB',
+        cardbgColor:'#343a40',
+        cardtitletextcolor:'#61DBFB',
+        cardartdatetextcolor:'#61DBFB',
+        cardbuttoncolor:'info',
+        bordercoloraqua:'aqua'
     },
     light: {
         backgroundColor: "#ebebeb",
         color:"black",
         headercolor:'light',
         headericoncolor:'#4c768d',
+        headerheadtextcolor:'#4c768d',
         footerbgcolor:'white',
         footerheadtext:'#000000',
         footericoncolor:'#000000',
         footerCopyrighttext:'#000000',
-
-        cardColor:'white',
+        maincontentheadtextcolor:'#000000',
+        cardbgColor:'white',
+        cardtitletextcolor:'#4c768d',
+        cardartdatetextcolor:'#0000FF',
+        cardbuttoncolor:'dark',
+        bordercoloraqua:'aqua'
     },
 };
 

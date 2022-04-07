@@ -33,8 +33,8 @@ const HeaderScreen = memo((props) => {
                 variant={theme.headercolor}>
           <Container fluid>
           <Navbar.Brand className='artanimation'>
-            <span className='word' style={{color:theme.headericoncolor}}>ART</span>{' '} 
-            <span className='word' style={{color:theme.headericoncolor}}>GALLERY</span>
+            <span className='word' style={{color:theme.headerheadtextcolor}}>ART</span>{' '} 
+            <span className='word' style={{color:theme.headerheadtextcolor}}>GALLERY</span>
           </Navbar.Brand>
           
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
