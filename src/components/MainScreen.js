@@ -145,7 +145,6 @@ const MainScreen = memo((props) => {
 
              {/*--------------   Sketchings design part   ---------  */}
              
-             <div className='maincontentContainer'>   {/* main div open */}
 
                 {/* -----------    India map Container   ------------- */}
                <Container>
@@ -153,7 +152,7 @@ const MainScreen = memo((props) => {
                   <h2 style={{color:theme.maincontentheadtextcolor}}>Portrait Arts and Sketchings</h2>
                 </div>
                 
-                <div className='mt-3 mb-3 pt-3 pb-3'>
+                <div className='maincontentContainer mt-3 mb-3 pt-3 pb-3'>
                   <div className='shadow-lg bg-white rounded' 
                        data-aos="fade-up"
                        data-aos-duration="2000" 
@@ -233,7 +232,7 @@ const MainScreen = memo((props) => {
               {/* -----------    Indian army soldier Container   ------------- */}
 
               <Container>
-                <div className='mt-3 mb-3 pt-3 pb-3'>
+                <div className='maincontentContainer mt-3 mb-3 pt-3 pb-3'>
                   <div className='shadow-lg bg-white rounded' 
                        data-aos="fade-down"
                        data-aos-duration="2000" 
@@ -322,8 +321,6 @@ const MainScreen = memo((props) => {
                   </Row>
                 </div> 
               </Container>
-
-            </div>    {/* main div close */}
 
              {/* <div className="slideshow">
                 <div

@@ -167,7 +167,6 @@
     opacity: 1;
     transform: none;
 }
-  
 
 /* Mobile View */
 @media (max-width: 767px) {
@@ -175,6 +174,9 @@
     margin: 0 24px;
     padding-top: 40px;
     padding-bottom: 40px;
+  }
+  .headertextContent{
+    padding: 30px 10px 5px 10px;
   }
   .headertextContent h2{
     font-size: 20px;
@@ -231,6 +233,9 @@
       padding-top: 40px;
       padding-bottom: 40px;
     }
+    .headertextContent{
+      padding: 30px 0px 5px 0px;
+    }
     .headertextContent h2{
       font-size: 26px;
       font-family: 'Montserrat', sans-serif;
@@ -286,6 +291,9 @@
       margin: 0 auto;
       padding-top: 40px;
       padding-bottom: 40px;
+    }
+    .headertextContent{
+      padding: 30px 0px 10px 0px;
     }
     .headertextContent h2{
       font-size: 32px;
