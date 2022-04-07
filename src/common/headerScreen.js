@@ -47,7 +47,7 @@ const HeaderScreen = memo((props) => {
               </Tooltip>
 
               <Tooltip title="Portrait Sketchings">
-                <Nav.Link href="#features" className='navtext'>
+                <Nav.Link onClick={portraitClick} className='navtext'>
                   <FontAwesomeIcon icon={faPalette} color={theme.headericoncolor} />{' '}Portrait Sketchings
                 </Nav.Link>
               </Tooltip>
@@ -59,7 +59,7 @@ const HeaderScreen = memo((props) => {
               </Tooltip>
 
               <Tooltip title="About">
-                <Nav.Link onClick={cardgo} href="#features" className='navtext'>
+                <Nav.Link onClick={portraitClick} href="#features" className='navtext'>
                   <FontAwesomeIcon icon={faCircleUser} color={theme.headericoncolor} />{' '}About
                 </Nav.Link>
               </Tooltip>
@@ -90,7 +90,7 @@ const HeaderScreen = memo((props) => {
 
 export default HeaderScreen;
 
-export const cardgo = () => {
-  let scrolltotext = document.getElementById('card4');
+export const portraitClick = () => {
+  let scrolltotext = document.getElementById('PortraitArts');
   scrolltotext.scrollIntoView({behavior:'smooth'})
 }
