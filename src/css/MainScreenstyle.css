@@ -21,13 +21,15 @@
     max-width: 100%;
     max-height: 100%;
   }
-  .indiamap-borderbox{
+  .borderbox-bottom{
     height: fit-content;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
   }
-  .cardtext-contentContainer{
-    padding: 40px;
+  .borderbox-top{
+    height: fit-content;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
   }
   
   .singlecard-quotedesp-content{
@@ -170,7 +172,7 @@
 /* Mobile View */
 @media (max-width: 767px) {
   .maincontentContainer{
-    margin: 0 20px;
+    margin: 0 24px;
     padding-top: 40px;
     padding-bottom: 40px;
   }
@@ -181,6 +183,9 @@
     text-align: left;
     letter-spacing: 0px;
     opacity: 1;
+  }
+  .cardtext-contentContainer{
+    padding: 40px 30px 40px 30px;
   }
   .singlecard-title-content{
     width: 100%;
@@ -234,6 +239,9 @@
       letter-spacing: 0px;
       opacity: 1;
     }
+    .cardtext-contentContainer{
+      padding: 40px;
+    }
     .singlecard-title-content{
       width: 100%;
       height: fit-content;
@@ -286,6 +294,9 @@
       text-align: left;
       letter-spacing: 0px;
       opacity: 1;
+    }
+    .cardtext-contentContainer{
+      padding: 40px;
     }
     .singlecard-title-content{
       width: 100%;

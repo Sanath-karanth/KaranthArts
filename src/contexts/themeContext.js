@@ -16,7 +16,8 @@ const themes = {
         cardtitletextcolor:'#61DBFB',
         cardartdatetextcolor:'#61DBFB',
         cardbuttoncolor:'info',
-        bordercoloraqua:'aqua'
+        bordercoloraqua:'aqua',
+        bordercolorpurple:'#800080'
     },
     light: {
         backgroundColor: "#ebebeb",
@@ -33,7 +34,8 @@ const themes = {
         cardtitletextcolor:'#4c768d',
         cardartdatetextcolor:'#0000FF',
         cardbuttoncolor:'dark',
-        bordercoloraqua:'aqua'
+        bordercoloraqua:'aqua',
+        bordercolorpurple:'#800080'
     },
 };
 

@@ -145,7 +145,6 @@ const MainScreen = memo((props) => {
 
              {/*--------------   Sketchings design part   ---------  */}
              
-
              <div className='maincontentContainer'>   {/* main div open */}
 
                 {/* -----------    India map Container   ------------- */}
@@ -154,7 +153,7 @@ const MainScreen = memo((props) => {
                   <h2 style={{color:theme.maincontentheadtextcolor}}>Portrait Arts and Sketchings</h2>
                 </div>
                 
-                <div className='mb-4 mt-4 pt-4 pb-4'>
+                <div className='mt-3 mb-3 pt-3 pb-3'>
                   <div className='shadow-lg bg-white rounded' 
                        data-aos="fade-up"
                        data-aos-duration="2000" 
@@ -170,7 +169,7 @@ const MainScreen = memo((props) => {
                       return(
                         <Row className='gx-0' key={key}>
                         <Col xxs="12" xs="12" sm="12" md="5" lg="5" xl="5" xxl="5" xxxl="5">
-                            <div className='card-image shadow p-3 bg-white rounded'>
+                            <div className='card-image shadow p-3 bg-white'>
                               <img
                                   className='p-0' 
                                   data-aos="flip-right" 
@@ -223,7 +222,7 @@ const MainScreen = memo((props) => {
                     })}
                     </Card>
                   </div>
-                  <div className='indiamap-borderbox pb-2'
+                  <div className='borderbox-bottom pb-2'
                        style={{backgroundColor:theme.bordercoloraqua}}
                        data-aos="zoom-in"
                        data-aos-duration="2000">
@@ -234,7 +233,7 @@ const MainScreen = memo((props) => {
               {/* -----------    Indian army soldier Container   ------------- */}
 
               <Container>
-                <div className='mb-4 mt-4 pt-4 pb-4'>
+                <div className='mt-3 mb-3 pt-3 pb-3'>
                   <div className='shadow-lg bg-white rounded' 
                        data-aos="fade-down"
                        data-aos-duration="2000" 
@@ -289,7 +288,7 @@ const MainScreen = memo((props) => {
                           
                         </Col>
                         <Col xxs="12" xs="12" sm="12" md="5" lg="5" xl="5" xxl="5" xxxl="5">
-                            <div className='card-image shadow p-3 bg-white rounded'>
+                            <div className='card-image shadow p-3 bg-white'>
                               <img
                                   className='p-0' 
                                   data-aos="flip-right" 
@@ -306,8 +305,8 @@ const MainScreen = memo((props) => {
                     })}
                     </Card>
                   </div>
-                  <div className='indiamap-borderbox pb-2'
-                       style={{backgroundColor:theme.bordercoloraqua}}
+                  <div className='borderbox-bottom pb-2'
+                       style={{backgroundColor:theme.bordercolorpurple}}
                        data-aos="zoom-in"
                        data-aos-duration="2000">
                   </div>
