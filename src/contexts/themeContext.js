@@ -25,7 +25,7 @@ const themes = {
         bordercolorpurple:'#800080'
     },
     light: {
-        backgroundColor: "#ebebeb",
+        backgroundColor: "#FFFFFF",
         color:"black",
         headercolor:'light',
         headericoncolor:'#4c768d',

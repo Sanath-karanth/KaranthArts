@@ -373,11 +373,34 @@ const MainScreen = memo((props) => {
 
               <Container fluid >
                 <div style={{backgroundColor:'#e2e8f0 '}}>
-                  <Row className='gx-0'>
+                  <Container>
+                  <Row className='gx-0 g-4'>
                     <Col>
-                        <h2>Div container 2</h2>
+                      <Card>
+                        <Card.Body>
+                          <Card.Title>Card Title</Card.Title>
+                          <Card.Text>
+                            Some quick example text to build on the card title and make up the bulk of
+                            the card's content.
+                          </Card.Text>
+                          <Button variant="primary">Go somewhere</Button>
+                        </Card.Body>
+                      </Card>
+                    </Col>
+                    <Col>
+                      <Card>
+                        <Card.Body>
+                          <Card.Title>Card Title</Card.Title>
+                          <Card.Text>
+                            Some quick example text to build on the card title and make up the bulk of
+                            the card's content.
+                          </Card.Text>
+                          <Button variant="primary">Go somewhere</Button>
+                        </Card.Body>
+                      </Card>
                     </Col>
                   </Row>
+                  </Container>
                 </div> 
               </Container>
 
