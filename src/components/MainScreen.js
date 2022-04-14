@@ -1,12 +1,11 @@
 import React, { memo, useState, useEffect, useContext } from 'react'
-import {Link, useRoutes} from "react-router-dom";
 import '../css/MainScreenstyle.css';
 import { ThemeContext } from '../contexts/themeContext';
 import HeaderScreen,{portraitClick} from '../common/headerScreen';
 import FooterScreen from '../common/footerScreen';
 import { slideData, indiamapCardData, indiaarmysoldierCardData } from "../json/jsonData"
 import { makeStyles } from '@mui/styles';
-import { Container, Row, Col, Button, Card, Carousel, Nav } from 'react-bootstrap';
+import { Container, Row, Col, Button, Card, Carousel } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import CssBaseline from '@mui/material/CssBaseline';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
@@ -15,7 +14,12 @@ import Fab from '@mui/material/Fab';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import Zoom from '@mui/material/Zoom';
 import AOS from 'aos';
-import { height } from '@mui/system';
+import { useNavigate  } from "react-router-dom";
+import SpeedDial from '@mui/material/SpeedDial';
+import SpeedDialIcon from '@mui/material/SpeedDialIcon';
+import SpeedDialAction from '@mui/material/SpeedDialAction';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHome, faPalette, faImage, faCircleUser, faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 
 const useStyles = makeStyles((thememui) => ({
 
@@ -23,8 +27,23 @@ const useStyles = makeStyles((thememui) => ({
 
 const MainScreen = memo((props) => {
     const classes = useStyles();
+    const navigate  = useNavigate();
     const [{theme, isDark}, toggleTheme] = useContext(ThemeContext);
-    console.log("theme" ,theme);
+    const actions = [
+      { icon: <FontAwesomeIcon icon={faHome} size="lg" />, name: 'Home', navigationto: homeClick },
+      { icon: <FontAwesomeIcon icon={faPalette} size="lg" />, name: 'Portrait Arts and Sketchings', navigationto: portraitClick },
+      { icon: <FontAwesomeIcon icon={faImage} size="lg" />, name: 'Photography', navigationto: portraitClick },
+      { icon: <FontAwesomeIcon icon={faCircleUser} size="lg" />, name: 'About', navigationto: portraitClick },
+      { icon: <FontAwesomeIcon icon={faPenToSquare} size="lg" />, name: 'Feedback', navigationto: portraitClick },
+    ];
+
+    function homeClick() {
+      console.log("home clicked")
+      // navigate("/demo");
+      document.getElementById('back-to-top-anchor').scrollIntoView({
+        behavior: 'smooth'
+      });
+    }
     // const colors = [
     //   "linear-gradient(to left, #ee9ca7  0%,rgba(0,0,0,0) 60%), url('./images/banner/slider2.jpg') no-repeat",
     // "linear-gradient(to left, #ee9ca7  0%,rgba(0,0,0,0) 60%), url('./images/banner/slider1.jpg') no-repeat",
@@ -111,13 +130,46 @@ const MainScreen = memo((props) => {
       <div className='MainContainer'>
         <div className='SubContainer'>
           <div className='HeadContainer'>
-
+              <SpeedDial
+                ariaLabel="SpeedDial basic example"
+                sx={{ position: 'fixed', bottom: 20, left: 10 }}
+                icon={<SpeedDialIcon />}
+                FabProps={{
+                  sx: {
+                    bgcolor: theme.speeddialcolor,
+                    color: theme.speeddialPluscolor,
+                    '&:hover': {
+                      bgcolor: theme.speeddialcolor,
+                      color: theme.speeddialIconhovercolor,
+                    }
+                  }
+                }}
+                >
+                  {actions.map((action) => (
+                    <SpeedDialAction
+                      key={action.name}
+                      icon={action.icon}
+                      tooltipTitle={action.name}
+                      onClick={action.navigationto}
+                      sx={{
+                        color:theme.speeddialIconcolor, 
+                        bgcolor: theme.speeddialcolor, 
+                        '&:hover': {
+                        color:theme.speeddialIconcolor, 
+                        bgcolor: theme.speeddialIconhovercolor
+                      }
+                    }}
+                    />
+                  ))}
+              </SpeedDial>
+              <div id="back-to-top-anchor"></div>
             <CssBaseline  />
             <HeaderScreen  />
+            
             <Container fluid 
                   className='mainheader' 
                   style={{backgroundColor:theme.backgroundColor, color: theme.color}}>
-            <div id="back-to-top-anchor"></div>
+            
 
             {/* -----------   Slide Show design   ----------- */}
               
@@ -182,7 +234,9 @@ const MainScreen = memo((props) => {
                         <Col xxs="12" xs="12" sm="12" md="7" lg="7" xl="7" xxl="7" xxxl="7">
                           <div className='cardtext-contentContainer'>
                             <div className='singlecard-title-content'>
-                              <h3 style={{color:theme.cardtitletextcolor}}>{item.title}</h3>
+                              <h3 data-aos="fade-left"
+                                  data-aos-duration="2000" 
+                                  style={{color:theme.cardtitletextcolor}}>{item.title}</h3>
                             </div>
                             <div className='singlecard-quotedesp-content'>
                               <p>
@@ -202,16 +256,22 @@ const MainScreen = memo((props) => {
                               </p>
                             </div>
                             <div className='singlecard-button-content'>
-                           
+                              {/* <a 
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className='anchorbutton'
+                                onMouseOver={{color:'red'}}
+                                style={{color: theme.cardbuttontextbordercolor, 
+                                        border: `1px solid ${theme.cardbuttontextbordercolor}`}} 
+                                href={item.aboutUrl}>
+                                  {item.abouttext}
+                              </a> */}
                               <Button 
                                 className='buttonanchor'
+                                style={{boxShadow: "4px 4px 3px rgba(46, 46, 46, 0.62)"}}
+                                onClick={()=> window.open(item.aboutUrl, "_blank", "noopener noreferrer")}
                                 variant={`outline-${theme.cardbuttoncolor}`}>
-                                  <a 
-                                    target="_blank"
-                                    rel="noopener noreferrer" 
-                                    href={item.aboutUrl}>
-                                      {item.abouttext}
-                                  </a>
+                                  {item.abouttext}
                               </Button>
                             </div>
                           </div>
@@ -250,7 +310,9 @@ const MainScreen = memo((props) => {
                         <Col xxs="12" xs="12" sm="12" md="7" lg="7" xl="7" xxl="7" xxxl="7">
                           <div className='cardtext-contentContainer'>
                             <div className='singlecard-title-content'>
-                              <h3 style={{color:theme.cardtitletextcolor}}>{item.title}</h3>
+                              <h3 data-aos="fade-right"
+                                  data-aos-duration="2000"
+                                  style={{color:theme.cardtitletextcolor}}>{item.title}</h3>
                             </div>
                             <div className='singlecard-quotedesp-content'>
                               <p>
@@ -270,16 +332,12 @@ const MainScreen = memo((props) => {
                               </p>
                             </div>
                             <div className='singlecard-button-content'>
-                           
                               <Button 
-                                className='buttonanchor'
-                                variant={`outline-${theme.cardbuttoncolor}`}>
-                                  <a 
-                                    target="_blank"
-                                    rel="noopener noreferrer" 
-                                    href={item.aboutUrl}>
-                                      {item.abouttext}
-                                  </a>
+                                  className='buttonanchor'
+                                  style={{boxShadow: "4px 4px 3px rgba(46, 46, 46, 0.62)"}}
+                                  onClick={()=> window.open(item.aboutUrl, "_blank", "noopener noreferrer")}
+                                  variant={`outline-${theme.cardbuttoncolor}`}>
+                                    {item.abouttext}
                               </Button>
                             </div>
                             
@@ -313,10 +371,138 @@ const MainScreen = memo((props) => {
               </Container>
 
               <Container fluid >
-                <div className='bg-dark'>
+                <div style={{backgroundColor:'#e2e8f0 '}}>
                   <Row className='gx-0'>
                     <Col>
                         <h2>Div container 2</h2>
+                    </Col>
+                  </Row>
+                </div> 
+              </Container>
+
+              <Container fluid >
+                <div style={{backgroundColor:'#faf0e6'}}>
+                  <Row className='gx-0'>
+                    <Col>
+                        <h2>Div container 3</h2>
+                    </Col>
+                  </Row>
+                </div> 
+              </Container>
+
+              <Container fluid >
+                <div style={{backgroundColor:'#fddde6'}}>
+                  <Row className='gx-0'>
+                    <Col>
+                        <h2>Div container 4</h2>
+                    </Col>
+                  </Row>
+                </div> 
+              </Container>
+              <Container fluid >
+                <div style={{backgroundColor:'#e7feff'}}>
+                  <Row className='gx-0'>
+                    <Col>
+                        <h2>Div container 5</h2>
+                    </Col>
+                  </Row>
+                </div> 
+              </Container>
+              <Container fluid >
+                <div style={{backgroundColor:'#c9ffe5'}}>
+                  <Row className='gx-0'>
+                    <Col>
+                        <h2>Div container 6</h2>
+                    </Col>
+                  </Row>
+                </div> 
+              </Container>
+              <Container fluid >
+                <div style={{background: 'linear-gradient(to right, #EFEFBB 0%, #D4D3DD 100%)'}}>
+                  <Row className='gx-0'>
+                    <Col>
+                        <h2>Div gradient 1</h2>
+                    </Col>
+                  </Row>
+                </div> 
+              </Container>
+              <Container fluid >
+                <div style={{background: 'linear-gradient(to right, #4b6cb7 0%, #182848 100%)'}}>
+                  <Row className='gx-0'>
+                    <Col>
+                        <h2>Div gradient 2</h2>
+                    </Col>
+                  </Row>
+                </div> 
+              </Container>
+              <Container fluid >
+                <div style={{background: 'linear-gradient(to right, #c9ffe5 0%, #0ABFBC 100%)'}}>
+                  <Row className='gx-0'>
+                    <Col>
+                        <h2>Div gradient 3</h2>
+                    </Col>
+                  </Row>
+                </div> 
+              </Container>
+              <Container fluid >
+                <div style={{background: 'linear-gradient(to right, #5f2c82 0%, #49a09d 100%)'}}>
+                  <Row className='gx-0'>
+                    <Col>
+                        <h2>Div gradient 4</h2>
+                    </Col>
+                  </Row>
+                </div> 
+              </Container>
+              <Container fluid >
+                <div style={{background: 'linear-gradient(to right, #EC6F66 0%, #F3A183 100%)'}}>
+                  <Row className='gx-0'>
+                    <Col>
+                        <h2>Div gradient 5</h2>
+                    </Col>
+                  </Row>
+                </div> 
+              </Container>
+              <Container fluid >
+                <div style={{background: 'linear-gradient(to right, #ECE9E6 0%, #D4D3DD 100%)'}}>
+                  <Row className='gx-0'>
+                    <Col>
+                        <h2>Div gradient 6</h2>
+                    </Col>
+                  </Row>
+                </div> 
+              </Container>
+              <Container fluid >
+                <div style={{background: 'linear-gradient(to right, #283048 0%, #859398 100%)'}}>
+                  <Row className='gx-0'>
+                    <Col>
+                        <h2>Div gradient 7</h2>
+                    </Col>
+                  </Row>
+                </div> 
+              </Container>
+              <Container fluid >
+                <div style={{background: 'linear-gradient(to right, #757F9A 0%, #D7DDE8 100%)'}}>
+                  <Row className='gx-0'>
+                    <Col>
+                        <h2>Div gradient 8</h2>
+                    </Col>
+                  </Row>
+                </div> 
+              </Container>
+              <Container fluid >
+                <div style={{background: 'linear-gradient(to right, #076585 0%, #ffffff 100%)'}}>
+                  <Row className='gx-0'>
+                    <Col>
+                        <h2>Div gradient 9</h2>
+                    </Col>
+                  </Row>
+                </div> 
+              </Container>
+              <Container fluid >
+                <div style={{background: 'linear-gradient(to right, #BBD2C5 0%, #536976 100%)'}}>
+                  <Row className='gx-0'>
+                    <Col>
+                        <h2>Div gradient 10</h2>
                     </Col>
                   </Row>
                 </div> 
