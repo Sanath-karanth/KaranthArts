@@ -20,6 +20,7 @@ import SpeedDialIcon from '@mui/material/SpeedDialIcon';
 import SpeedDialAction from '@mui/material/SpeedDialAction';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHome, faPalette, faImage, faCircleUser, faPenToSquare } from '@fortawesome/free-solid-svg-icons'
+import { Hidden } from '@mui/material';
 
 const useStyles = makeStyles((thememui) => ({
 
@@ -168,7 +169,7 @@ const MainScreen = memo((props) => {
             
             <Container fluid 
                   className='mainheader' 
-                  style={{backgroundColor:theme.backgroundColor, color: theme.color}}>
+                  style={{backgroundColor:theme.backgroundColor, color: theme.color,overflow: 'hidden'}}>
             
 
             {/* -----------   Slide Show design   ----------- */}
