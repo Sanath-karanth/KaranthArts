@@ -136,11 +136,11 @@ const MainScreen = memo((props) => {
                 icon={<SpeedDialIcon />}
                 FabProps={{
                   sx: {
-                    bgcolor: theme.speeddialcolor,
                     color: theme.speeddialPluscolor,
+                    bgcolor: theme.speeddialcolor,
                     '&:hover': {
+                      color: theme.speeddialPluscolor,
                       bgcolor: theme.speeddialcolor,
-                      color: theme.speeddialIconhovercolor,
                     }
                   }
                 }}
