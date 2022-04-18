@@ -8,7 +8,17 @@
     /* min-height: fit-content; */
     min-width: fit-content;
     justify-content: center;
+    overflow: hidden;
     --bs-gutter-x: 0px !important;
+  }
+  .marginContainer{
+    margin: 40px 0px 40px 0px;
+  }
+  .paddingContainer{
+    padding: 40px 0px 40px 0px;
+  }
+  .bglightblue{
+    background-color: #e2e8f0;
   }
   .card-image{
     width: 100%;
@@ -184,6 +194,10 @@
     padding-top: 40px;
     padding-bottom: 40px;
   }
+  .paddingmarginContainer{
+    margin: 30px 0px 30px 0px;
+    padding: 40px 10px 40px 10px;
+  }
   .headertextContent{
     padding: 30px 10px 5px 10px;
   }
@@ -241,6 +255,10 @@
       margin: 0 auto;
       padding-top: 40px;
       padding-bottom: 40px;
+    }
+    .paddingmarginContainer{
+      margin: 30px 0px 30px 0px;
+      padding: 40px 0px 40px 0px;
     }
     .headertextContent{
       padding: 30px 0px 5px 0px;
@@ -301,6 +319,10 @@
       padding-top: 40px;
       padding-bottom: 40px;
       /* clip-path: polygon(36% 0, 100% 0, 100% 100%, 0 100%); */
+    }
+    .paddingmarginContainer{
+      margin: 30px 0px 30px 0px;
+      padding: 40px 0px 40px 0px;
     }
     .headertextContent{
       padding: 30px 0px 10px 0px;

@@ -371,11 +371,11 @@ const MainScreen = memo((props) => {
                 </div>
               </Container>
 
-              <Container fluid >
-                <div style={{backgroundColor:'#e2e8f0 '}}>
+              <Container fluid>
+                <div className='paddingmarginContainer bglightblue'>
                   <Container>
                   <Row className='gx-0 g-4'>
-                    <Col>
+                    <Col xxs="12" xs="12" sm="12" md="6" lg="6" xl="6" xxl="6" xxxl="6">
                       <Card>
                         <Card.Body>
                           <Card.Title>Card Title</Card.Title>
@@ -387,7 +387,7 @@ const MainScreen = memo((props) => {
                         </Card.Body>
                       </Card>
                     </Col>
-                    <Col>
+                    <Col xxs="12" xs="12" sm="12" md="6" lg="6" xl="6" xxl="6" xxxl="6">
                       <Card>
                         <Card.Body>
                           <Card.Title>Card Title</Card.Title>
