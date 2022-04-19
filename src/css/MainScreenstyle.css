@@ -11,6 +11,7 @@
     overflow: hidden;
     --bs-gutter-x: 0px !important;
   }
+  
   .marginContainer{
     margin: 40px 0px 40px 0px;
   }
@@ -20,9 +21,36 @@
   .bglightblue{
     background-color: #e2e8f0;
   }
+  .card, .card-header, .card-body, .card-footer{
+    border: none;
+    border-radius:0px !important;
+  }
   .card-image{
     width: 100%;
     height: 100%; 
+  }
+  .card-allborders{
+    border-radius: 10px; 
+  }
+  .card-topborders{
+    border-top-left-radius: 10px !important; 
+    border-top-right-radius: 10px !important;
+  }
+  .card-bottomborders{
+    border-bottom-left-radius: 10px !important; 
+    border-bottom-right-radius: 10px !important;
+  }
+  .card-bottomonlyleftborder{
+    border-bottom-left-radius: 10px !important;  
+  }
+  .card-bottomonlyrightborder{
+    border-bottom-right-radius: 10px !important;
+  }
+  .card-toponlyleftborder{
+    border-top-left-radius: 10px !important; 
+  }
+  .card-toponlyrightborder{
+    border-top-right-radius: 10px !important;
   }
   .card-image img{
     object-fit: cover;
@@ -42,11 +70,11 @@
     border-top-right-radius: 10px;
   }
   
-  .singlecard-quotedesp-content{
+  .maincard-quotedesp-content{
     width: 100%;
     height: fit-content;
   }
-  .singlecard-quotedesp-content p{
+  .maincard-quotedesp-content p{
     font-size: 15px;
     font-family: 'Montserrat', sans-serif;
     text-align: left;
@@ -55,11 +83,11 @@
     margin: 0;
   }
   
-  .singlecard-desp-content{
+  .maincard-desp-content{
     width: 100%;
     height: fit-content;
   }
-  .singlecard-desp-content p{
+  .maincard-desp-content p{
     font-size: 12px;
     font-family: 'Montserrat', sans-serif;
     text-align: left;
@@ -67,7 +95,7 @@
     opacity: 1;
     margin: 0;
   }
-  .singlecard-artdesp-content p{
+  .maincard-artdesp-content p{
     font-size: 14px;
     font-family: 'Montserrat', sans-serif;
     text-align: left;
@@ -189,6 +217,10 @@
 
 /* Mobile View */
 @media (max-width: 767px) {
+  .custom-gutters{
+    --bs-gutter-x: 0px !important;
+    --bs-gutter-y: 30px !important;
+  }
   .maincontentContainer{
     margin: 0 24px;
     padding-top: 40px;
@@ -196,7 +228,7 @@
   }
   .paddingmarginContainer{
     margin: 30px 0px 30px 0px;
-    padding: 40px 10px 40px 10px;
+    padding: 40px 20px 40px 20px;
   }
   .headertextContent{
     padding: 30px 10px 5px 10px;
@@ -209,36 +241,39 @@
     letter-spacing: 0px;
     opacity: 1;
   }
-  .cardtext-contentContainer{
+  .singlecardtext-contentContainer{
     padding: 40px 30px 40px 30px;
   }
-  .singlecard-title-content{
+  .doublecardtext-contentContainer{
+    padding: 10px 30px 30px 30px;
+  }
+  .maincard-title-content{
     width: 100%;
     height: fit-content;
   }
-  .singlecard-title-content h3{
+  .maincard-title-content h3{
     font-size: 20px;
     font-family: 'Montserrat', sans-serif;
     text-align: left;
     letter-spacing: 0px;
     opacity: 1;
   }
-  .singlecard-quotedesp-content{
+  .maincard-quotedesp-content{
     width: 100%;
     height: fit-content;
     padding: 8px 0px 8px 0px;
   }
-  .singlecard-desp-content{
+  .maincard-desp-content{
     width: 100%;
     height: fit-content;
     padding: 8px 0px 8px 0px;
   }
-  .singlecard-artdesp-content{
+  .maincard-artdesp-content{
     width: 100%;
     height: fit-content;
     padding: 8px 0px 8px 0px;
   }
-  .singlecard-button-content{
+  .maincard-button-content{
     width: 100%;
     height: fit-content;
     padding: 10px 0px 0px 0px;
@@ -247,6 +282,10 @@
 
 /* Tablet View */
 @media (min-width: 768px) and (max-width: 1199px){
+  .custom-gutters{
+    --bs-gutter-x: 30px !important;
+    --bs-gutter-y: 0px !important;
+  }
     .MainContainer{
         width: 100%;
         height: fit-content;
@@ -271,36 +310,39 @@
       letter-spacing: 0px;
       opacity: 1;
     }
-    .cardtext-contentContainer{
+    .singlecardtext-contentContainer{
       padding: 40px;
     }
-    .singlecard-title-content{
+    .doublecardtext-contentContainer{
+      padding: 10px 30px 30px 30px;
+    }
+    .maincard-title-content{
       width: 100%;
       height: fit-content;
     }
-    .singlecard-title-content h3{
+    .maincard-title-content h3{
       font-size: 26px;
       font-family: 'Montserrat', sans-serif;
       text-align: left;
       letter-spacing: 0px;
       opacity: 1;
     }
-    .singlecard-quotedesp-content{
+    .maincard-quotedesp-content{
       width: 100%;
       height: fit-content;
       padding: 6px 0px 6px 0px;
     }
-    .singlecard-desp-content{
+    .maincard-desp-content{
       width: 100%;
       height: fit-content;
       padding: 6px 0px 6px 0px;
     }
-    .singlecard-artdesp-content{
+    .maincard-artdesp-content{
       width: 100%;
       height: fit-content;
       padding: 6px 0px 6px 0px;
     }
-    .singlecard-button-content{
+    .maincard-button-content{
       width: 100%;
       height: fit-content;
       padding: 8px 0px 8px 0px;
@@ -309,6 +351,10 @@
 
 /* Desktop View */
 @media (min-width: 1200px) {
+  .custom-gutters{
+    --bs-gutter-x: 30px !important;
+    --bs-gutter-y: 0px !important;
+  }
     .HeadContainer{
       margin: 0 auto;
       max-width: 1280px;
@@ -335,36 +381,39 @@
       letter-spacing: 0px;
       opacity: 1;
     }
-    .cardtext-contentContainer{
+    .singlecardtext-contentContainer{
       padding: 40px;
     }
-    .singlecard-title-content{
+    .doublecardtext-contentContainer{
+      padding: 10px 30px 30px 30px;
+    }
+    .maincard-title-content{
       width: 100%;
       height: fit-content;
     }
-    .singlecard-title-content h3{
+    .maincard-title-content h3{
       font-size: 28px;
       font-family: 'Montserrat', sans-serif;
       text-align: left;
       letter-spacing: 0px;
       opacity: 1;
     }
-    .singlecard-quotedesp-content{
+    .maincard-quotedesp-content{
       width: 100%;
       height: fit-content;
       padding: 10px 0px 10px 0px;
     }
-    .singlecard-desp-content{
+    .maincard-desp-content{
       width: 100%;
       height: fit-content;
       padding: 10px 0px 10px 0px;
     }
-    .singlecard-artdesp-content{
+    .maincard-artdesp-content{
       width: 100%;
       height: fit-content;
       padding: 10px 0px 10px 0px;
     }
-    .singlecard-button-content{
+    .maincard-button-content{
       width: 100%;
       height: fit-content;
       padding: 12px 0px 12px 0px;

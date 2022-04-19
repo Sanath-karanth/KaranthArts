@@ -24,7 +24,16 @@ export const slideData = [
         imgUrl:'./images/art/indiamap.jpg',
         artdate:'20-08-2018',
         abouttext:'About India',
-        aboutUrl:'https://en.wikipedia.org/wiki/India'
+        aboutUrl:'https://en.wikipedia.org/wiki/India',
+        bordercolor:'bordercoloraqua',
+        carddirection:'fade-up',
+        imagedirection:'flip-right',
+        textdirection:'fade-left',
+        borderdirection:'zoom-in',
+        onesecondDuration: '1000',
+        twosecondDuration: '2000',
+        threesecondDuration: '3000',
+        foursecondDuration: '4000'
     },
   ];
 
@@ -36,6 +45,54 @@ export const slideData = [
         imgUrl:'./images/art/armyman.jpg',
         artdate:'30-08-2018',
         abouttext:'About Indian Army',
-        aboutUrl:'https://en.wikipedia.org/wiki/Indian_Army'
+        aboutUrl:'https://en.wikipedia.org/wiki/Indian_Army',
+        bordercolor:'bordercolorpurple',
+        carddirection:'fade-down',
+        imagedirection:'flip-right',
+        textdirection:'fade-right',
+        borderdirection:'zoom-in',
+        onesecondDuration: '1000',
+        twosecondDuration: '2000',
+        threesecondDuration: '3000',
+        foursecondDuration: '4000'
     },
+  ];
+
+  export const jokersCardData = [
+    { 
+        title: 'Positive shade Sketch',
+        quotedescription: 'To other countries, I may go as a tourist, but to India, I come as an Indian Solider. — Indian Army.', 
+        description: 'Positive space refers to the shape of an object. Look around your room. Every object that you are looking at is creating positive space. Don’t worry about the patterns or details of the item, just focus on the shape of the object.', 
+        imgUrl:'./images/art/jokerpositive.jpg',
+        artdate:'09-08-2020',
+        abouttext:'About This Art',
+        aboutUrl:'https://www.artinstructionblog.com/an-introduction-to-negative-drawing-with-mike-sibley',
+        bordercolor:'bordercolormaroon',
+        carddirection:'fade-right',
+        imagedirection:'flip-right',
+        textdirection:'fade-left',
+        borderdirection:'zoom-in',
+        onesecondDuration: '1000',
+        twosecondDuration: '2000',
+        threesecondDuration: '3000',
+        foursecondDuration: '4000'
+    },
+    { 
+        title: 'Negative shade Sketch',
+        quotedescription: 'To other countries, I may go as a tourist, but to India, I come as an Indian Solider. — Indian Army.', 
+        description: 'Negative space refers to the shape around an object. It can be much harder to look at an object. Look around the room for an object up against a wall and try to focus on the shape created on the wall around the object.', 
+        imgUrl:'./images/art/jokernegative.jpg',
+        artdate:'09-08-2020',
+        abouttext:'About This Art',
+        aboutUrl:'https://www.artinstructionblog.com/an-introduction-to-negative-drawing-with-mike-sibley',
+        bordercolor:'bordercolormaroon',
+        carddirection:'fade-left',
+        imagedirection:'flip-left',
+        textdirection:'fade-left',
+        borderdirection:'zoom-in',
+        onesecondDuration: '1000',
+        twosecondDuration: '2000',
+        threesecondDuration: '3000',
+        foursecondDuration: '4000'
+    }
   ];

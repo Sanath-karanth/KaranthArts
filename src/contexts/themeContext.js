@@ -22,7 +22,8 @@ const themes = {
         cardbuttoncolor:'info',
         cardbuttontextbordercolor:'#61DBFB',
         bordercoloraqua:'aqua',
-        bordercolorpurple:'#800080'
+        bordercolorpurple:'#800080',
+        bordercolormaroon:'#800000'
     },
     light: {
         backgroundColor: "#FFFFFF",
@@ -45,7 +46,8 @@ const themes = {
         cardbuttoncolor:'dark',
         cardbuttontextbordercolor:'#000000',
         bordercoloraqua:'aqua',
-        bordercolorpurple:'#800080'
+        bordercolorpurple:'#800080',
+        bordercolormaroon:'#800000'
     },
 };
 
