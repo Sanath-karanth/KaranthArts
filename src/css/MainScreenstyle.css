@@ -256,6 +256,9 @@
   .doublecardtext-contentContainer{
     padding: 10px 30px 30px 30px;
   }
+  .thribblecardtext-contentContainer{
+    padding: 30px 30px 30px 30px;
+  }
   .cardtwo-image img{
     object-fit: cover;
     width: 100%;
@@ -343,6 +346,9 @@
     }
     .doublecardtext-contentContainer{
       padding: 10px 30px 30px 30px;
+    }
+    .thribblecardtext-contentContainer{
+      padding: 30px 30px 30px 30px;
     }
     .cardtwo-image img{
       object-fit: cover;
@@ -449,6 +455,9 @@
     }
     .doublecardtext-contentContainer{
       padding: 10px 30px 30px 30px;
+    }
+    .thribblecardtext-contentContainer{
+      padding: 30px 30px 30px 30px;
     }
     .cardtwo-image img{
       object-fit: cover;

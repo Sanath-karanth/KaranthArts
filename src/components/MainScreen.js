@@ -484,7 +484,7 @@ const MainScreen = memo((props) => {
                                       >
                                   </img>
                                 </div>
-                                <div className='doublecardtext-contentContainer'>
+                                <div className='thribblecardtext-contentContainer'>
                                   <div className='maincard-title-content'>
                                     <h3 data-aos={item.textdirection}
                                         data-aos-duration={item.twosecondDuration}
