@@ -4,7 +4,9 @@ import { ThemeContext } from '../contexts/themeContext';
 import HeaderScreen,{portraitClick} from '../common/headerScreen';
 import FooterScreen from '../common/footerScreen';
 import { slideData, indiamapCardData, 
-         indiaarmysoldierCardData, jokersCardData } from "../json/jsonData"
+         indiaarmysoldierCardData, jokersCardData, 
+         pulvamathreeCardData, armysniperCardData,
+         } from "../json/jsonData"
 import { makeStyles } from '@mui/styles';
 import { Container, Row, Col, Button, Card, Carousel } from 'react-bootstrap';
 import PropTypes from 'prop-types';
@@ -223,7 +225,7 @@ const MainScreen = memo((props) => {
                           }}>
                         <Row className='gx-0' key={key}>
                           <Col xxs="12" xs="12" sm="12" md="5" lg="5" xl="5" xxl="5" xxxl="5">
-                              <div className='card-image shadow p-3 bg-white'>
+                              <div className='cardone-image shadow p-3 bg-white'>
                                 <img
                                     className='p-0' 
                                     data-aos={item.imagedirection} 
@@ -351,7 +353,7 @@ const MainScreen = memo((props) => {
                               
                             </Col>
                             <Col xxs="12" xs="12" sm="12" md="5" lg="5" xl="5" xxl="5" xxxl="5">
-                                <div className='card-image shadow p-3 bg-white'>
+                                <div className='cardone-image shadow p-3 bg-white'>
                                   <img
                                       className='p-0' 
                                       data-aos={item.imagedirection} 
@@ -378,8 +380,10 @@ const MainScreen = memo((props) => {
                 </div>
               </Container>
 
+              {/*---------   Two cards    -------  */}
+
               <Container fluid>
-                <div className='paddingmarginContainer bglightblue'>
+                <div className='paddingmarginContainer bggradient1'>
                   <Container>
                   <Row className='gx-0 custom-gutters'>
                   {jokersCardData.map((item,key) => {
@@ -393,10 +397,11 @@ const MainScreen = memo((props) => {
                               <Card 
                                 className='card-topborders' 
                                 style={{
+                                  border:'none',
                                   backgroundColor:theme.cardbgColor, 
                                   color: theme.color
                                   }}>
-                                <div className='card-image p-3'>
+                                <div className='cardone-image p-3'>
                                   <img
                                       className='p-0' 
                                       data-aos={item.imagedirection}
@@ -448,25 +453,157 @@ const MainScreen = memo((props) => {
                 </div> 
               </Container>
 
-              <Container fluid >
-                <div style={{backgroundColor:'#faf0e6'}}>
-                  <Row className='gx-0'>
-                    <Col>
-                        <h2>Div container 3</h2>
-                    </Col>
-                  </Row>
+            {/*---------   Three cards    -------  */}
+
+              <Container fluid>
+                <div className='paddingContainer bggradient2'>
+                  <Container>
+                  <Row className='gx-0 custom-gutters'>
+                  {pulvamathreeCardData.map((item,key) => {
+                      return(
+                      <Fragment key={key}>
+                          <Col xxs="12" xs="12" sm="12" md="4" lg="4" xl="4" xxl="4" xxxl="4">
+                            <div className='shadow-lg card-topborders' 
+                                  data-aos={item.carddirection}
+                                  data-aos-duration={item.twosecondDuration}
+                                  >
+                              <Card 
+                                className='card-topborders' 
+                                style={{
+                                  border:'none',
+                                  backgroundColor:theme.cardbgColor, 
+                                  color: theme.color
+                                  }}>
+                                <div className='cardthree-image'>
+                                  <img
+                                      className='p-0' 
+                                      data-aos={item.imagedirection}
+                                      data-aos-duration={item.twosecondDuration}
+                                      src={item.imgUrl}
+                                      alt='Cardimages here'
+                                      >
+                                  </img>
+                                </div>
+                                <div className='doublecardtext-contentContainer'>
+                                  <div className='maincard-title-content'>
+                                    <h3 data-aos={item.textdirection}
+                                        data-aos-duration={item.twosecondDuration}
+                                        style={{color:theme.cardtitletextcolor}}>{item.title}</h3>
+                                  </div>
+                                  <div className='maincard-desp-content'>
+                                    <p>
+                                      {item.description}
+                                    </p>
+                                  </div>
+                                </div>
+                                <Card.Footer className="text-muted">
+                                <div className='maincard-artdesp-content'>
+                                    <p>Art Creation Date:&nbsp;
+                                      <small style={{color:theme.cardartdatetextcolor}}>{item.artdate}</small>
+                                    </p>
+                                  </div>
+                                </Card.Footer>
+                              </Card>
+                            </div>
+                            <div className='borderbox-bottom pb-2'
+                                style={{backgroundColor: eval("theme." + item.bordercolor)}}
+                                data-aos={item.borderdirection}
+                                data-aos-duration={item.twosecondDuration}>
+                            </div>
+                          </Col>
+                      </Fragment>
+                      )
+                    })}
+                    </Row>
+                  </Container>
                 </div> 
               </Container>
 
-              <Container fluid >
-                <div style={{backgroundColor:'#fddde6'}}>
-                  <Row className='gx-0'>
-                    <Col>
-                        <h2>Div container 4</h2>
-                    </Col>
-                  </Row>
-                </div> 
+            {/* --------------- Single Sniper gun card ----------------- */}
+
+              <Container>
+                <div className='maincontentContainer mt-3 mb-3 pt-3 pb-3'>
+                  {armysniperCardData.map((item,key) => {
+                      return(
+                      <Fragment key={key}>   
+                        <div className='shadow-lg bg-white rounded' 
+                            data-aos={item.carddirection}
+                            data-aos-duration={item.twosecondDuration}
+                            >
+                          <Card 
+                            style={{
+                                border: 'none',
+                                borderRadius:'0',
+                                backgroundColor:theme.cardbgColor, 
+                                color: theme.color
+                                }}>
+                          
+                              <Row className='gx-0' >
+                              <Col xxs="12" xs="12" sm="12" md="6" lg="6" xl="6" xxl="6" xxxl="6">
+                                  <div className='cardone-image shadow p-2 bg-white'>
+                                    <img
+                                        className='p-0' 
+                                        data-aos={item.imagedirection} 
+                                        data-aos-duration={item.twosecondDuration}
+                                        src={item.imgUrl}
+                                        alt='Cardimages here'
+                                        >
+                                    </img>
+                                  </div>
+                                  
+                              </Col>
+                              <Col xxs="12" xs="12" sm="12" md="6" lg="6" xl="6" xxl="6" xxxl="6">
+                                <div className='singlecardtext-contentContainer'>
+                                  <div className='maincard-title-content'>
+                                    <h3 data-aos={item.textdirection}
+                                        data-aos-duration={item.twosecondDuration}
+                                        style={{color:theme.cardtitletextcolor}}>{item.title}</h3>
+                                  </div>
+                                  <div className='maincard-quotedesp-content'>
+                                    <p>
+                                      <i className="fa fa-quote-left p-2"></i> 
+                                        {item.quotedescription}
+                                      <i className="fa fa-quote-right p-2"></i>
+                                    </p>
+                                  </div>
+                                  <div className='maincard-desp-content'>
+                                    <p>
+                                      {item.description}
+                                    </p>
+                                  </div>
+                                  <div className='maincard-artdesp-content'>
+                                    <p>Art Creation Date:&nbsp;
+                                      <small style={{color:theme.cardartdatetextcolor}}>{item.artdate}</small>
+                                    </p>
+                                  </div>
+                                  <div className='maincard-button-content'>
+                                    <Button 
+                                        className='buttonanchor'
+                                        style={{boxShadow: "4px 4px 3px rgba(46, 46, 46, 0.62)"}}
+                                        onClick={()=> window.open(item.aboutUrl, "_blank", "noopener noreferrer")}
+                                        variant={`outline-${theme.cardbuttoncolor}`}>
+                                          {item.abouttext}
+                                    </Button>
+                                  </div>
+                                </div>
+                              </Col>
+                              
+                            </Row>
+                        
+                          </Card>
+                        </div>
+                        <div className='borderbox-bottom pb-2'
+                            style={{backgroundColor: eval("theme." + item.bordercolor)}}
+                            data-aos={item.borderdirection}
+                            data-aos-duration={item.twosecondDuration}>
+                        </div>
+                    </Fragment>
+                    )
+                    })}
+                </div>
               </Container>
+
+
               <Container fluid >
                 <div style={{backgroundColor:'#e7feff'}}>
                   <Row className='gx-0'>

@@ -12,25 +12,31 @@
     --bs-gutter-x: 0px !important;
   }
   
-  .marginContainer{
-    margin: 40px 0px 40px 0px;
+  .bggradient1{
+    background: linear-gradient(to right, #283048 0%, #c9dde4 100%);
   }
-  .paddingContainer{
-    padding: 40px 0px 40px 0px;
+  .bggradient2{
+    background: linear-gradient(to right, #BBD2C5 0%, #536976 100%);
   }
-  .bglightblue{
-    /* background-color: #e2e8f0; */
-    background: linear-gradient(to right, #283048 0%, #859398 100%);
-    /* background: linear-gradient(to bottom left, rgba(25,21,52 , .975), rgba(25,21,52 , .925), rgba(128, 0, 128, .25)) ;  */
-
+  .bggradient3{
+    background: linear-gradient(to right, #283048 0%, #c9dde4 100%);
   }
   .card, .card-header, .card-body, .card-footer{
     border: none;
     border-radius:0px !important;
   }
-  .card-image{
+  .cardone-image,
+  .cardtwo-image,
+  .cardthree-image{
     width: 100%;
     height: 100%; 
+  }
+  .cardone-image img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
   }
   .card-allborders{
     border-radius: 10px; 
@@ -55,13 +61,7 @@
   .card-toponlyrightborder{
     border-top-right-radius: 10px !important;
   }
-  .card-image img{
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-    max-width: 100%;
-    max-height: 100%;
-  }
+  
   .borderbox-bottom{
     height: fit-content;
     border-bottom-left-radius: 10px;
@@ -230,7 +230,13 @@
     padding-bottom: 40px;
   }
   .paddingmarginContainer{
-    margin: 30px 0px 30px 0px;
+    margin: 30px 0px 0px 0px;
+    padding: 40px 20px 40px 20px;
+  }
+  .marginContainer{
+    margin: 40px 20px 40px 20px;
+  }
+  .paddingContainer{
     padding: 40px 20px 40px 20px;
   }
   .headertextContent{
@@ -249,6 +255,19 @@
   }
   .doublecardtext-contentContainer{
     padding: 10px 30px 30px 30px;
+  }
+  .cardtwo-image img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+  }
+  .cardthree-image img{
+    object-fit: cover;
+    width: 100%;
+    max-height: 100%;
+    min-height: 100%;
   }
   .maincard-title-content{
     width: 100%;
@@ -299,7 +318,13 @@
       padding-bottom: 40px;
     }
     .paddingmarginContainer{
-      margin: 30px 0px 30px 0px;
+      margin: 30px 0px 0px 0px;
+      padding: 40px 0px 40px 0px;
+    }
+    .marginContainer{
+      margin: 40px 0px 40px 0px;
+    }
+    .paddingContainer{
       padding: 40px 0px 40px 0px;
     }
     .headertextContent{
@@ -318,6 +343,19 @@
     }
     .doublecardtext-contentContainer{
       padding: 10px 30px 30px 30px;
+    }
+    .cardtwo-image img{
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      max-width: 100%;
+      max-height: 100%;
+    }
+    .cardthree-image img{
+      object-fit: cover;
+      width: 100%;
+      max-height: 260px;
+      min-height: 260px;
     }
     .maincard-title-content{
       width: 100%;
@@ -352,6 +390,22 @@
     }
 }
 
+@media (min-width: 1000px) and (max-width: 1199px){
+  .cardtwo-image img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+  }
+  .cardthree-image img{
+    object-fit: cover;
+    width: 100%;
+    max-height: 360px;
+    min-height: 360px;
+  }
+}
+
 /* Desktop View */
 @media (min-width: 1200px) {
   .custom-gutters{
@@ -370,7 +424,13 @@
       /* clip-path: polygon(36% 0, 100% 0, 100% 100%, 0 100%); */
     }
     .paddingmarginContainer{
-      margin: 30px 0px 30px 0px;
+      margin: 30px 0px 0px 0px;
+      padding: 40px 0px 40px 0px;
+    }
+    .marginContainer{
+      margin: 40px 0px 40px 0px;
+    }
+    .paddingContainer{
       padding: 40px 0px 40px 0px;
     }
     .headertextContent{
@@ -389,6 +449,19 @@
     }
     .doublecardtext-contentContainer{
       padding: 10px 30px 30px 30px;
+    }
+    .cardtwo-image img{
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      max-width: 100%;
+      max-height: 100%;
+    }
+    .cardthree-image img{
+      object-fit: cover;
+      width: 100%;
+      max-height: 460px;
+      min-height: 460px;
     }
     .maincard-title-content{
       width: 100%;
@@ -438,6 +511,9 @@
         margin: 0 auto;
         max-width: 1728px;
         height: fit-content;
+    }
+    .mainheader{
+      --bs-gutter-x: 1rem !important;
     }
 }
 
