@@ -29,14 +29,57 @@
   .cardtwo-image,
   .cardthree-image{
     width: 100%;
-    height: 100%; 
+    height: 100%;
+    position: relative;
+    overflow: hidden;
   }
   .cardone-image img{
     object-fit: cover;
     width: 100%;
     height: 100%;
-    max-width: 100%;
-    max-height: 100%;
+    transition: all .2s ease-in-out; 
+  }
+  .cardone-image:hover img{
+    -webkit-transform:scale(1.2); /* Safari and Chrome */
+    -moz-transform:scale(1.2); /* Firefox */
+    -ms-transform:scale(1.2); /* IE 9 */
+    -o-transform:scale(1.2); /* Opera */
+     transform:scale(1.2);
+  }
+  .bgoverlay{
+    display: none;
+  }
+  .cardone-image:hover .textoverly{
+    display: none;
+  }
+  .cardone-image:hover .bgoverlay{
+    position: absolute; 
+    bottom: 0; 
+    left: 0; 
+    width: 100%;
+    padding: 1rem;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;  
+    align-items: center; /* align vertical */
+    height: 100%;
+    color: white;
+    backdrop-filter: blur(1px) brightness(40%);
+    /* background: linear-gradient(rgb(72,0,72,0.8), rgb(192,72,72,0.8)); */
+  }
+  .textoverly{
+    position: absolute; 
+    bottom: 0; 
+    left: 0; 
+    width: 100%;
+    padding: 1rem;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;  
+    align-items: center; /* align vertical */
+    height: 20%;
+    color: white;
+    backdrop-filter: blur(1px) brightness(80%);
   }
   .card-allborders{
     border-radius: 10px; 

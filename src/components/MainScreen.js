@@ -234,6 +234,12 @@ const MainScreen = memo((props) => {
                                     alt='Cardimages here'
                                     >
                                 </img>
+                                <div class="bgoverlay">
+                                  <p>Overlay backgound</p>
+                                </div>
+                                <div class="textoverly">
+                                  <p>{item.title}</p>
+                                </div>
                               </div>
                           </Col>
                           <Col xxs="12" xs="12" sm="12" md="7" lg="7" xl="7" xxl="7" xxxl="7">
