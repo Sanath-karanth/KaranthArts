@@ -11,6 +11,9 @@
     overflow: hidden;
     --bs-gutter-x: 0px !important;
   }
+  .boxshadowstyle{
+    box-shadow: 0 0 20px 5px;
+  }
   .bggradient1{
     background: linear-gradient(to right, #283048 0%, #c9dde4 100%);
   }
