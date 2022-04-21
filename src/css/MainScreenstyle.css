@@ -70,7 +70,9 @@
   .cardone-image:hover .arttextoverlay{
     display: none;
   }
-  .cardone-image:hover .artnameoverlay{
+  .cardone-image:hover .artnameoverlay,
+  .cardtwo-image:hover .artnameoverlay,
+  .cardthree-image:hover .artnameoverlay{
     position: absolute; 
     bottom: 0; 
     left: 0; 
