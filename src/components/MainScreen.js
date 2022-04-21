@@ -22,7 +22,7 @@ import SpeedDial from '@mui/material/SpeedDial';
 import SpeedDialIcon from '@mui/material/SpeedDialIcon';
 import SpeedDialAction from '@mui/material/SpeedDialAction';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHome, faPalette, faImage, faCircleUser, faPenToSquare } from '@fortawesome/free-solid-svg-icons'
+import { faHome, faPalette, faImage, faCircleUser, faPenToSquare, faSun, faMoon } from '@fortawesome/free-solid-svg-icons'
 import { Hidden } from '@mui/material';
 
 const useStyles = makeStyles((thememui) => ({
@@ -33,12 +33,14 @@ const MainScreen = memo((props) => {
     const classes = useStyles();
     const navigate  = useNavigate();
     const [{theme, isDark}, toggleTheme] = useContext(ThemeContext);
+    console.log("theme is ", theme)
     const actions = [
       { icon: <FontAwesomeIcon icon={faHome} size="lg" />, name: 'Home', navigationto: homeClick },
       { icon: <FontAwesomeIcon icon={faPalette} size="lg" />, name: 'Portrait Arts and Sketchings', navigationto: portraitClick },
       { icon: <FontAwesomeIcon icon={faImage} size="lg" />, name: 'Photography', navigationto: portraitClick },
       { icon: <FontAwesomeIcon icon={faCircleUser} size="lg" />, name: 'About', navigationto: portraitClick },
       { icon: <FontAwesomeIcon icon={faPenToSquare} size="lg" />, name: 'Feedback', navigationto: portraitClick },
+      { icon: <FontAwesomeIcon icon={isDark === false ? faSun : faMoon} size="lg" />, name: 'Theme', navigationto: toggleTheme },
     ];
 
     function homeClick() {
