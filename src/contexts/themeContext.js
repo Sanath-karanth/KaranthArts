@@ -45,7 +45,7 @@ const themes = {
         cardartdatetextcolor:'#0000FF',
         cardbuttoncolor:'dark',
         cardbuttontextbordercolor:'#000000',
-        bordercoloraqua:'aqua',
+        bordercoloraqua:'linear-gradient(to left , rgba(0, 224, 255, 1), rgba(0, 133, 255, 1))',
         bordercolorpurple:'#800080',
         bordercolormaroon:'#800000'
     },

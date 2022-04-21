@@ -234,11 +234,13 @@ const MainScreen = memo((props) => {
                                     alt='Cardimages here'
                                     >
                                 </img>
-                                <div class="bgoverlay">
-                                  <p>Overlay backgound</p>
+                                <div className="artnameoverlay maincard-title-content">
+                                  <h3>{item.title}</h3>
                                 </div>
-                                <div class="textoverly">
-                                  <p>{item.title}</p>
+                                <div className="arttextoverlay" 
+                                     style={Object.assign({justifyContent: item.artworkdisplay}, item.artworkposition === 'bottom' ? {bottom: 0} : {top:0})}
+                                    >
+                                  <p style={{color:item.arttextcolor,padding: item.artworkpadding}}>{item.artworkcategory}</p>
                                 </div>
                               </div>
                           </Col>
@@ -291,7 +293,7 @@ const MainScreen = memo((props) => {
                         </Card>
                       </div>
                       <div className='borderbox-bottom pb-2'
-                          style={{backgroundColor: eval("theme." + item.bordercolor)}}
+                          style={{background: eval("theme." + item.bordercolor)}}
                           data-aos={item.borderdirection}
                           data-aos-duration={item.twosecondDuration}>
                       </div>
@@ -368,8 +370,15 @@ const MainScreen = memo((props) => {
                                       alt='Cardimages here'
                                       >
                                   </img>
+                                  <div className="artnameoverlay maincard-title-content">
+                                    <h3>{item.title}</h3>
+                                  </div>
+                                  <div className="arttextoverlay" 
+                                      style={Object.assign({justifyContent: item.artworkdisplay}, item.artworkposition === 'bottom' ? {bottom: 0} : {top:0})}
+                                      >
+                                    <p style={{color:item.arttextcolor,padding: item.artworkpadding}}>{item.artworkcategory}</p>
+                                  </div>
                                 </div>
-                                
                             </Col>
                           </Row>
                       
@@ -416,6 +425,14 @@ const MainScreen = memo((props) => {
                                       alt='Cardimages here'
                                       >
                                   </img>
+                                  <div className="artnameoverlay maincard-title-content">
+                                    <h3>{item.title}</h3>
+                                  </div>
+                                  <div className="arttextoverlay" 
+                                      style={Object.assign({justifyContent: item.artworkdisplay}, item.artworkposition === 'bottom' ? {bottom: 0} : {top:0})}
+                                      >
+                                    <p style={{color:item.arttextcolor,padding: item.artworkpadding}}>{item.artworkcategory}</p>
+                                  </div>
                                 </div>
                                 <div className='doublecardtext-contentContainer'>
                                   <div className='maincard-title-content'>
@@ -489,6 +506,14 @@ const MainScreen = memo((props) => {
                                       alt='Cardimages here'
                                       >
                                   </img>
+                                  <div className="artnameoverlay maincard-title-content">
+                                    <h3>{item.title}</h3>
+                                  </div>
+                                  <div className="arttextoverlay" 
+                                      style={Object.assign({justifyContent: item.artworkdisplay}, item.artworkposition === 'bottom' ? {bottom: 0} : {top:0})}
+                                      >
+                                    <p style={{color:item.arttextcolor,padding: item.artworkpadding}}>{item.artworkcategory}</p>
+                                  </div>
                                 </div>
                                 <div className='thribblecardtext-contentContainer'>
                                   <div className='maincard-title-content'>
@@ -532,21 +557,20 @@ const MainScreen = memo((props) => {
                   {armysniperCardData.map((item,key) => {
                       return(
                       <Fragment key={key}>   
-                        <div className='shadow-lg bg-white rounded' 
+                        <div 
                             data-aos={item.carddirection}
                             data-aos-duration={item.twosecondDuration}
-                            >
-                          <Card 
                             style={{
-                                border: 'none',
-                                borderRadius:'0',
-                                backgroundColor:theme.cardbgColor, 
-                                color: theme.color
-                                }}>
-                          
+                              border: 'none',
+                              borderRadius:'0',
+                              color: theme.color
+                              }}
+                            >
                               <Row className='gx-0' >
                               <Col xxs="12" xs="12" sm="12" md="6" lg="6" xl="6" xxl="6" xxxl="6">
-                                  <div className='cardone-image shadow p-2 bg-white'>
+                                  <div className='cardone-image shadow-lg' 
+                                      //  style={{boxShadow: '0 0 20px 5px'}}
+                                       >
                                     <img
                                         className='p-0' 
                                         data-aos={item.imagedirection} 
@@ -555,6 +579,14 @@ const MainScreen = memo((props) => {
                                         alt='Cardimages here'
                                         >
                                     </img>
+                                    <div className="artnameoverlay maincard-title-content">
+                                      <h3>{item.title}</h3>
+                                    </div>
+                                    <div className="arttextoverlay" 
+                                        style={Object.assign({justifyContent: item.artworkdisplay}, item.artworkposition === 'bottom' ? {bottom: 0} : {top:0})}
+                                        >
+                                      <p style={{color:item.arttextcolor,padding: item.artworkpadding}}>{item.artworkcategory}</p>
+                                    </div>
                                   </div>
                                   
                               </Col>
@@ -595,13 +627,6 @@ const MainScreen = memo((props) => {
                               </Col>
                               
                             </Row>
-                        
-                          </Card>
-                        </div>
-                        <div className='borderbox-bottom pb-2'
-                            style={{backgroundColor: eval("theme." + item.bordercolor)}}
-                            data-aos={item.borderdirection}
-                            data-aos-duration={item.twosecondDuration}>
                         </div>
                     </Fragment>
                     )

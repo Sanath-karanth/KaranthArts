@@ -11,7 +11,6 @@
     overflow: hidden;
     --bs-gutter-x: 0px !important;
   }
-  
   .bggradient1{
     background: linear-gradient(to right, #283048 0%, #c9dde4 100%);
   }
@@ -37,6 +36,8 @@
     object-fit: cover;
     width: 100%;
     height: 100%;
+    max-width: 100%;
+    max-height: 100%;
     transition: all .2s ease-in-out; 
   }
   .cardone-image:hover img{
@@ -46,40 +47,57 @@
     -o-transform:scale(1.2); /* Opera */
      transform:scale(1.2);
   }
-  .bgoverlay{
+  .cardtwo-image:hover img{
+    -webkit-transform:scale(1.2); /* Safari and Chrome */
+    -moz-transform:scale(1.2); /* Firefox */
+    -ms-transform:scale(1.2); /* IE 9 */
+    -o-transform:scale(1.2); /* Opera */
+     transform:scale(1.2);
+  }
+  .cardthree-image:hover img{
+    -webkit-transform:scale(1.2); /* Safari and Chrome */
+    -moz-transform:scale(1.2); /* Firefox */
+    -ms-transform:scale(1.2); /* IE 9 */
+    -o-transform:scale(1.2); /* Opera */
+     transform:scale(1.2);
+  }
+  .artnameoverlay{
     display: none;
   }
-  .cardone-image:hover .textoverly{
+  .cardone-image:hover .arttextoverlay{
     display: none;
   }
-  .cardone-image:hover .bgoverlay{
+  .cardone-image:hover .artnameoverlay{
     position: absolute; 
     bottom: 0; 
     left: 0; 
     width: 100%;
-    padding: 1rem;
-    font-size: 2rem;
     display: flex;
     justify-content: center;  
-    align-items: center; /* align vertical */
+    align-items: center;
     height: 100%;
     color: white;
-    backdrop-filter: blur(1px) brightness(40%);
+    backdrop-filter: blur(0px) brightness(40%);
     /* background: linear-gradient(rgb(72,0,72,0.8), rgb(192,72,72,0.8)); */
   }
-  .textoverly{
+  .arttextoverlay{
     position: absolute; 
-    bottom: 0; 
     left: 0; 
     width: 100%;
-    padding: 1rem;
-    font-size: 2rem;
     display: flex;
-    justify-content: center;  
-    align-items: center; /* align vertical */
-    height: 20%;
-    color: white;
+    /* justify-content: flex-start;  */
+    align-items: center;
+    height: 15%;
     backdrop-filter: blur(1px) brightness(80%);
+    /* background: linear-gradient(rgb(72,0,72,0.8), rgb(192,72,72,0.8)); */
+  }
+  .arttextoverlay p{
+    font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0px;
+    opacity: 1;
+    margin: 0;
   }
   .card-allborders{
     border-radius: 10px; 
@@ -308,13 +326,16 @@
     height: 100%;
     max-width: 100%;
     max-height: 100%;
+    transition: all .2s ease-in-out;
   }
   .cardthree-image img{
     object-fit: cover;
     width: 100%;
     max-height: 100%;
     min-height: 100%;
+    transition: all .2s ease-in-out;
   }
+
   .maincard-title-content{
     width: 100%;
     height: fit-content;
@@ -399,12 +420,14 @@
       height: 100%;
       max-width: 100%;
       max-height: 100%;
+      transition: all .2s ease-in-out;
     }
     .cardthree-image img{
       object-fit: cover;
       width: 100%;
       max-height: 260px;
       min-height: 260px;
+      transition: all .2s ease-in-out;
     }
     .maincard-title-content{
       width: 100%;
@@ -446,12 +469,14 @@
     height: 100%;
     max-width: 100%;
     max-height: 100%;
+    transition: all .2s ease-in-out;
   }
   .cardthree-image img{
     object-fit: cover;
     width: 100%;
     max-height: 360px;
     min-height: 360px;
+    transition: all .2s ease-in-out;
   }
 }
 
@@ -508,12 +533,14 @@
       height: 100%;
       max-width: 100%;
       max-height: 100%;
+      transition: all .2s ease-in-out;
     }
     .cardthree-image img{
       object-fit: cover;
       width: 100%;
       max-height: 460px;
       min-height: 460px;
+      transition: all .2s ease-in-out;
     }
     .maincard-title-content{
       width: 100%;
