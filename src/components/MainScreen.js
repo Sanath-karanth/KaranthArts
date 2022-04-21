@@ -416,7 +416,7 @@ const MainScreen = memo((props) => {
                                   backgroundColor:theme.cardbgColor, 
                                   color: theme.color
                                   }}>
-                                <div className='cardone-image p-3'>
+                                <div className='cardone-image p-0'>
                                   <img
                                       className='p-0' 
                                       data-aos={item.imagedirection}
