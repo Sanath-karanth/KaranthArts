@@ -12,7 +12,10 @@
     --bs-gutter-x: 0px !important;
   }
   .boxshadowstyle{
-    box-shadow: 0 0 20px 5px;
+    box-shadow: 0px 0px white,0px 0px white,0 0 10px 5px #fff,0 0 10px 5px #fff;
+    /* box-shadow: 0 0 15px 0px #000; */
+    /* box-shadow: 0 3px 10px rgb(0 0 0 / 0.2); */
+    /* box-shadow: 0 0 0px 0px white, 0 0px 0px 0px white, 12px 0 15px -4px rgba(31, 73, 125, 0.8), -12px 0 15px -4px rgba(31, 73, 125, 0.8); */
   }
   .bggradient1{
     background: linear-gradient(to right, #283048 0%, #c9dde4 100%);
@@ -21,7 +24,19 @@
     background: linear-gradient(to right, #BBD2C5 0%, #536976 100%);
   }
   .bggradient3{
-    background: linear-gradient(to right, #283048 0%, #c9dde4 100%);
+    background: linear-gradient(to right, #EFEFBB 0%, #D4D3DD 100%);
+  }
+  .bggradient4{
+    background: linear-gradient(to right, #DAE2F8 0%, #D6A4A4 100%);
+  }
+  .bggradient5{
+    background: linear-gradient(to right, #ED4264 0%, #FFEDBC 100%);
+  }
+  .bggradient6{
+    background: linear-gradient(to right, #EAECC6 0%, #2BC0E4 100%);
+  }
+  .bggradient7{
+    background: linear-gradient(to right, #4CB8C4 0%, #93F9B9 100%);
   }
   .card, .card-header, .card-body, .card-footer{
     border: none;
@@ -31,7 +46,7 @@
   .cardtwo-image,
   .cardthree-image{
     width: 100%;
-    height: 100%;
+    height: auto;
     position: relative;
     overflow: hidden;
   }
@@ -41,6 +56,7 @@
     height: 100%;
     max-width: 100%;
     max-height: 100%;
+    display: block;
     transition: all .2s ease-in-out; 
   }
   .cardone-image:hover img{
@@ -67,7 +83,9 @@
   .artnameoverlay{
     display: none;
   }
-  .cardone-image:hover .arttextoverlay{
+  .cardone-image:hover .arttextoverlay,
+  .cardtwo-image:hover .arttextoverlay,
+  .cardthree-image:hover .arttextoverlay{
     display: none;
   }
   .cardone-image:hover .artnameoverlay,
@@ -290,10 +308,13 @@
     --bs-gutter-x: 0px !important;
     --bs-gutter-y: 30px !important;
   }
+  .cardreverse{
+    flex-flow: column-reverse;
+  }
   .maincontentContainer{
     margin: 0 24px;
-    padding-top: 40px;
-    padding-bottom: 40px;
+    padding-top: 30px;
+    padding-bottom: 30px;
   }
   .paddingmarginContainer{
     margin: 30px 0px 0px 0px;
@@ -305,8 +326,32 @@
   .paddingContainer{
     padding: 40px 20px 40px 20px;
   }
+  .margintopContainer{
+    margin-top: 20px;
+  }
+  .paddingtopContainer{
+    padding-top: 20px;
+  }
+  .marginbottomContainer{
+    margin-bottom: 20px;
+  }
+  .paddingbottomContainer{
+    padding-bottom: 20px;
+  }
+  .marginleftContainer{
+    margin-left: 20px;
+  }
+  .paddingleftContainer{
+    padding-left: 20px;
+  }
+  .marginrightContainer{
+    margin-right: 20px;
+  }
+  .paddingrightContainer{
+    padding-right: 20px;
+  }
   .headertextContent{
-    padding: 30px 10px 5px 10px;
+    padding: 30px 10px 10px 20px;
   }
   .headertextContent h2{
     font-size: 20px;
@@ -317,7 +362,10 @@
     opacity: 1;
   }
   .singlecardtext-contentContainer{
-    padding: 40px 30px 40px 30px;
+    padding: 20px 30px 10px 30px;
+  }
+  .singlewithoutcardtext-contentContainer{
+    padding: 40px 30px 0px 30px;
   }
   .doublecardtext-contentContainer{
     padding: 10px 30px 30px 30px;
@@ -370,7 +418,7 @@
   .maincard-button-content{
     width: 100%;
     height: fit-content;
-    padding: 10px 0px 0px 0px;
+    padding: 10px 0px 10px 0px;
   }
 }
 
@@ -399,6 +447,30 @@
     .paddingContainer{
       padding: 40px 0px 40px 0px;
     }
+    .margintopContainer{
+      margin-top: 20px;
+    }
+    .paddingtopContainer{
+      padding-top: 20px;
+    }
+    .marginbottomContainer{
+      margin-bottom: 20px;
+    }
+    .paddingbottomContainer{
+      padding-bottom: 20px;
+    }
+    .marginleftContainer{
+      margin-left: 20px;
+    }
+    .paddingleftContainer{
+      padding-left: 20px;
+    }
+    .marginrightContainer{
+      margin-right: 20px;
+    }
+    .paddingrightContainer{
+      padding-right: 20px;
+    }
     .headertextContent{
       padding: 30px 0px 5px 0px;
     }
@@ -413,8 +485,11 @@
     .singlecardtext-contentContainer{
       padding: 40px;
     }
+    .singlewithoutcardtext-contentContainer{
+      padding: 0px 30px 0px 30px;
+    }
     .doublecardtext-contentContainer{
-      padding: 10px 30px 30px 30px;
+      padding: 20px 30px 30px 30px;
     }
     .thribblecardtext-contentContainer{
       padding: 30px 30px 30px 30px;
@@ -488,7 +563,7 @@
 /* Desktop View */
 @media (min-width: 1200px) {
   .custom-gutters{
-    --bs-gutter-x: 30px !important;
+    --bs-gutter-x: 45px !important;
     --bs-gutter-y: 0px !important;
   }
     .HeadContainer{
@@ -512,8 +587,35 @@
     .paddingContainer{
       padding: 40px 0px 40px 0px;
     }
+    .margintopContainer{
+      margin-top: 20px;
+    }
+    .paddingtopContainer{
+      padding-top: 20px;
+    }
+    .marginbottomContainer{
+      margin-bottom: 20px;
+    }
+    .paddingbottomContainer{
+      padding-bottom: 20px;
+    }
+    .marginleftContainer{
+      margin-left: 20px;
+    }
+    .paddingleftContainer{
+      padding-left: 20px;
+    }
+    .marginrightContainer{
+      margin-right: 20px;
+    }
+    .paddingrightContainer{
+      padding-right: 20px;
+    }
     .headertextContent{
       padding: 30px 0px 10px 0px;
+    }
+    .marginimgdesktop{
+      margin: 40px 0px 10px 0px;
     }
     .headertextContent h2{
       font-size: 32px;
@@ -526,8 +628,11 @@
     .singlecardtext-contentContainer{
       padding: 40px;
     }
+    .singlewithoutcardtext-contentContainer{
+      padding: 0px 30px 0px 30px;
+    }
     .doublecardtext-contentContainer{
-      padding: 10px 30px 30px 30px;
+      padding: 20px 30px 30px 30px;
     }
     .thribblecardtext-contentContainer{
       padding: 30px 30px 30px 30px;

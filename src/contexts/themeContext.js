@@ -23,7 +23,8 @@ const themes = {
         cardbuttontextbordercolor:'#61DBFB',
         bordercoloraqua:'aqua',
         bordercolorpurple:'#800080',
-        bordercolormaroon:'#800000'
+        bordercolormaroon:'#800000',
+        imageshadow:'0px 0px white,0px 0px white,0 0 10px 5px #fff,0 0 10px 5px #fff'
     },
     light: {
         backgroundColor: "#FFFFFF",
@@ -45,9 +46,10 @@ const themes = {
         cardartdatetextcolor:'#0000FF',
         cardbuttoncolor:'dark',
         cardbuttontextbordercolor:'#000000',
-        bordercoloraqua:'linear-gradient(to left , rgba(0, 224, 255, 1), rgba(0, 133, 255, 1))',
+        bordercoloraqua:'linear-gradient(to right, #4CB8C4 0%, #93F9B9 100%)',
         bordercolorpurple:'#800080',
-        bordercolormaroon:'#800000'
+        bordercolormaroon:'#800000',
+        imageshadow:'0px 0px white,0px 0px white,0 0 20px 5px #C0C0C0,0 0 20px 5px #C0C0C0'
     },
 };
 

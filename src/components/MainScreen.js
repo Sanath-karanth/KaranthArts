@@ -1,12 +1,18 @@
 import React, { memo, useState, useEffect, useContext, Fragment } from 'react'
 import '../css/MainScreenstyle.css';
 import { ThemeContext } from '../contexts/themeContext';
-import HeaderScreen,{portraitClick} from '../common/headerScreen';
+import HeaderScreen,{portraitClick, photographyClick} from '../common/headerScreen';
 import FooterScreen from '../common/footerScreen';
 import { slideData, indiamapCardData, 
          indiaarmysoldierCardData, jokersCardData, 
          pulvamathreeCardData, armysniperCardData,
-         } from "../json/jsonData"
+         actorsCardData, godsthreeCardData,
+         teareyeCardData, waterdropomCardData,
+         jokerhrithikthreeCardData, bottleEgleCardData,
+         lovebirdsCardData, singlealoneCardData,
+         redeyeCardData, racingCardData,
+         beachCardData, beachbikeCardData,
+        } from "../json/jsonData"
 import { makeStyles } from '@mui/styles';
 import { Container, Row, Col, Button, Card, Carousel } from 'react-bootstrap';
 import PropTypes from 'prop-types';
@@ -37,7 +43,7 @@ const MainScreen = memo((props) => {
     const actions = [
       { icon: <FontAwesomeIcon icon={faHome} size="lg" />, name: 'Home', navigationto: homeClick },
       { icon: <FontAwesomeIcon icon={faPalette} size="lg" />, name: 'Portrait Arts and Sketchings', navigationto: portraitClick },
-      { icon: <FontAwesomeIcon icon={faImage} size="lg" />, name: 'Photography', navigationto: portraitClick },
+      { icon: <FontAwesomeIcon icon={faImage} size="lg" />, name: 'Photography', navigationto: photographyClick },
       { icon: <FontAwesomeIcon icon={faCircleUser} size="lg" />, name: 'About', navigationto: portraitClick },
       { icon: <FontAwesomeIcon icon={faPenToSquare} size="lg" />, name: 'Feedback', navigationto: portraitClick },
       { icon: <FontAwesomeIcon icon={isDark === false ? faSun : faMoon} size="lg" />, name: 'Theme', navigationto: toggleTheme },
@@ -204,12 +210,18 @@ const MainScreen = memo((props) => {
              {/*--------------   Sketchings design part   ---------  */}
              
 
+                {/* -----------    Heading Sketching   ------------- */}
+
+                <Container>
+                  <div className='headertextContent' id='PortraitArts'>
+                    <h2 style={{color:theme.maincontentheadtextcolor}}>Portrait Arts and Sketchings</h2>
+                  </div>
+                </Container>
+
                 {/* -----------    India map Container   ------------- */}
-               <Container>
-                <div className='headertextContent' id='PortraitArts'>
-                  <h2 style={{color:theme.maincontentheadtextcolor}}>Portrait Arts and Sketchings</h2>
-                </div>
                 
+               <Container>
+      
                 <div className='maincontentContainer mt-3 mb-3 pt-3 pb-3'>
                 {indiamapCardData.map((item,key) => {
                     return(
@@ -397,7 +409,7 @@ const MainScreen = memo((props) => {
                 </div>
               </Container>
 
-              {/*---------   Two cards    -------  */}
+              {/*---------   Two cards Joker   -------  */}
 
               <Container fluid>
                 <div className='paddingmarginContainer bggradient1'>
@@ -478,7 +490,7 @@ const MainScreen = memo((props) => {
                 </div> 
               </Container>
 
-            {/*---------   Three cards    -------  */}
+            {/*---------   Three cards pulwama   -------  */}
 
               <Container fluid>
                 <div className='paddingContainer bggradient2'>
@@ -570,9 +582,7 @@ const MainScreen = memo((props) => {
                             >
                               <Row className='gx-0' >
                               <Col xxs="12" xs="12" sm="12" md="6" lg="6" xl="6" xxl="6" xxxl="6">
-                                  <div className='cardone-image shadow-lg' 
-                                      //  style={{boxShadow: '0 0 20px 5px'}}
-                                       >
+                                  <div className='cardone-image shadow-lg'>
                                     <img
                                         className='p-0' 
                                         data-aos={item.imagedirection} 
@@ -636,25 +646,978 @@ const MainScreen = memo((props) => {
                 </div>
               </Container>
 
+              {/*---------   Two cards actors   -------  */}
 
-              <Container fluid >
-                <div style={{backgroundColor:'#e7feff'}}>
-                  <Row className='gx-0'>
-                    <Col>
-                        <h2>Div container 5</h2>
-                    </Col>
-                  </Row>
+              <Container fluid>
+                <div className='paddingmarginContainer bggradient3'>
+                  <Container>
+                  <Row className='gx-0 custom-gutters'>
+                  {actorsCardData.map((item,key) => {
+                      return(
+                      <Fragment key={key}>
+                          <Col xxs="12" xs="12" sm="12" md="6" lg="6" xl="6" xxl="6" xxxl="6">
+                            <div className='shadow-lg card-topborders' 
+                                  data-aos={item.carddirection}
+                                  data-aos-duration={item.twosecondDuration}
+                                  >
+                              <Card 
+                                className='card-topborders' 
+                                style={{
+                                  border:'none',
+                                  backgroundColor:theme.cardbgColor, 
+                                  color: theme.color
+                                  }}>
+                                <div className='cardone-image p-0'>
+                                  <img
+                                      className='p-0' 
+                                      data-aos={item.imagedirection}
+                                      data-aos-duration={item.twosecondDuration}
+                                      src={item.imgUrl}
+                                      alt='Cardimages here'
+                                      >
+                                  </img>
+                                  <div className="artnameoverlay maincard-title-content">
+                                    <h3>{item.title}</h3>
+                                  </div>
+                                  <div className="arttextoverlay" 
+                                      style={Object.assign({justifyContent: item.artworkdisplay}, item.artworkposition === 'bottom' ? {bottom: 0} : {top:0})}
+                                      >
+                                    <p style={{color:item.arttextcolor,padding: item.artworkpadding}}>{item.artworkcategory}</p>
+                                  </div>
+                                </div>
+                                <div className='doublecardtext-contentContainer'>
+                                  <div className='maincard-title-content'>
+                                    <h3 data-aos={item.textdirection}
+                                        data-aos-duration={item.twosecondDuration}
+                                        style={{color:theme.cardtitletextcolor}}>{item.title}</h3>
+                                  </div>
+                                  <div className='maincard-desp-content'>
+                                    <p>
+                                      {item.description}
+                                    </p>
+                                  </div>
+                                  <div className='maincard-artdesp-content'>
+                                    <p>Art Creation Date:&nbsp;
+                                      <small style={{color:theme.cardartdatetextcolor}}>{item.artdate}</small>
+                                    </p>
+                                  </div>
+                                  <div className='maincard-button-content'>
+                                    <Button 
+                                        className='buttonanchor'
+                                        style={{boxShadow: "4px 4px 3px rgba(46, 46, 46, 0.62)"}}
+                                        onClick={()=> window.open(item.aboutUrl, "_blank", "noopener noreferrer")}
+                                        variant={`outline-${theme.cardbuttoncolor}`}>
+                                          {item.abouttext}
+                                    </Button>
+                                  </div>
+                                </div>
+                              </Card>
+                            </div>
+                            <div className='borderbox-bottom pb-2'
+                                style={{backgroundColor: eval("theme." + item.bordercolor)}}
+                                data-aos={item.borderdirection}
+                                data-aos-duration={item.twosecondDuration}>
+                            </div>
+                          </Col>
+                      </Fragment>
+                      )
+                    })}
+                    </Row>
+                  </Container>
                 </div> 
               </Container>
-              <Container fluid >
-                <div style={{backgroundColor:'#c9ffe5'}}>
-                  <Row className='gx-0'>
-                    <Col>
-                        <h2>Div container 6</h2>
-                    </Col>
-                  </Row>
+
+               {/*---------   Three cards God   -------  */}
+
+               <Container fluid>
+                <div className='paddingContainer bggradient4'>
+                  <Container>
+                  <Row className='gx-0 custom-gutters'>
+                  {godsthreeCardData.map((item,key) => {
+                      return(
+                      <Fragment key={key}>
+                          <Col xxs="12" xs="12" sm="12" md="4" lg="4" xl="4" xxl="4" xxxl="4">
+                            <div className='shadow-lg card-topborders' 
+                                  data-aos={item.carddirection}
+                                  data-aos-duration={item.twosecondDuration}
+                                  >
+                              <Card 
+                                className='card-topborders' 
+                                style={{
+                                  border:'none',
+                                  backgroundColor:theme.cardbgColor, 
+                                  color: theme.color
+                                  }}>
+                                <div className='cardthree-image'>
+                                  <img
+                                      className='p-0' 
+                                      data-aos={item.imagedirection}
+                                      data-aos-duration={item.twosecondDuration}
+                                      src={item.imgUrl}
+                                      alt='Cardimages here'
+                                      >
+                                  </img>
+                                  <div className="artnameoverlay maincard-title-content">
+                                    <h3>{item.title}</h3>
+                                  </div>
+                                  <div className="arttextoverlay" 
+                                      style={Object.assign({justifyContent: item.artworkdisplay}, item.artworkposition === 'bottom' ? {bottom: 0} : {top:0})}
+                                      >
+                                    <p style={{color:item.arttextcolor,padding: item.artworkpadding}}>{item.artworkcategory}</p>
+                                  </div>
+                                </div>
+                                <div className='thribblecardtext-contentContainer'>
+                                  <div className='maincard-title-content'>
+                                    <h3 data-aos={item.textdirection}
+                                        data-aos-duration={item.twosecondDuration}
+                                        style={{color:theme.cardtitletextcolor}}>{item.title}</h3>
+                                  </div>
+                                  <div className='maincard-desp-content'>
+                                    <p>
+                                      {item.description}
+                                    </p>
+                                  </div>
+                                </div>
+                                <Card.Footer className="text-muted">
+                                <div className='maincard-artdesp-content'>
+                                    <p>Art Creation Date:&nbsp;
+                                      <small style={{color:theme.cardartdatetextcolor}}>{item.artdate}</small>
+                                    </p>
+                                  </div>
+                                </Card.Footer>
+                              </Card>
+                            </div>
+                            <div className='borderbox-bottom pb-2'
+                                style={{backgroundColor: eval("theme." + item.bordercolor)}}
+                                data-aos={item.borderdirection}
+                                data-aos-duration={item.twosecondDuration}>
+                            </div>
+                          </Col>
+                      </Fragment>
+                      )
+                    })}
+                    </Row>
+                  </Container>
                 </div> 
               </Container>
+
+               {/* -----------    Indian army soldier Container   ------------- */}
+
+               <Container>
+                <div className='maincontentContainer mt-3 mb-3 pt-3 pb-3'>
+                {teareyeCardData.map((item,key) => {
+                    return(
+                    <Fragment key={key}>   
+                      <div className='shadow-lg bg-white rounded' 
+                          data-aos={item.carddirection}
+                          data-aos-duration={item.twosecondDuration}
+                          >
+                        <Card 
+                          style={{
+                              border: 'none',
+                              borderRadius:'0',
+                              backgroundColor:theme.cardbgColor, 
+                              color: theme.color
+                              }}>
+                        
+                            <Row className='gx-0' >
+                            <Col xxs="12" xs="12" sm="12" md="6" lg="6" xl="6" xxl="6" xxxl="6">
+                              <div className='singlecardtext-contentContainer'>
+                                <div className='maincard-title-content'>
+                                  <h3 data-aos={item.textdirection}
+                                      data-aos-duration={item.twosecondDuration}
+                                      style={{color:theme.cardtitletextcolor}}>{item.title}</h3>
+                                </div>
+                                <div className='maincard-quotedesp-content'>
+                                  <p>
+                                    <i className="fa fa-quote-left p-2"></i> 
+                                      {item.quotedescription}
+                                    <i className="fa fa-quote-right p-2"></i>
+                                  </p>
+                                </div>
+                                <div className='maincard-desp-content'>
+                                  <p>
+                                    {item.description}
+                                  </p>
+                                </div>
+                                <div className='maincard-artdesp-content'>
+                                  <p>Art Creation Date:&nbsp;
+                                    <small style={{color:theme.cardartdatetextcolor}}>{item.artdate}</small>
+                                  </p>
+                                </div>
+                                <div className='maincard-button-content'>
+                                  <Button 
+                                      className='buttonanchor'
+                                      style={{boxShadow: "4px 4px 3px rgba(46, 46, 46, 0.62)"}}
+                                      onClick={()=> window.open(item.aboutUrl, "_blank", "noopener noreferrer")}
+                                      variant={`outline-${theme.cardbuttoncolor}`}>
+                                        {item.abouttext}
+                                  </Button>
+                                </div>
+                                
+                              </div>
+                              
+                            </Col>
+                            <Col xxs="12" xs="12" sm="12" md="6" lg="6" xl="6" xxl="6" xxxl="6">
+                                <div className='cardone-image shadow p-3 bg-white'>
+                                  <img
+                                      className='p-0' 
+                                      data-aos={item.imagedirection} 
+                                      data-aos-duration={item.twosecondDuration}
+                                      src={item.imgUrl}
+                                      alt='Cardimages here'
+                                      >
+                                  </img>
+                                  <div className="artnameoverlay maincard-title-content">
+                                    <h3>{item.title}</h3>
+                                  </div>
+                                  <div className="arttextoverlay" 
+                                      style={Object.assign({justifyContent: item.artworkdisplay}, item.artworkposition === 'bottom' ? {bottom: 0} : {top:0})}
+                                      >
+                                    <p style={{color:item.arttextcolor,padding: item.artworkpadding}}>{item.artworkcategory}</p>
+                                  </div>
+                                </div>
+                            </Col>
+                          </Row>
+                      
+                        </Card>
+                      </div>
+                      <div className='borderbox-bottom pb-2'
+                          style={{backgroundColor: eval("theme." + item.bordercolor)}}
+                          data-aos={item.borderdirection}
+                          data-aos-duration={item.twosecondDuration}>
+                      </div>
+                  </Fragment>
+                   )
+                   })}
+                </div>
+              </Container>
+
+              {/*---------   Two cards Drop Omm   -------  */}
+
+              <Container fluid>
+                <div className='paddingmarginContainer bggradient5'>
+                  <Container>
+                  <Row className='gx-0 custom-gutters'>
+                  {waterdropomCardData.map((item,key) => {
+                      return(
+                      <Fragment key={key}>
+                          <Col xxs="12" xs="12" sm="12" md="6" lg="6" xl="6" xxl="6" xxxl="6">
+                            <div className='shadow-lg card-topborders' 
+                                  data-aos={item.carddirection}
+                                  data-aos-duration={item.twosecondDuration}
+                                  >
+                              <Card 
+                                className='card-topborders' 
+                                style={{
+                                  border:'none',
+                                  backgroundColor:theme.cardbgColor, 
+                                  color: theme.color
+                                  }}>
+                                <div className='cardone-image p-0'>
+                                  <img
+                                      className='p-0' 
+                                      data-aos={item.imagedirection}
+                                      data-aos-duration={item.twosecondDuration}
+                                      src={item.imgUrl}
+                                      alt='Cardimages here'
+                                      >
+                                  </img>
+                                  <div className="artnameoverlay maincard-title-content">
+                                    <h3>{item.title}</h3>
+                                  </div>
+                                  <div className="arttextoverlay" 
+                                      style={Object.assign({justifyContent: item.artworkdisplay}, item.artworkposition === 'bottom' ? {bottom: 0} : {top:0})}
+                                      >
+                                    <p style={{color:item.arttextcolor,padding: item.artworkpadding}}>{item.artworkcategory}</p>
+                                  </div>
+                                </div>
+                                <div className='doublecardtext-contentContainer'>
+                                  <div className='maincard-title-content'>
+                                    <h3 data-aos={item.textdirection}
+                                        data-aos-duration={item.twosecondDuration}
+                                        style={{color:theme.cardtitletextcolor}}>{item.title}</h3>
+                                  </div>
+                                  <div className='maincard-desp-content'>
+                                    <p>
+                                      {item.description}
+                                    </p>
+                                  </div>
+                                  <div className='maincard-artdesp-content'>
+                                    <p>Art Creation Date:&nbsp;
+                                      <small style={{color:theme.cardartdatetextcolor}}>{item.artdate}</small>
+                                    </p>
+                                  </div>
+                                  <div className='maincard-button-content'>
+                                    <Button 
+                                        className='buttonanchor'
+                                        style={{boxShadow: "4px 4px 3px rgba(46, 46, 46, 0.62)"}}
+                                        onClick={()=> window.open(item.aboutUrl, "_blank", "noopener noreferrer")}
+                                        variant={`outline-${theme.cardbuttoncolor}`}>
+                                          {item.abouttext}
+                                    </Button>
+                                  </div>
+                                </div>
+                              </Card>
+                            </div>
+                            <div className='borderbox-bottom pb-2'
+                                style={{backgroundColor: eval("theme." + item.bordercolor)}}
+                                data-aos={item.borderdirection}
+                                data-aos-duration={item.twosecondDuration}>
+                            </div>
+                          </Col>
+                      </Fragment>
+                      )
+                    })}
+                    </Row>
+                  </Container>
+                </div> 
+              </Container>
+
+
+               {/*---------   Three cards koker hrithik wolworine   -------  */}
+
+               <Container fluid>
+                <div className='paddingContainer bggradient6'>
+                  <Container>
+                  <Row className='gx-0 custom-gutters'>
+                  {jokerhrithikthreeCardData.map((item,key) => {
+                      return(
+                      <Fragment key={key}>
+                          <Col xxs="12" xs="12" sm="12" md="4" lg="4" xl="4" xxl="4" xxxl="4">
+                            <div className='shadow-lg card-topborders' 
+                                  data-aos={item.carddirection}
+                                  data-aos-duration={item.twosecondDuration}
+                                  >
+                              <Card 
+                                className='card-topborders' 
+                                style={{
+                                  border:'none',
+                                  backgroundColor:theme.cardbgColor, 
+                                  color: theme.color
+                                  }}>
+                                <div className='cardthree-image'>
+                                  <img
+                                      className='p-0' 
+                                      data-aos={item.imagedirection}
+                                      data-aos-duration={item.twosecondDuration}
+                                      src={item.imgUrl}
+                                      alt='Cardimages here'
+                                      >
+                                  </img>
+                                  <div className="artnameoverlay maincard-title-content">
+                                    <h3>{item.title}</h3>
+                                  </div>
+                                  <div className="arttextoverlay" 
+                                      style={Object.assign({justifyContent: item.artworkdisplay}, item.artworkposition === 'bottom' ? {bottom: 0} : {top:0})}
+                                      >
+                                    <p style={{color:item.arttextcolor,padding: item.artworkpadding}}>{item.artworkcategory}</p>
+                                  </div>
+                                </div>
+                                <div className='thribblecardtext-contentContainer'>
+                                  <div className='maincard-title-content'>
+                                    <h3 data-aos={item.textdirection}
+                                        data-aos-duration={item.twosecondDuration}
+                                        style={{color:theme.cardtitletextcolor}}>{item.title}</h3>
+                                  </div>
+                                  <div className='maincard-desp-content'>
+                                    <p>
+                                      {item.description}
+                                    </p>
+                                  </div>
+                                </div>
+                                <Card.Footer className="text-muted">
+                                <div className='maincard-artdesp-content'>
+                                    <p>Art Creation Date:&nbsp;
+                                      <small style={{color:theme.cardartdatetextcolor}}>{item.artdate}</small>
+                                    </p>
+                                  </div>
+                                </Card.Footer>
+                              </Card>
+                            </div>
+                            <div className='borderbox-bottom pb-2'
+                                style={{backgroundColor: eval("theme." + item.bordercolor)}}
+                                data-aos={item.borderdirection}
+                                data-aos-duration={item.twosecondDuration}>
+                            </div>
+                          </Col>
+                      </Fragment>
+                      )
+                    })}
+                    </Row>
+                  </Container>
+                </div> 
+              </Container>
+
+
+            {/*---------   Three cards bottle egle bird   -------  */}
+
+            <Container fluid>
+                <div className='paddingContainer bggradient7'>
+                  <Container>
+                  <Row className='gx-0 custom-gutters'>
+                  {bottleEgleCardData.map((item,key) => {
+                      return(
+                      <Fragment key={key}>
+                          <Col xxs="12" xs="12" sm="12" md="4" lg="4" xl="4" xxl="4" xxxl="4">
+                            <div className='shadow-lg card-topborders' 
+                                  data-aos={item.carddirection}
+                                  data-aos-duration={item.twosecondDuration}
+                                  >
+                              <Card 
+                                className='card-topborders' 
+                                style={{
+                                  border:'none',
+                                  backgroundColor:theme.cardbgColor, 
+                                  color: theme.color
+                                  }}>
+                                <div className='cardthree-image p-3'>
+                                  <img
+                                      className='p-0' 
+                                      data-aos={item.imagedirection}
+                                      data-aos-duration={item.twosecondDuration}
+                                      src={item.imgUrl}
+                                      alt='Cardimages here'
+                                      >
+                                  </img>
+                                  <div className="artnameoverlay maincard-title-content">
+                                    <h3>{item.title}</h3>
+                                  </div>
+                                  <div className="arttextoverlay" 
+                                      style={Object.assign({justifyContent: item.artworkdisplay}, item.artworkposition === 'bottom' ? {bottom: 0} : {top:0})}
+                                      >
+                                    <p style={{color:item.arttextcolor,padding: item.artworkpadding}}>{item.artworkcategory}</p>
+                                  </div>
+                                </div>
+                                <div className='thribblecardtext-contentContainer'>
+                                  <div className='maincard-title-content'>
+                                    <h3 data-aos={item.textdirection}
+                                        data-aos-duration={item.twosecondDuration}
+                                        style={{color:theme.cardtitletextcolor}}>{item.title}</h3>
+                                  </div>
+                                  <div className='maincard-desp-content'>
+                                    <p>
+                                      {item.description}
+                                    </p>
+                                  </div>
+                                </div>
+                                <Card.Footer className="text-muted">
+                                <div className='maincard-artdesp-content'>
+                                    <p>Art Creation Date:&nbsp;
+                                      <small style={{color:theme.cardartdatetextcolor}}>{item.artdate}</small>
+                                    </p>
+                                  </div>
+                                </Card.Footer>
+                              </Card>
+                            </div>
+                            <div className='borderbox-bottom pb-2'
+                                style={{backgroundColor: eval("theme." + item.bordercolor)}}
+                                data-aos={item.borderdirection}
+                                data-aos-duration={item.twosecondDuration}>
+                            </div>
+                          </Col>
+                      </Fragment>
+                      )
+                    })}
+                    </Row>
+                  </Container>
+                </div> 
+              </Container>
+
+            {/* --------------- Single lovebirds card ----------------- */}
+
+            <Container>
+                <div className='maincontentContainer'>
+                  {lovebirdsCardData.map((item,key) => {
+                      return(
+                      <Fragment key={key}>   
+                        <div 
+                            data-aos={item.carddirection}
+                            data-aos-duration={item.twosecondDuration}
+                            style={{
+                              border: 'none',
+                              borderRadius:'0',
+                              color: theme.color
+                              }}
+                            >
+                              <Row className='gx-0' >
+                              <Col xxs="12" xs="12" sm="12" md="4" lg="4" xl="4" xxl="4" xxxl="4">
+                                  <div className='cardone-image shadow-lg'>
+                                    <img
+                                        className='p-0' 
+                                        data-aos={item.imagedirection} 
+                                        data-aos-duration={item.twosecondDuration}
+                                        src={item.imgUrl}
+                                        alt='Cardimages here'
+                                        >
+                                    </img>
+                                    <div className="artnameoverlay maincard-title-content">
+                                      <h3>{item.title}</h3>
+                                    </div>
+                                    <div className="arttextoverlay" 
+                                        style={Object.assign({justifyContent: item.artworkdisplay}, item.artworkposition === 'bottom' ? {bottom: 0} : {top:0})}
+                                        >
+                                      <p style={{color:item.arttextcolor,padding: item.artworkpadding}}>{item.artworkcategory}</p>
+                                    </div>
+                                  </div>
+                                  
+                              </Col>
+                              <Col xxs="12" xs="12" sm="12" md="8" lg="8" xl="8" xxl="8" xxxl="8">
+                                <div className='singlewithoutcardtext-contentContainer'>
+                                  <div className='maincard-title-content'>
+                                    <h3 data-aos={item.textdirection}
+                                        data-aos-duration={item.twosecondDuration}
+                                        style={{color:theme.cardtitletextcolor}}>{item.title}</h3>
+                                  </div>
+                                  <div className='maincard-quotedesp-content'>
+                                    <p>
+                                      <i className="fa fa-quote-left p-2"></i> 
+                                        {item.quotedescription}
+                                      <i className="fa fa-quote-right p-2"></i>
+                                    </p>
+                                  </div>
+                                  <div className='maincard-desp-content'>
+                                    <p>
+                                      {item.description}
+                                    </p>
+                                  </div>
+                                  <div className='maincard-artdesp-content'>
+                                    <p>Art Creation Date:&nbsp;
+                                      <small style={{color:theme.cardartdatetextcolor}}>{item.artdate}</small>
+                                    </p>
+                                  </div>
+                                  <div className='maincard-button-content'>
+                                    <Button 
+                                        className='buttonanchor'
+                                        style={{boxShadow: "4px 4px 3px rgba(46, 46, 46, 0.62)"}}
+                                        onClick={()=> window.open(item.aboutUrl, "_blank", "noopener noreferrer")}
+                                        variant={`outline-${theme.cardbuttoncolor}`}>
+                                          {item.abouttext}
+                                    </Button>
+                                  </div>
+                                </div>
+                              </Col>
+                              
+                            </Row>
+                        </div>
+                    </Fragment>
+                    )
+                    })}
+                </div>
+              </Container>
+
+
+              {/* --------------- Single Alone man card ----------------- */}
+
+            <Container>
+                <div className='maincontentContainer'>
+                  {singlealoneCardData.map((item,key) => {
+                      return(
+                      <Fragment key={key}>   
+                        <div 
+                            data-aos={item.carddirection}
+                            data-aos-duration={item.twosecondDuration}
+                            style={{
+                              border: 'none',
+                              borderRadius:'0',
+                              color: theme.color
+                              }}
+                            >
+                              <Row className='gx-0 cardreverse' >
+                              
+                              <Col xxs="12" xs="12" sm="12" md="8" lg="8" xl="8" xxl="8" xxxl="8">
+                                <div className='singlewithoutcardtext-contentContainer'>
+                                  <div className='maincard-title-content'>
+                                    <h3 data-aos={item.textdirection}
+                                        data-aos-duration={item.twosecondDuration}
+                                        style={{color:theme.cardtitletextcolor}}>{item.title}</h3>
+                                  </div>
+                                  <div className='maincard-quotedesp-content'>
+                                    <p>
+                                      <i className="fa fa-quote-left p-2"></i> 
+                                        {item.quotedescription}
+                                      <i className="fa fa-quote-right p-2"></i>
+                                    </p>
+                                  </div>
+                                  <div className='maincard-desp-content'>
+                                    <p>
+                                      {item.description}
+                                    </p>
+                                  </div>
+                                  <div className='maincard-artdesp-content'>
+                                    <p>Art Creation Date:&nbsp;
+                                      <small style={{color:theme.cardartdatetextcolor}}>{item.artdate}</small>
+                                    </p>
+                                  </div>
+                                  <div className='maincard-button-content'>
+                                    <Button 
+                                        className='buttonanchor'
+                                        style={{boxShadow: "4px 4px 3px rgba(46, 46, 46, 0.62)"}}
+                                        onClick={()=> window.open(item.aboutUrl, "_blank", "noopener noreferrer")}
+                                        variant={`outline-${theme.cardbuttoncolor}`}>
+                                          {item.abouttext}
+                                    </Button>
+                                  </div>
+                                </div>
+                              </Col>
+                              <Col xxs="12" xs="12" sm="12" md="4" lg="4" xl="4" xxl="4" xxxl="4">
+                                  <div className='cardone-image shadow-lg'>
+                                    <img
+                                        className='p-0' 
+                                        data-aos={item.imagedirection} 
+                                        data-aos-duration={item.twosecondDuration}
+                                        src={item.imgUrl}
+                                        alt='Cardimages here'
+                                        >
+                                    </img>
+                                    <div className="artnameoverlay maincard-title-content">
+                                      <h3>{item.title}</h3>
+                                    </div>
+                                    <div className="arttextoverlay" 
+                                        style={Object.assign({justifyContent: item.artworkdisplay}, item.artworkposition === 'bottom' ? {bottom: 0} : {top:0})}
+                                        >
+                                      <p style={{color:item.arttextcolor,padding: item.artworkpadding}}>{item.artworkcategory}</p>
+                                    </div>
+                                  </div>
+                              </Col>
+
+                            </Row>
+                        </div>
+                    </Fragment>
+                    )
+                    })}
+                </div>
+              </Container>
+
+            {/* --------------- Single Red Eye card ----------------- */}
+
+            <Container>
+                <div className='maincontentContainer'>
+                  {redeyeCardData.map((item,key) => {
+                      return(
+                      <Fragment key={key}>   
+                        <div 
+                            data-aos={item.carddirection}
+                            data-aos-duration={item.twosecondDuration}
+                            style={{
+                              border: 'none',
+                              borderRadius:'0',
+                              color: theme.color
+                              }}
+                            >
+                              <Row className='gx-0' >
+                              <Col xxs="12" xs="12" sm="12" md="4" lg="4" xl="4" xxl="4" xxxl="4">
+                                  <div className='cardone-image shadow-lg'>
+                                    <img
+                                        className='p-0' 
+                                        data-aos={item.imagedirection} 
+                                        data-aos-duration={item.twosecondDuration}
+                                        src={item.imgUrl}
+                                        alt='Cardimages here'
+                                        >
+                                    </img>
+                                    <div className="artnameoverlay maincard-title-content">
+                                      <h3>{item.title}</h3>
+                                    </div>
+                                    <div className="arttextoverlay" 
+                                        style={Object.assign({justifyContent: item.artworkdisplay}, item.artworkposition === 'bottom' ? {bottom: 0} : {top:0})}
+                                        >
+                                      <p style={{color:item.arttextcolor,padding: item.artworkpadding}}>{item.artworkcategory}</p>
+                                    </div>
+                                  </div>
+                                  
+                              </Col>
+                              <Col xxs="12" xs="12" sm="12" md="8" lg="8" xl="8" xxl="8" xxxl="8">
+                                <div className='singlewithoutcardtext-contentContainer'>
+                                  <div className='maincard-title-content'>
+                                    <h3 data-aos={item.textdirection}
+                                        data-aos-duration={item.twosecondDuration}
+                                        style={{color:theme.cardtitletextcolor}}>{item.title}</h3>
+                                  </div>
+                                  <div className='maincard-quotedesp-content'>
+                                    <p>
+                                      <i className="fa fa-quote-left p-2"></i> 
+                                        {item.quotedescription}
+                                      <i className="fa fa-quote-right p-2"></i>
+                                    </p>
+                                  </div>
+                                  <div className='maincard-desp-content'>
+                                    <p>
+                                      {item.description}
+                                    </p>
+                                  </div>
+                                  <div className='maincard-artdesp-content'>
+                                    <p>Art Creation Date:&nbsp;
+                                      <small style={{color:theme.cardartdatetextcolor}}>{item.artdate}</small>
+                                    </p>
+                                  </div>
+                                  <div className='maincard-button-content'>
+                                    <Button 
+                                        className='buttonanchor'
+                                        style={{boxShadow: "4px 4px 3px rgba(46, 46, 46, 0.62)"}}
+                                        onClick={()=> window.open(item.aboutUrl, "_blank", "noopener noreferrer")}
+                                        variant={`outline-${theme.cardbuttoncolor}`}>
+                                          {item.abouttext}
+                                    </Button>
+                                  </div>
+                                </div>
+                              </Col>
+                              
+                            </Row>
+                        </div>
+                    </Fragment>
+                    )
+                    })}
+                </div>
+              </Container>
+
+
+              {/* --------------- Single Alone man card ----------------- */}
+
+            <Container>
+                <div className='maincontentContainer'>
+                  {racingCardData.map((item,key) => {
+                      return(
+                      <Fragment key={key}>   
+                        <div 
+                            data-aos={item.carddirection}
+                            data-aos-duration={item.twosecondDuration}
+                            style={{
+                              border: 'none',
+                              borderRadius:'0',
+                              color: theme.color
+                              }}
+                            >
+                              <Row className='gx-0 cardreverse' >
+                              
+                              <Col xxs="12" xs="12" sm="12" md="8" lg="8" xl="8" xxl="8" xxxl="8">
+                                <div className='singlewithoutcardtext-contentContainer'>
+                                  <div className='maincard-title-content'>
+                                    <h3 data-aos={item.textdirection}
+                                        data-aos-duration={item.twosecondDuration}
+                                        style={{color:theme.cardtitletextcolor}}>{item.title}</h3>
+                                  </div>
+                                  <div className='maincard-quotedesp-content'>
+                                    <p>
+                                      <i className="fa fa-quote-left p-2"></i> 
+                                        {item.quotedescription}
+                                      <i className="fa fa-quote-right p-2"></i>
+                                    </p>
+                                  </div>
+                                  <div className='maincard-desp-content'>
+                                    <p>
+                                      {item.description}
+                                    </p>
+                                  </div>
+                                  <div className='maincard-artdesp-content'>
+                                    <p>Art Creation Date:&nbsp;
+                                      <small style={{color:theme.cardartdatetextcolor}}>{item.artdate}</small>
+                                    </p>
+                                  </div>
+                                  <div className='maincard-button-content'>
+                                    <Button 
+                                        className='buttonanchor'
+                                        style={{boxShadow: "4px 4px 3px rgba(46, 46, 46, 0.62)"}}
+                                        onClick={()=> window.open(item.aboutUrl, "_blank", "noopener noreferrer")}
+                                        variant={`outline-${theme.cardbuttoncolor}`}>
+                                          {item.abouttext}
+                                    </Button>
+                                  </div>
+                                </div>
+                              </Col>
+                              <Col xxs="12" xs="12" sm="12" md="4" lg="4" xl="4" xxl="4" xxxl="4">
+                                  <div className='cardone-image shadow-lg'>
+                                    <img
+                                        className='p-0' 
+                                        data-aos={item.imagedirection} 
+                                        data-aos-duration={item.twosecondDuration}
+                                        src={item.imgUrl}
+                                        alt='Cardimages here'
+                                        >
+                                    </img>
+                                    <div className="artnameoverlay maincard-title-content">
+                                      <h3>{item.title}</h3>
+                                    </div>
+                                    <div className="arttextoverlay" 
+                                        style={Object.assign({justifyContent: item.artworkdisplay}, item.artworkposition === 'bottom' ? {bottom: 0} : {top:0})}
+                                        >
+                                      <p style={{color:item.arttextcolor,padding: item.artworkpadding}}>{item.artworkcategory}</p>
+                                    </div>
+                                  </div>
+                              </Col>
+
+                            </Row>
+                        </div>
+                    </Fragment>
+                    )
+                    })}
+                </div>
+              </Container>
+
+              {/* -----------    Heading Photography   ------------- */}
+
+              <Container>
+                <div className='headertextContent' id='Photography'>
+                  <h2 style={{color:theme.maincontentheadtextcolor}}>Photography</h2>
+                </div>
+              </Container>
+
+
+               {/* --------------- Single Beach card ----------------- */}
+
+               <Container>
+                <div className='maincontentContainer'>
+                  {beachCardData.map((item,key) => {
+                      return(
+                      <Fragment key={key}>   
+                        <div 
+                            data-aos={item.carddirection}
+                            data-aos-duration={item.twosecondDuration}
+                            style={{
+                              border: 'none',
+                              borderRadius:'0',
+                              color: theme.color
+                              }}
+                            >
+                              <Row className='gx-0' >
+                              <Col xxs="12" xs="12" sm="12" md="6" lg="6" xl="6" xxl="6" xxxl="6">
+                                  <div className='cardone-image' style={{boxShadow:theme.imageshadow}}>
+                                    <img
+                                        className='p-0' 
+                                        data-aos={item.imagedirection} 
+                                        data-aos-duration={item.twosecondDuration}
+                                        src={item.imgUrl}
+                                        alt='Cardimages here'
+                                        >
+                                    </img>
+                                    <div className="artnameoverlay maincard-title-content">
+                                      <h3>{item.title}</h3>
+                                    </div>
+                                  </div>
+                                  
+                              </Col>
+                              <Col xxs="12" xs="12" sm="12" md="6" lg="6" xl="6" xxl="6" xxxl="6">
+                                <div className='singlewithoutcardtext-contentContainer'>
+                                  <div className='maincard-title-content'>
+                                    <h3 data-aos={item.textdirection}
+                                        data-aos-duration={item.twosecondDuration}
+                                        style={{color:theme.cardtitletextcolor}}>{item.title}</h3>
+                                  </div>
+                                  <div className='maincard-quotedesp-content'>
+                                    <p>
+                                      <i className="fa fa-quote-left p-2"></i> 
+                                        {item.quotedescription}
+                                      <i className="fa fa-quote-right p-2"></i>
+                                    </p>
+                                  </div>
+                                  <div className='maincard-desp-content'>
+                                    <p>
+                                      {item.description}
+                                    </p>
+                                  </div>
+                                  <div className='maincard-artdesp-content'>
+                                    <p>Art Creation Date:&nbsp;
+                                      <small style={{color:theme.cardartdatetextcolor}}>{item.artdate}</small>
+                                    </p>
+                                  </div>
+                                  <div className='maincard-button-content'>
+                                    <Button 
+                                        className='buttonanchor'
+                                        style={{boxShadow: "4px 4px 3px rgba(46, 46, 46, 0.62)"}}
+                                        onClick={()=> window.open(item.aboutUrl, "_blank", "noopener noreferrer")}
+                                        variant={`outline-${theme.cardbuttoncolor}`}>
+                                          {item.abouttext}
+                                    </Button>
+                                  </div>
+                                </div>
+                              </Col>
+                              
+                            </Row>
+                        </div>
+                    </Fragment>
+                    )
+                    })}
+                </div>
+              </Container>
+
+
+              {/* --------------- Single BeachBike card ----------------- */}
+
+              <Container>
+                <div className='maincontentContainer'>
+                  {beachbikeCardData.map((item,key) => {
+                      return(
+                      <Fragment key={key}>   
+                        <div 
+                            data-aos={item.carddirection}
+                            data-aos-duration={item.twosecondDuration}
+                            style={{
+                              border: 'none',
+                              borderRadius:'0',
+                              color: theme.color
+                              }}
+                            >
+                              <Row className='gx-0 cardreverse'>
+                              <Col xxs="12" xs="12" sm="12" md="6" lg="6" xl="6" xxl="6" xxxl="6">
+                                <div className='singlewithoutcardtext-contentContainer'>
+                                  <div className='maincard-title-content'>
+                                    <h3 data-aos={item.textdirection}
+                                        data-aos-duration={item.twosecondDuration}
+                                        style={{color:theme.cardtitletextcolor}}>{item.title}</h3>
+                                  </div>
+                                  <div className='maincard-quotedesp-content'>
+                                    <p>
+                                      <i className="fa fa-quote-left p-2"></i> 
+                                        {item.quotedescription}
+                                      <i className="fa fa-quote-right p-2"></i>
+                                    </p>
+                                  </div>
+                                  <div className='maincard-desp-content'>
+                                    <p>
+                                      {item.description}
+                                    </p>
+                                  </div>
+                                  <div className='maincard-artdesp-content'>
+                                    <p>Art Creation Date:&nbsp;
+                                      <small style={{color:theme.cardartdatetextcolor}}>{item.artdate}</small>
+                                    </p>
+                                  </div>
+                                  <div className='maincard-button-content'>
+                                    <Button 
+                                        className='buttonanchor'
+                                        style={{boxShadow: "4px 4px 3px rgba(46, 46, 46, 0.62)"}}
+                                        onClick={()=> window.open(item.aboutUrl, "_blank", "noopener noreferrer")}
+                                        variant={`outline-${theme.cardbuttoncolor}`}>
+                                          {item.abouttext}
+                                    </Button>
+                                  </div>
+                                </div>
+                              </Col>
+                              <Col xxs="12" xs="12" sm="12" md="6" lg="6" xl="6" xxl="6" xxxl="6">
+                                  <div className='cardone-image' style={{boxShadow:theme.imageshadow}}>
+                                    <img
+                                        className='p-0' 
+                                        data-aos={item.imagedirection} 
+                                        data-aos-duration={item.twosecondDuration}
+                                        src={item.imgUrl}
+                                        alt='Cardimages here'
+                                        >
+                                    </img>
+                                    <div className="artnameoverlay maincard-title-content">
+                                      <h3>{item.title}</h3>
+                                    </div>
+                                  </div>
+                                  
+                              </Col>
+                            </Row>
+                        </div>
+                    </Fragment>
+                    )
+                    })}
+                </div>
+              </Container>
+
+
               <Container fluid >
                 <div style={{background: 'linear-gradient(to right, #EFEFBB 0%, #D4D3DD 100%)'}}>
                   <Row className='gx-0'>
