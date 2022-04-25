@@ -365,7 +365,7 @@
     padding: 20px 30px 10px 30px;
   }
   .singlewithoutcardtext-contentContainer{
-    padding: 40px 30px 0px 30px;
+    padding: 40px 0px 0px 10px;
   }
   .doublecardtext-contentContainer{
     padding: 10px 30px 30px 30px;
@@ -421,6 +421,15 @@
     padding: 10px 0px 10px 0px;
   }
 }
+
+@media (min-width: 500px) {
+  .maincontentContainer{
+    margin: 0 24px;
+    padding-top: 40px;
+    padding-bottom: 30px;
+  }
+}
+
 
 /* Tablet View */
 @media (min-width: 768px) and (max-width: 1199px){
