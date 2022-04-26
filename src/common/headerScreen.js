@@ -15,8 +15,9 @@ const HeaderScreen = memo((props) => {
     const navigate  = useNavigate();
 
     const homeClick = () => {
-      console.log("home clicked")
-      navigate("/demo");
+      let scrolltohometext = document.getElementById('back-to-top-anchor');
+      scrolltohometext.scrollIntoView({behavior:'smooth'})
+      navigate("/");
     }
 
   useEffect(() => {
@@ -59,7 +60,7 @@ const HeaderScreen = memo((props) => {
               </Tooltip>
 
               <Tooltip title="About">
-                <Nav.Link onClick={portraitClick} href="#features" className='navtext'>
+                <Nav.Link onClick={portraitClick} className='navtext'>
                   <FontAwesomeIcon icon={faCircleUser} color={theme.headericoncolor} />{' '}About
                 </Nav.Link>
               </Tooltip>

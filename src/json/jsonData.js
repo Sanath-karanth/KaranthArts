@@ -715,3 +715,187 @@ export const slideData = [
         foursecondDuration: "4000"
     },
   ];
+
+  export const sunRiseCardData = [
+    { 
+        title: "Sun Rise",
+        quotedescription: "If you want to be reminded of the love of the Lord, just watch the sunrise.", 
+        description: "Sunrise (or sunup) is the moment when the upper limb of the Sun appears on the horizon in the morning.[1] The term can also refer to the entire process of the solar disk crossing the horizon and its accompanying atmospheric effects.", 
+        imgUrl:"./images/photography/sunraise.jpg",
+        artdate:"08-08-2017",
+        artworkcategory:"Pencil Sketch",
+        artworkposition:"top",
+        artworkdisplay:"flex-start",
+        artworkpadding:'0px 0px 0px 20px',
+        arttextcolor:"black",
+        abouttext:"About",
+        aboutUrl:"https://en.wikipedia.org/wiki/List_of_equipment_of_the_Indian_Army",
+        bordercolor:"bordercoloraqua",
+        carddirection:"fade-right",
+        imagedirection:"flip-right",
+        textdirection:"fade-right",
+        borderdirection:"zoom-in",
+        onesecondDuration: "1000",
+        twosecondDuration: "2000",
+        threesecondDuration: "3000",
+        foursecondDuration: "4000"
+    },
+  ];
+
+  export const sunsetCardData = [
+    { 
+        title: "Sun Set",
+        quotedescription: "Clouds come floating into my life, no longer to carry rain or usher storm, but to add color to my sunset sky.", 
+        description: "Sunset, also known as sundown, is the daily disappearance of the Sun below the horizon due to Earth's rotation. As viewed from the Equator, the equinox Sun sets exactly due west in both Spring and Autumn.", 
+        imgUrl:"./images/photography/sunset.jpg",
+        artdate:"08-08-2017",
+        artworkcategory:"Pencil Sketch",
+        artworkposition:"top",
+        artworkdisplay:"flex-start",
+        artworkpadding:'0px 0px 0px 20px',
+        arttextcolor:"black",
+        abouttext:"About",
+        aboutUrl:"https://en.wikipedia.org/wiki/List_of_equipment_of_the_Indian_Army",
+        bordercolor:"bordercoloraqua",
+        carddirection:"fade-right",
+        imagedirection:"flip-right",
+        textdirection:"fade-right",
+        borderdirection:"zoom-in",
+        onesecondDuration: "1000",
+        twosecondDuration: "2000",
+        threesecondDuration: "3000",
+        foursecondDuration: "4000"
+    },
+  ];
+
+  export const sunshineCardData = [
+    { 
+        title: "Sun Shine",
+        quotedescription: "We cannot endure to waste anything so precious as autumnal sunshine by staying in the house.", 
+        description: "Sunshine is a 2007 science fiction psychological thriller film directed by Danny Boyle and written by Alex Garland. Taking place in the year 2057, the story follows a group of astronauts on a dangerous mission.", 
+        imgUrl:"./images/photography/sunshine.jpg",
+        artdate:"08-08-2017",
+        artworkcategory:"Pencil Sketch",
+        artworkposition:"top",
+        artworkdisplay:"flex-start",
+        artworkpadding:'0px 0px 0px 20px',
+        arttextcolor:"black",
+        abouttext:"About",
+        aboutUrl:"https://en.wikipedia.org/wiki/List_of_equipment_of_the_Indian_Army",
+        bordercolor:"bordercoloraqua",
+        carddirection:"fade-right",
+        imagedirection:"flip-right",
+        textdirection:"fade-right",
+        borderdirection:"zoom-in",
+        onesecondDuration: "1000",
+        twosecondDuration: "2000",
+        threesecondDuration: "3000",
+        foursecondDuration: "4000"
+    },
+  ];
+
+  export const redRoseCardData = [
+    { 
+        title: "Red Rose",
+        quotedescription: "The red rose whispers of passion, And the white rose breathes of love, the red rose is a falcon, And the white rose is a dove.", 
+        description: "A rose is a woody perennial flowering plant of the genus Rosa, in the family Rosaceae, or the flower it bears. There are over three hundred species and tens of thousands of cultivars.They form a group of plants that can be erect shrubs, climbing, or trailing, with stems that are often armed with sharp prickles.", 
+        imgUrl:"./images/photography/redrose.jpg",
+        artdate:"09-08-2018",
+        artworkcategory:"Pencil Sketch",
+        artworkposition:"top",
+        artworkdisplay:"flex-start",
+        artworkpadding:'0px 0px 0px 20px',
+        arttextcolor:"black",
+        abouttext:"About",
+        aboutUrl:"https://en.wikipedia.org/wiki/List_of_equipment_of_the_Indian_Army",
+        bordercolor:"bordercoloraqua",
+        carddirection:"fade-right",
+        imagedirection:"flip-right",
+        textdirection:"fade-right",
+        borderdirection:"zoom-in",
+        onesecondDuration: "1000",
+        twosecondDuration: "2000",
+        threesecondDuration: "3000",
+        foursecondDuration: "4000"
+    },
+  ];
+
+  export const yellowRoseCardData = [
+    { 
+        title: "Yellow Rose",
+        quotedescription: "Yellow roses are often given to loved ones as a way to bring joy and cheer. Due to the yellow rose’s bright color, many attribute it to the warmth of a sunny day, and rightfully.", 
+        description: "A rose is a woody perennial flowering plant of the genus Rosa, in the family Rosaceae, or the flower it bears. There are over three hundred species and tens of thousands of cultivars.They form a group of plants that can be erect shrubs, climbing, or trailing, with stems that are often armed with sharp prickles.", 
+        imgUrl:"./images/photography/yellowrose.jpg",
+        artdate:"09-08-2018",
+        artworkcategory:"Pencil Sketch",
+        artworkposition:"top",
+        artworkdisplay:"flex-start",
+        artworkpadding:'0px 0px 0px 20px',
+        arttextcolor:"black",
+        abouttext:"About",
+        aboutUrl:"https://en.wikipedia.org/wiki/List_of_equipment_of_the_Indian_Army",
+        bordercolor:"bordercoloraqua",
+        carddirection:"fade-right",
+        imagedirection:"flip-right",
+        textdirection:"fade-right",
+        borderdirection:"zoom-in",
+        onesecondDuration: "1000",
+        twosecondDuration: "2000",
+        threesecondDuration: "3000",
+        foursecondDuration: "4000"
+    },
+  ];  
+
+
+  export const OceanCardData = [
+    { 
+        title: "Ocean Waves",
+        quotedescription: "The breaking of a wave cannot explain the whole sea or ocean.", 
+        description: "Wind waves have a certain amount of randomness: subsequent waves differ in height, duration, and shape with limited predictability.", 
+        imgUrl:"./images/photography/beachwaves.jpg",
+        artdate:"08-08-2017",
+        artworkcategory:"Pencil Sketch",
+        artworkposition:"top",
+        artworkdisplay:"flex-start",
+        artworkpadding:'0px 0px 0px 20px',
+        arttextcolor:"black",
+        abouttext:"About",
+        aboutUrl:"https://en.wikipedia.org/wiki/List_of_equipment_of_the_Indian_Army",
+        bordercolor:"bordercoloraqua",
+        carddirection:"fade-right",
+        imagedirection:"flip-right",
+        textdirection:"fade-right",
+        borderdirection:"zoom-in",
+        onesecondDuration: "1000",
+        twosecondDuration: "2000",
+        threesecondDuration: "3000",
+        foursecondDuration: "4000"
+    },
+  ]; 
+
+
+  export const RivershoreCardData = [
+    { 
+        title: "River Shore",
+        quotedescription: "Man cannot discover new oceans unless he has the courage to lose sight of the shore.", 
+        description: "A shore or a shoreline is the fringe of land at the edge of a large body of water, such as an ocean, sea, or lake. In physical oceanography, a shore is the wider fringe that is geologically modified by the action of the body of water past and present.", 
+        imgUrl:"./images/photography/rivershore.jpg",
+        artdate:"08-08-2017",
+        artworkcategory:"Pencil Sketch",
+        artworkposition:"top",
+        artworkdisplay:"flex-start",
+        artworkpadding:'0px 0px 0px 20px',
+        arttextcolor:"black",
+        abouttext:"About",
+        aboutUrl:"https://en.wikipedia.org/wiki/List_of_equipment_of_the_Indian_Army",
+        bordercolor:"bordercoloraqua",
+        carddirection:"fade-right",
+        imagedirection:"flip-right",
+        textdirection:"fade-right",
+        borderdirection:"zoom-in",
+        onesecondDuration: "1000",
+        twosecondDuration: "2000",
+        threesecondDuration: "3000",
+        foursecondDuration: "4000"
+    },
+  ]; 
