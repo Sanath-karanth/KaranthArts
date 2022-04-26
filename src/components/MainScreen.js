@@ -1791,7 +1791,7 @@ const MainScreen = memo((props) => {
                               color: theme.color
                               }}
                             >
-                              <Row className='gx-0' >
+                              <Row className='gx-0'>
                               <Col xxs="12" xs="12" sm="12" md="6" lg="6" xl="6" xxl="6" xxxl="6">
                                   <div className='cardone-image' style={{boxShadow:theme.imageshadow}}>
                                     <img
@@ -1945,7 +1945,7 @@ const MainScreen = memo((props) => {
                               color: theme.color
                               }}
                             >
-                              <Row className='gx-0 cardreverse'>
+                              <Row className='gx-0'>
                               <Col xxs="12" xs="12" sm="12" md="5" lg="5" xl="5" xxl="5" xxxl="5">
                                   <div className='cardone-image' style={{boxShadow:theme.imageshadow}}>
                                     <img
@@ -2099,7 +2099,7 @@ const MainScreen = memo((props) => {
                               color: theme.color
                               }}
                             >
-                              <Row className='gx-0' >
+                              <Row className='gx-0'>
                               <Col xxs="12" xs="12" sm="12" md="6" lg="6" xl="6" xxl="6" xxxl="6">
                                   <div className='cardone-image' style={{boxShadow:theme.imageshadow}}>
                                     <img
@@ -2247,18 +2247,6 @@ const MainScreen = memo((props) => {
                   <Row className='gx-0'>
                     <Col>
                         <h2>Div gradient 10</h2>
-                    </Col>
-                  </Row>
-                </div> 
-              </Container>
-              <Container fluid >
-                <div style={{background: 'linear-gradient(90deg, #E3E7E42B 0%, #C7579A0D 23%, #F2A90007 73%, #57616400 100%)'}}>
-                  <Row className='gx-0'>
-                    <Col>
-                        <h2>Div gradient 11</h2>
-                        <h2>Div gradient 11</h2>
-                        <h2>Div gradient 11</h2>
-                        <h2>Div gradient 11</h2>
                     </Col>
                   </Row>
                 </div> 
