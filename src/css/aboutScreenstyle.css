@@ -21,9 +21,7 @@
     left: 31%;
     border: 2px solid #FFFFFF;
 }
-.cardtext-cont{
-    padding: 60px 40px 0px 40px;
-}
+
 .cardtitle-cont{
     display: flex;
     justify-content: center;
@@ -91,7 +89,9 @@
         display: flex;
         justify-content: center;
     }
-    
+    .cardtext-cont{
+        padding: 60px 20px 0px 20px;
+    }
     .card-cover-image img{
         display: block;
         object-fit: cover;
@@ -140,6 +140,9 @@
         display: flex;
         justify-content: center;
     }
+    .cardtext-cont{
+        padding: 60px 40px 0px 40px;
+    }
     .card-cover-image img{
         display: block;
         object-fit: cover;
@@ -181,6 +184,9 @@
         background-size: cover;
         display: flex;
         justify-content: center;
+    }
+    .cardtext-cont{
+        padding: 60px 40px 0px 40px;
     }
     .card-cover-image img{
         display: block;
