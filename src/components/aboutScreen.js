@@ -50,7 +50,7 @@ const AboutScreen = memo(() => {
       <div className='MainContainer'>
         <div className='SubContainer'>
           <div className='HeadContainer'>
-              <SpeedDial
+              {/* <SpeedDial
                 ariaLabel="SpeedDial basic example"
                 sx={{ position: 'fixed', bottom: 20, left: 10 }}
                 icon={<SpeedDialIcon />}
@@ -81,7 +81,7 @@ const AboutScreen = memo(() => {
                     }}
                     />
                   ))}
-              </SpeedDial>
+              </SpeedDial> */}
               <CssBaseline  />
               <HeaderScreen headerData={headertextShow} />
 
