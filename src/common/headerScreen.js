@@ -8,7 +8,6 @@ import Tooltip from '@mui/material/Tooltip';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHome, faPalette, faImage, faCircleUser, faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate  } from "react-router-dom";
-import AOS from 'aos';
 
 const HeaderScreen = memo(({headerData}) => {
     const [{theme}, toggleTheme] = useContext(ThemeContext);
@@ -24,13 +23,6 @@ const HeaderScreen = memo(({headerData}) => {
       navigate("/about", { state: {navigationcontent: 'about'}});
     }
 
-    useEffect(() => {
-      AOS.init({
-          easing: 'ease-out-back',
-          once: false,
-      });
-      AOS.refresh();
-    }, []);
 
   return (
     <React.Fragment>
@@ -41,9 +33,7 @@ const HeaderScreen = memo(({headerData}) => {
                 bg={theme.headercolor} 
                 variant={theme.headercolor}>
           <Container fluid>
-          <Navbar.Brand className='artanimation' 
-                        data-aos='flip-right'
-                        data-aos-duration={3000} >
+          <Navbar.Brand className='artanimation'>
             <span className='word' style={{color:theme.headerheadtextcolor}}>ART</span>{' '} 
             <span className='word' style={{color:theme.headerheadtextcolor}}>GALLERY</span>
           </Navbar.Brand>
