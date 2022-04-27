@@ -22,10 +22,14 @@ const HeaderScreen = memo(({headerData}) => {
     const aboutClick = () => {
       navigate("/about", { state: {navigationcontent: 'about'}});
     }
+    const feedbackClick = () => {
+      navigate("/feedback", { state: {navigationcontent: 'about'}});
+    }
 
 
   return (
     <React.Fragment>
+    { headerData === undefined ? 
         <Navbar  
                 expand="lg"
                 sticky="top"
@@ -46,51 +50,32 @@ const HeaderScreen = memo(({headerData}) => {
                     <FontAwesomeIcon icon={faHome} color={theme.headericoncolor} />{' '}Home
                 </Nav.Link>
               </Tooltip>
-              { headerData === 'about' ? 
-                null
-              :
+
               <Tooltip title="Portrait Sketchings">
-                  <Nav.Link onClick={portraitClick} className='navtext'>
-                    <FontAwesomeIcon icon={faPalette} color={theme.headericoncolor} />{' '}Portrait Sketchings
-                  </Nav.Link>
-                </Tooltip>
-              }
+                <Nav.Link onClick={portraitClick} className='navtext'>
+                  <FontAwesomeIcon icon={faPalette} color={theme.headericoncolor} />{' '}Portrait Sketchings
+                </Nav.Link>
+              </Tooltip>
 
-              { headerData === 'about' ? 
-                null
-              :
               <Tooltip title="Photography">
-                  <Nav.Link onClick={photographyClick} className='navtext'>
-                    <FontAwesomeIcon icon={faImage} color={theme.headericoncolor} />{' '}Photography
-                  </Nav.Link>
-                </Tooltip>
-              }
+                <Nav.Link onClick={photographyClick} className='navtext'>
+                  <FontAwesomeIcon icon={faImage} color={theme.headericoncolor} />{' '}Photography
+                </Nav.Link>
+              </Tooltip>
 
-              { headerData === 'about' ? 
-                null
-              :
               <Tooltip title="About">
-                  <Nav.Link onClick={aboutClick} className='navtext'>
-                    <FontAwesomeIcon icon={faCircleUser} color={theme.headericoncolor} />{' '}About
-                  </Nav.Link>
-                </Tooltip>
-              }
+                <Nav.Link onClick={aboutClick} className='navtext'>
+                  <FontAwesomeIcon icon={faCircleUser} color={theme.headericoncolor} />{' '}About
+                </Nav.Link>
+              </Tooltip>
              
             </Nav>
             <Nav>
-              { headerData === 'about' ?  
               <Tooltip title="Feedback">
-                <Nav.Link href="#features" className='navtext' style={{paddingRight:20}}>
+                <Nav.Link onClick={feedbackClick} className='navtext' style={{paddingRight:20}}>
                   <FontAwesomeIcon icon={faPenToSquare} size="lg" color={theme.headericoncolor} />{' '}Feedback
                 </Nav.Link>
               </Tooltip>
-              :
-              <Tooltip title="Feedback">
-                <Nav.Link href="#features" className='navtext' style={{paddingRight:20}}>
-                  <FontAwesomeIcon icon={faPenToSquare} size="lg" color={theme.headericoncolor} />{' '}Feedback
-                </Nav.Link>
-              </Tooltip> 
-              }
               <IconButton
                   style={{justifyContent:'flex-start'}}
                   edge='start'
@@ -104,6 +89,99 @@ const HeaderScreen = memo(({headerData}) => {
           </Navbar.Collapse>
           </Container>
         </Navbar>
+        : null 
+        }
+
+  { headerData === 'about' ? 
+        <Navbar  
+                expand="lg"
+                sticky="top"
+                className='p-3'
+                bg={theme.headercolor} 
+                variant={theme.headercolor}>
+          <Container fluid>
+          <Navbar.Brand className='artanimation'>
+            <span className='word' style={{color:theme.headerheadtextcolor}}>ART</span>{' '} 
+            <span className='word' style={{color:theme.headerheadtextcolor}}>GALLERY</span>
+          </Navbar.Brand>
+          
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav className="me-auto">
+              <Tooltip title="Home">
+                <Nav.Link onClick={homeClick} className='navtext' active>
+                    <FontAwesomeIcon icon={faHome} color={theme.headericoncolor} />{' '}Home
+                </Nav.Link>
+              </Tooltip>
+             
+            </Nav>
+            <Nav>
+              <Tooltip title="Feedback">
+                <Nav.Link onClick={feedbackClick} className='navtext' style={{paddingRight:20}}>
+                  <FontAwesomeIcon icon={faPenToSquare} size="lg" color={theme.headericoncolor} />{' '}Feedback
+                </Nav.Link>
+              </Tooltip>
+              <IconButton
+                  style={{justifyContent:'flex-start'}}
+                  edge='start'
+                  color="inherit">
+                <ToggleButton
+                          className="mr-2" 
+                          onChange={toggleTheme}>
+                </ToggleButton>
+              </IconButton>
+            </Nav>
+          </Navbar.Collapse>
+          </Container>
+        </Navbar>
+        : null 
+        }
+
+    { headerData === 'feedback' ? 
+        <Navbar  
+                expand="lg"
+                sticky="top"
+                className='p-3'
+                bg={theme.headercolor} 
+                variant={theme.headercolor}>
+          <Container fluid>
+          <Navbar.Brand className='artanimation'>
+            <span className='word' style={{color:theme.headerheadtextcolor}}>ART</span>{' '} 
+            <span className='word' style={{color:theme.headerheadtextcolor}}>GALLERY</span>
+          </Navbar.Brand>
+          
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav className="me-auto">
+              <Tooltip title="Home">
+                <Nav.Link onClick={homeClick} className='navtext' active>
+                    <FontAwesomeIcon icon={faHome} color={theme.headericoncolor} />{' '}Home
+                </Nav.Link>
+              </Tooltip>
+
+              <Tooltip title="About">
+                <Nav.Link onClick={aboutClick} className='navtext'>
+                  <FontAwesomeIcon icon={faCircleUser} color={theme.headericoncolor} />{' '}About
+                </Nav.Link>
+              </Tooltip>
+             
+            </Nav>
+            <Nav>
+              <IconButton
+                  style={{justifyContent:'flex-start'}}
+                  edge='start'
+                  color="inherit">
+                <ToggleButton
+                          className="mr-2" 
+                          onChange={toggleTheme}>
+                </ToggleButton>
+              </IconButton>
+            </Nav>
+          </Navbar.Collapse>
+          </Container>
+        </Navbar>
+        : null 
+        }
     </React.Fragment>
   )
 })

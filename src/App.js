@@ -7,15 +7,17 @@ import {
   Route,
   useRoutes,
 } from "react-router-dom";
-// import { AuthProvider } from "./contexts/AuthContext"
+import { AuthProvider } from "./contexts/AuthContext"
 import MainPage from './components/MainScreen';
 import AboutPage from './components/aboutScreen';
+import FeedbackPage from './components/feedbackScreen';
 import DemoPage from './components/demo';
 
 const App = () => {
   let routes = useRoutes([
     { path: "/", element: <MainPage /> },
     { path: "/about", element: <AboutPage /> },
+    { path: "/feedback", element: <FeedbackPage /> },
     { path: "/demo", element: <DemoPage /> },
     
   ]);
@@ -25,7 +27,9 @@ const App = () => {
 const AppWrapper = () => {
   return (
     <Router>
-      <App />
+      <AuthProvider>
+        <App />
+      </AuthProvider>
     </Router>
   );
 };
