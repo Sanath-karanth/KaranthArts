@@ -3,12 +3,12 @@ import '../css/headerstyle.css';
 import { ThemeContext } from '../contexts/themeContext';
 import { Container, Navbar, Nav } from 'react-bootstrap';
 import  ToggleButton  from '../common/toggleButton';
-import {headerTextAnimation} from '../common/textAnimations';
 import { IconButton } from '@mui/material';
 import Tooltip from '@mui/material/Tooltip';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHome, faPalette, faImage, faCircleUser, faPenToSquare } from '@fortawesome/free-solid-svg-icons'
-import { Link,useNavigate  } from "react-router-dom";
+import { useNavigate  } from "react-router-dom";
+import AOS from 'aos';
 
 const HeaderScreen = memo(({headerData}) => {
     const [{theme}, toggleTheme] = useContext(ThemeContext);
@@ -24,8 +24,12 @@ const HeaderScreen = memo(({headerData}) => {
       navigate("/about", { state: {navigationcontent: 'about'}});
     }
 
-  useEffect(() => {
-    headerTextAnimation();
+    useEffect(() => {
+      AOS.init({
+          easing: 'ease-out-back',
+          once: false,
+      });
+      AOS.refresh();
     }, []);
 
   return (
@@ -37,7 +41,9 @@ const HeaderScreen = memo(({headerData}) => {
                 bg={theme.headercolor} 
                 variant={theme.headercolor}>
           <Container fluid>
-          <Navbar.Brand className='artanimation'>
+          <Navbar.Brand className='artanimation' 
+                        data-aos='flip-right'
+                        data-aos-duration={3000} >
             <span className='word' style={{color:theme.headerheadtextcolor}}>ART</span>{' '} 
             <span className='word' style={{color:theme.headerheadtextcolor}}>GALLERY</span>
           </Navbar.Brand>

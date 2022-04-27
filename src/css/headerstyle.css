@@ -99,18 +99,16 @@
 
 
 .artanimation {
-  letter-spacing: 0.2em;
+  display: inline-block;
   animation-iteration-count: 10;
-  font-size: 18px;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: bolder;
 }
 
-.artanimation .word {
-  display: inline-block;
+.artanimation span {
+  letter-spacing: 0.2em;
   line-height: 1em;
   font-size: 18px;
   font-family: 'Montserrat', sans-serif;
+  font-weight: bolder;
 }
 .navtext {
   font-size: 15px;

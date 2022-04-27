@@ -47,10 +47,10 @@ const AboutScreen = memo(() => {
 
   return (
     <Fragment>
-      <div className='MainContainer'>
-        <div className='SubContainer'>
-          <div className='HeadContainer'>
-              {/* <SpeedDial
+      <div className='MainContainer-about'>
+        <div className='SubContainer-about'>
+          <div className='HeadContainer-about'>
+              <SpeedDial
                 ariaLabel="SpeedDial basic example"
                 sx={{ position: 'fixed', bottom: 20, left: 10 }}
                 icon={<SpeedDialIcon />}
@@ -81,7 +81,7 @@ const AboutScreen = memo(() => {
                     }}
                     />
                   ))}
-              </SpeedDial> */}
+              </SpeedDial>
               <CssBaseline  />
               <HeaderScreen headerData={headertextShow} />
 
