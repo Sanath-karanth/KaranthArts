@@ -10,14 +10,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHome, faPalette, faImage, faCircleUser, faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 import { Link,useNavigate  } from "react-router-dom";
 
-const HeaderScreen = memo((props) => {
+const HeaderScreen = memo(({headerData}) => {
     const [{theme}, toggleTheme] = useContext(ThemeContext);
     const navigate  = useNavigate();
+    console.log('headerdata ',headerData);
 
     const homeClick = () => {
+      navigate("/");
       let scrolltohometext = document.getElementById('back-to-top-anchor');
       scrolltohometext.scrollIntoView({behavior:'smooth'})
-      navigate("/");
+    }
+    const aboutClick = () => {
+      navigate("/about", { state: {navigationcontent: 'about'}});
     }
 
   useEffect(() => {
@@ -46,32 +50,51 @@ const HeaderScreen = memo((props) => {
                     <FontAwesomeIcon icon={faHome} color={theme.headericoncolor} />{' '}Home
                 </Nav.Link>
               </Tooltip>
-
+              { headerData === 'about' ? 
+                null
+              :
               <Tooltip title="Portrait Sketchings">
-                <Nav.Link onClick={portraitClick} className='navtext'>
-                  <FontAwesomeIcon icon={faPalette} color={theme.headericoncolor} />{' '}Portrait Sketchings
-                </Nav.Link>
-              </Tooltip>
+                  <Nav.Link onClick={portraitClick} className='navtext'>
+                    <FontAwesomeIcon icon={faPalette} color={theme.headericoncolor} />{' '}Portrait Sketchings
+                  </Nav.Link>
+                </Tooltip>
+              }
 
+              { headerData === 'about' ? 
+                null
+              :
               <Tooltip title="Photography">
-                <Nav.Link onClick={photographyClick} className='navtext'>
-                  <FontAwesomeIcon icon={faImage} color={theme.headericoncolor} />{' '}Photography
-                </Nav.Link>
-              </Tooltip>
+                  <Nav.Link onClick={photographyClick} className='navtext'>
+                    <FontAwesomeIcon icon={faImage} color={theme.headericoncolor} />{' '}Photography
+                  </Nav.Link>
+                </Tooltip>
+              }
 
+              { headerData === 'about' ? 
+                null
+              :
               <Tooltip title="About">
-                <Nav.Link onClick={portraitClick} className='navtext'>
-                  <FontAwesomeIcon icon={faCircleUser} color={theme.headericoncolor} />{' '}About
-                </Nav.Link>
-              </Tooltip>
+                  <Nav.Link onClick={aboutClick} className='navtext'>
+                    <FontAwesomeIcon icon={faCircleUser} color={theme.headericoncolor} />{' '}About
+                  </Nav.Link>
+                </Tooltip>
+              }
              
             </Nav>
             <Nav>
+              { headerData === 'about' ?  
               <Tooltip title="Feedback">
                 <Nav.Link href="#features" className='navtext' style={{paddingRight:20}}>
                   <FontAwesomeIcon icon={faPenToSquare} size="lg" color={theme.headericoncolor} />{' '}Feedback
                 </Nav.Link>
               </Tooltip>
+              :
+              <Tooltip title="Feedback">
+                <Nav.Link href="#features" className='navtext' style={{paddingRight:20}}>
+                  <FontAwesomeIcon icon={faPenToSquare} size="lg" color={theme.headericoncolor} />{' '}Feedback
+                </Nav.Link>
+              </Tooltip> 
+              }
               <IconButton
                   style={{justifyContent:'flex-start'}}
                   edge='start'

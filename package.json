@@ -32,7 +32,9 @@
     "react-router-dom": "^6.2.2",
     "react-scripts": "^5.0.0",
     "react-stars": "^2.2.5",
+    "react-vanilla-tilt": "^1.0.0",
     "styled-components": "^5.3.3",
+    "vanilla-tilt": "^1.7.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

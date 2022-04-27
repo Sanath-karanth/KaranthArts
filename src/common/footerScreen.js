@@ -90,17 +90,17 @@ const FooterScreen = memo(() => {
             <Row className="gx-0">
                 <div className="social-icons-container">
                     <div className='icon-cont'>
-                        <a href="http://www.gmail.com" target="_blank">
+                        <a href="http://www.gmail.com" target="_blank" rel="noopener noreferrer">
                             <i className="fa fa-google-plus socialicon" style={{color:theme.footericoncolor}}></i>
                         </a>
                     </div>
                     <div className='icon-cont'>
-                        <a href="http://www.facebook.com" target="_blank">
+                        <a href="http://www.facebook.com" target="_blank" rel="noopener noreferrer">
                             <i className="fa fa-facebook socialicon" style={{color:theme.footericoncolor}}></i>
                         </a>
                     </div>
                     <div className='icon-cont'>
-                        <a href="http://www.linkedin.com" target="_blank">
+                        <a href="http://www.linkedin.com" target="_blank" rel="noopener noreferrer">
                             <i className="fa fa-linkedin-square socialicon" style={{color:theme.footericoncolor}}></i>
                         </a>
                     </div>

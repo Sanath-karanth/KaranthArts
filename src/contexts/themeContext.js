@@ -3,6 +3,7 @@ import { createContext, useState, useEffect } from "react";
 const themes = {
     dark: {
         backgroundColor: "black",
+        backgroundColorreverse: "white",
         color:"white",
         headercolor:'dark',
         headericoncolor:'#61DBFB',
@@ -24,10 +25,15 @@ const themes = {
         bordercoloraqua:'aqua',
         bordercolorpurple:'#800080',
         bordercolormaroon:'#800000',
-        imageshadow:'0px 0px white,0px 0px white,0 0 10px 5px #fff,0 0 10px 5px #fff'
+        imageshadow:'0px 0px white,0px 0px white,0 0 10px 5px #fff,0 0 10px 5px #fff',
+        aboutgradient:'0 4px 8px 0 #FFFFFF, 0 6px 20px 0 #FFFFFF',
+        abouticoncolor:'#61DBFB',
+        aboutsocialiconcolor:'#61DBFB',
+        textShadow:'2px 2px 4px #FFFFFF'
     },
     light: {
         backgroundColor: "#FFFFFF",
+        backgroundColorreverse: "black",
         color:"black",
         headercolor:'light',
         headericoncolor:'#4c768d',
@@ -49,7 +55,11 @@ const themes = {
         bordercoloraqua:'linear-gradient(to right, #4CB8C4 0%, #93F9B9 100%)',
         bordercolorpurple:'#800080',
         bordercolormaroon:'#800000',
-        imageshadow:'0px 0px white,0px 0px white,0 0 20px 5px #C0C0C0,0 0 20px 5px #C0C0C0'
+        imageshadow:'0px 0px white,0px 0px white,0 0 20px 5px #C0C0C0,0 0 20px 5px #C0C0C0',
+        aboutgradient:'0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)',
+        abouticoncolor:'black',
+        aboutsocialiconcolor:'#FFFFFF',
+        textShadow:'2px 2px 4px #000000'
     },
 };
 
