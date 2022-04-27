@@ -90,13 +90,14 @@ const AboutScreen = memo(() => {
               <div className='MainAbout-cont' 
                    style={{
                         backgroundColor:theme.backgroundColor, 
-                        color: theme.color,
+                        // color: theme.color,
                         backgroundImage: "url('./images/a5.jpg')"
                       }}
                    >
 
                   <div className='cardcontent' 
-                       style={{boxShadow: theme.aboutgradient, color: theme.color}}>
+                       style={{boxShadow: theme.aboutgradient}}
+                       >
                     <div className='card-cover-image'>
                       <img
                           src='./images/Sanathprofile2.jpg'

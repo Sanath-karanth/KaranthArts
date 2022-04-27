@@ -27,7 +27,7 @@ const themes = {
         bordercolormaroon:'#800000',
         imageshadow:'0px 0px white,0px 0px white,0 0 10px 5px #fff,0 0 10px 5px #fff',
         aboutgradient:'0 4px 8px 0 #FFFFFF, 0 6px 20px 0 #FFFFFF',
-        abouticoncolor:'#61DBFB',
+        abouticoncolor:'black',
         aboutsocialiconcolor:'#61DBFB',
         textShadow:'2px 2px 4px #FFFFFF'
     },
