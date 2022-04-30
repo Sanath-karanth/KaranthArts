@@ -697,7 +697,6 @@
 @media (min-width: 1367px) {
     .HeadContainer{
         margin: 0 auto;
-        background-color:rgb(231, 31, 31);
         max-width: 1300px;
         height: fit-content;
     }

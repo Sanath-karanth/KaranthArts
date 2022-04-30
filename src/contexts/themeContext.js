@@ -33,7 +33,7 @@ const themes = {
     },
     light: {
         backgroundColor: "#FFFFFF",
-        backgroundColorother: "#CECECE",
+        backgroundColorother: "#f5f5f5",
         color:"black",
         headercolor:'light',
         headericoncolor:'#4c768d',

@@ -6,7 +6,7 @@ import  ToggleButton  from '../common/toggleButton';
 import { IconButton } from '@mui/material';
 import Tooltip from '@mui/material/Tooltip';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHome, faPalette, faImage, faCircleUser, faPenToSquare } from '@fortawesome/free-solid-svg-icons'
+import { faHome, faPalette, faImage, faCircleUser, faPenToSquare, faStar } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate  } from "react-router-dom";
 
 const HeaderScreen = memo(({headerData}) => {
@@ -23,9 +23,11 @@ const HeaderScreen = memo(({headerData}) => {
       navigate("/about", { state: {navigationcontent: 'about'}});
     }
     const feedbackClick = () => {
-      navigate("/feedback", { state: {navigationcontent: 'about'}});
+      navigate("/feedback", { state: {navigationcontent: 'feedback'}});
     }
-
+    const reviewClick = () => {
+      navigate("/review", { state: {navigationcontent: 'review'}});
+    }
 
   return (
     <React.Fragment>
@@ -113,7 +115,12 @@ const HeaderScreen = memo(({headerData}) => {
                     <FontAwesomeIcon icon={faHome} color={theme.headericoncolor} />{' '}Home
                 </Nav.Link>
               </Tooltip>
-             
+
+              <Tooltip title="Reviews">
+                <Nav.Link onClick={reviewClick} className='navtext' active>
+                    <FontAwesomeIcon icon={faStar} color={theme.headericoncolor} />{' '}Reviews
+                </Nav.Link>
+              </Tooltip>
             </Nav>
             <Nav>
               <Tooltip title="Feedback">

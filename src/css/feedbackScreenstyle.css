@@ -20,22 +20,26 @@
     text-align: left;
     letter-spacing: 0px;
     opacity: 1;
+    margin: 0;
 }
 .ratechange {
     font-size: 20px;
     font-family: 'Montserrat', sans-serif;
     font-weight: bolder;
+    margin: 0;
   }
 
   .ratefixed {
     font-size: 16px;
     font-family: 'Montserrat', sans-serif;
+    margin: 0;
   }
 
   .errortext {
     font-size: 14px;
     font-family: 'Montserrat', sans-serif;
     color: red;
+    margin: 0;
   }
 
   .emptydataerr{
@@ -43,6 +47,7 @@
     font-family: 'Montserrat', sans-serif;
     color: red;
     text-align-last:center;
+    margin: 0;
   }
 .rating-cont{
     width: 100%;
@@ -66,6 +71,7 @@
         opacity: 1;
         padding-top: 4px;
         padding-right: 5px;
+        margin: 0;
     }
       #placeholdertext {
         font-size: 14px;
@@ -73,6 +79,7 @@
         text-align: left;
         letter-spacing: 0px;
         opacity: 1;
+        margin: 0;
       } 
 }
 
@@ -97,6 +104,7 @@
         opacity: 1;
         padding-top: 4px;
         padding-right: 5px;
+        margin: 0;
       }
       #placeholdertext {
         font-size: 16px;
@@ -104,6 +112,7 @@
         text-align: left;
         letter-spacing: 0px;
         opacity: 1;
+        margin: 0;
       }  
     
 }
@@ -123,6 +132,7 @@
         opacity: 1;
         padding-top: 4px;
         padding-right: 5px;
+        margin: 0;
     }
     #placeholdertext {
         font-size: 16px;
@@ -130,6 +140,7 @@
         text-align: left;
         letter-spacing: 0px;
         opacity: 1;
+        margin: 0;
     } 
 }
 

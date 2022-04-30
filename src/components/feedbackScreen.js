@@ -170,7 +170,7 @@ const FeedbackScreen = memo(() => {
                     <Col xxs="12" xs="12" sm="8" md="6" lg="6" xl="4" xxl="4" xxxl="4">
                         <div className='feedbackMain-cont'>
                             <Card 
-                                className='feedback-card-cont mt-3 p-2' 
+                                className='review-card-cont mt-3 p-2 shadow-lg' 
                                 style={{
                                     backgroundColor:theme.cardbgColor, 
                                     color: theme.color}}
@@ -245,7 +245,7 @@ const FeedbackScreen = memo(() => {
                                             count={5}
                                             value={rate}
                                             onChange={ratingChange}
-                                            size={30}
+                                            size={10}
                                             color={'#ffd700'} />
                                     </Form.Group>
                                     
