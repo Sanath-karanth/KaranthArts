@@ -178,14 +178,14 @@ useEffect(() => {
                                     color: theme.color}}>
                                 <Card.Body>
                                   <Row>
-                                    <Col xs="3" sm="2" md="2" lg="2" xl="2" xxl="2" xxxl="2">
+                                    <Col xs="2" sm="2" md="2" lg="2" xl="2" xxl="2" xxxl="2">
                                       <Avatar id='avatarContent' style={{
                                               backgroundColor: randomColor()
                                             }}>
                                           <p>{item?.username ?.charAt(0) || "UN"}</p>
                                       </Avatar>
                                     </Col>
-                                    <Col xs="9" sm="10" md="10" lg="10" xl="10" xxl="10" xxxl="10">
+                                    <Col xs="10" sm="10" md="10" lg="10" xl="10" xxl="10" xxxl="10">
                                       <div className='reviewcard-header-cont'>
                                             <div className='reviewcard-title'>
                                               <h3>{item.username}</h3>

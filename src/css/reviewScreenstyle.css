@@ -35,10 +35,11 @@
     .reviewcard-header-cont{
         width: 100%;
         height: fit-content;
+        padding-left: 4px;
     }
     #avatarContent{
-        height: 45px;
-        width: 45px;
+        height: 40px;
+        width: 40px;
     }
     #avatarContent p {
         text-transform: capitalize;
