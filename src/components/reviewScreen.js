@@ -158,7 +158,8 @@ useEffect(() => {
                        style={{
                            backgroundColor:theme.backgroundColorother, 
                            color: theme.color,
-                           overflow: 'hidden'
+                           overflow: 'hidden',
+                           paddingBottom:'60px'
                            }}>
                 <div className='reviewcard-header' onClick={backClick}>
                   <FontAwesomeIcon icon={faAngleLeft} size="lg" />
