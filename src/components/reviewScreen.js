@@ -197,6 +197,7 @@ useEffect(() => {
                                                   count={5}
                                                   value={item.rating}
                                                   size={25}
+                                                  edit={false}
                                                   color={'#ffd700'}>
                                               </ReactStars>
                                               <p className='review-rating-number'>{item.rating}</p>
