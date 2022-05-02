@@ -14,24 +14,23 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHome, faPalette, 
          faImage, faCircleUser, 
          faPenToSquare, faSun, 
-         faMoon, faEnvelope,
+         faMoon, faAngleLeft,
          faPhone, faGlobe,
          faLocationDot} from '@fortawesome/free-solid-svg-icons'
 import Avatar from '@mui/material/Avatar';
 import Divider from '@mui/material/Divider';
 import { deepOrange, deepPurple } from '@mui/material/colors';
-import { fontFamily } from '@mui/system';
+import { fontFamily, height } from '@mui/system';
 
 const ReviewScreen = memo(() => {
 
   const [headertextShow,setHeadertextShow] = useState('feedback');
   const navigate  = useNavigate();
-  const { createdata } = useAuth();
+  const { getAlldata, createdata, deletedata } = useAuth();
   const [{theme, isDark}, toggleTheme] = useContext(ThemeContext);
-  const [usernameval, setUsernameval] = useState('');
-  const [feedbackval, setFeedbackval] = useState('');
-  const [alertshowsuccess, setAlertshowsuccess] = useState(false);
-  const [alertshowfail, setAlertshowfail] = useState(false);
+  const [carddatavalues,setCarddatavalues] = useState([]);
+  const [tablevalues,setTablevalues] = useState([]);
+  const [tablenull,setTablenull] = useState(false);
   const [rate,setRate] = useState(5);
   var interval = null;
 
@@ -63,40 +62,54 @@ const ReviewScreen = memo(() => {
     navigate("/feedback");
   }
 
-  function stringToColor(string) {
-    let hash = 0;
-    let i;
-  
-    /* eslint-disable no-bitwise */
-    for (i = 0; i < string.length; i += 1) {
-      hash = string.charCodeAt(i) + ((hash << 5) - hash);
-    }
-  
-    let color = '#';
-  
-    for (i = 0; i < 3; i += 1) {
-      const value = (hash >> (i * 8)) & 0xff;
-      color += `00${value.toString(16)}`.slice(-2);
-    }
-    /* eslint-enable no-bitwise */
+
+  function randomColor() {
+    let hex = Math.floor(Math.random() * 0xFFFFFF);
+    let color = "#" + hex.toString(16);
   
     return color;
   }
-  
-  function stringAvatar(name) {
-    return {
-      sx: {
-        bgcolor: stringToColor(name),
-        height: '50px',
-        width: '50px',
-        fontSize: '30px',
-        fontFamily: '"Montserrat", sans-serif'
-      },
-      children: `${name.split(' ')[0][0]}`,
-    };
-  }
 
-  const nameofsanath = 'S'
+  const backClick = () => {
+    navigate(-1);
+}
+
+const reviewData = async() => {
+  try {
+    getAlldata('feedbackdata').on('value', snapshot => {
+     if (snapshot.val() != null) 
+     {
+      setTablenull(false);
+       let mainarr = [];
+       snapshot.forEach((item) => {
+        let dbkey = item.key;
+        let data = item.val();
+        mainarr.push({
+          dbkey: dbkey,
+          uniqueID:data.uniqueID,
+          username: data.usernameval,
+          rating:data.rate,
+          feedback: data.feedbackval,
+          feedbackdate: data.feedbackdate,
+        });
+      });
+
+      setCarddatavalues(mainarr);
+       console.log("mail arr  ",mainarr);
+      }
+      else
+      {
+          setTablenull(true);
+      }  
+   })
+ } catch(err) {
+   console.log(err)
+ }
+};
+
+useEffect(() => {
+  reviewData();
+},[]);
 
   return (
     <Fragment>
@@ -136,7 +149,8 @@ const ReviewScreen = memo(() => {
                     ))}
                 </SpeedDial>
                 <CssBaseline  />
-                <HeaderScreen headerData={headertextShow} />
+                {/* <HeaderScreen headerData={headertextShow} /> */}
+                
 
               {/* ---------    main div   ----------- */}
 
@@ -146,55 +160,74 @@ const ReviewScreen = memo(() => {
                            color: theme.color,
                            overflow: 'hidden'
                            }}>
-                <Row>
-                  <Col xxs="0" xs="0" sm="2" md="2" lg="2" xl="3" xxl="4" xxxl="4"></Col>
-                  <Col xxs="12" xs="12" sm="8" md="8" lg="8" xl="6" xxl="4" xxxl="4">
-                    <div className='reviewMain-cont'>
-                      <Card 
-                          className='feedback-card-cont mt-3 mb-3 p-2 shadow-lg' 
-                          style={{
-                              backgroundColor:theme.cardbgColor, 
-                              color: theme.color}}>
-                          <Card.Body>
-                            <Row>
-                              <Col xxs="1" xs="1" sm="1" md="1" lg="1" xl="1" xxl="2" xxxl="2">
-                                <Avatar {...stringAvatar(nameofsanath)}></Avatar>
-                              </Col>
-                              <Col xxs="8" xs="8" sm="8" md="8" lg="8" xl="8" xxl="8" xxxl="8">
-                                <div className='reviewcard-header-cont'>
-                                      <div className='reviewcard-title'>
-                                        <h3>Sanath</h3>
-                                      </div>
-                                      
-                                      <span style={{display:'flex',flexDirection:'row'}}>
-                                        <ReactStars
-                                            count={5}
-                                            value={5}
-                                            size={25}
-                                            color={'#ffd700'}>
-                                        </ReactStars>
-                                        <p className='review-rating-number'>2</p>
-                                      </span>
-                                </div>
-                              </Col>
-                              <Col xxs="3" xs="3" sm="3" md="3" lg="3" xl="3" xxl="2" xxxl="2">
-                                <div className='reviewcard-date-cont'>
-                                  <p>05-05-2022</p>
-                                </div>
-                              </Col>
-                            </Row>
-                            {/* <Divider variant="inset" /> */}
-                            <p style={{paddingTop:'20px'}}>
-                                The system prop that allows defining system overrides as well as additional CSS styles.
-                            </p>
-                          </Card.Body>
-                      </Card>
-                    </div>
+                <div className='reviewcard-header' onClick={backClick}>
+                  <FontAwesomeIcon icon={faAngleLeft} size="lg" />
+                </div>
+                {tablenull ? <p className='emptydataerr'>There is no Data!!</p> : null }
+                { carddatavalues.map((item,key) => {
+                  return(
+                    <Fragment key={key}>
+                      <Row>
+                        <Col xs="0" sm="2" md="2" lg="2" xl="3" xxl="4" xxxl="4"></Col>
+                        <Col xs="12" sm="8" md="8" lg="8" xl="6" xxl="4" xxxl="4">
+                          <div className='reviewMain-cont'>
+                            <Card 
+                                className='mt-3 mb-3 p-2 shadow-lg' 
+                                style={{
+                                    backgroundColor:theme.cardbgColor, 
+                                    color: theme.color}}>
+                                <Card.Body>
+                                  <Row>
+                                    <Col xs="3" sm="2" md="2" lg="2" xl="2" xxl="2" xxxl="2">
+                                      <Avatar id='avatarContent' style={{
+                                              backgroundColor: randomColor()
+                                            }}>
+                                          <p>{item?.username ?.charAt(0) || "UN"}</p>
+                                      </Avatar>
+                                    </Col>
+                                    <Col xs="9" sm="10" md="10" lg="10" xl="10" xxl="10" xxxl="10">
+                                      <div className='reviewcard-header-cont'>
+                                            <div className='reviewcard-title'>
+                                              <h3>{item.username}</h3>
+                                            </div>
+                                            
+                                            <span style={{display:'flex',flexDirection:'row'}}>
+                                              <ReactStars
+                                                  count={5}
+                                                  value={item.rating}
+                                                  size={25}
+                                                  color={'#ffd700'}>
+                                              </ReactStars>
+                                              <p className='review-rating-number'>{item.rating}</p>
+                                            </span>
 
-                    
-                  </Col>
-                  <Col xxs="0" xs="0" sm="2" md="2" lg="2" xl="3" xxl="4" xxxl="4"></Col>
-                </Row>
+                                            <div className='reviewcard-date-cont'>
+                                              <p>{item.feedbackdate}</p>
+                                            </div>
+                                      </div>
+                                    </Col>
+                                  </Row>
+                                  {/* <Divider variant="inset" /> */}
+                                  <Row>
+                                    <Col>
+                                      <div className='reviewcard-feedback-decription'>
+                                        <p style={{paddingTop:'20px'}}>
+                                          {item.feedback}
+                                        </p>
+                                      </div>
+                                    </Col>
+                                  </Row>
+                                </Card.Body>
+                            </Card>
+                          </div>
+
+                          
+                        </Col>
+                        <Col xs="0" sm="2" md="2" lg="2" xl="3" xxl="4" xxxl="4"></Col>
+                      </Row>
+                    </Fragment>
+                  )
+                })}
               </Container>
 
               {/* ---------    main div closes  ----------- */}

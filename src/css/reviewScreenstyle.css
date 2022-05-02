@@ -1,17 +1,25 @@
 
 /* --------------    parent container styles    ------------------- */
 
-.reviewMain-cont{
-    /* min-height: 100vh; */
-    width: 100%;
+.reviewcard-header{
     display: flex;
-    justify-content: center;
+    width: 100%;
+    padding: 30px 30px 0px 30px;
 }
 .review-card-cont{
     width: 100%;
     height: fit-content;
 }
-
+.reviewcard-feedback-decription{
+    width: 100%;
+    height: fit-content;
+}
+.emptydataerr{
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+    color: red;
+    margin: 0;
+}
 
 /* Mobile View */
 @media (max-width: 767px) {
@@ -20,7 +28,67 @@
         max-width: 1280px;
         height: fit-content;
     }
-    
+    .reviewMain-cont{
+        width: 100%;
+        padding: 0px 10px 0px 10px;
+    }
+    .reviewcard-header-cont{
+        width: 100%;
+        height: fit-content;
+    }
+    #avatarContent{
+        height: 45px;
+        width: 45px;
+    }
+    #avatarContent p {
+        text-transform: capitalize;
+        font-size: 26px;
+        font-family: 'Montserrat', sans-serif;
+        margin: 0;
+    }
+    .reviewcard-title{
+        width: 100%;
+        height: fit-content;
+    }
+    .reviewcard-title h3{
+        text-transform: capitalize;
+        font-size: 18px;
+        font-family: 'Montserrat', sans-serif;
+        text-align: left;
+        letter-spacing: 0px;
+        opacity: 1;
+        margin: 0;
+    }
+    .review-rating-number{
+        font-size: 14px;
+        font-family: 'Montserrat', sans-serif;
+        text-align: left;
+        letter-spacing: 0px;
+        opacity: 1;
+        margin: 0;
+        padding-top: 10px;
+        padding-left: 8px;
+    }
+    .reviewcard-date-cont{
+        width: 100%;
+        height: fit-content;
+    }
+    .reviewcard-date-cont p{
+        font-size: 10px;
+        font-family: 'Montserrat', sans-serif;
+        text-align: left;
+        letter-spacing: 0px;
+        opacity: 1;
+        margin: 0;
+    }
+    .reviewcard-feedback-decription p{
+        font-size: 12px;
+        font-family: 'Montserrat', sans-serif;
+        text-align: left;
+        letter-spacing: 0px;
+        opacity: 1;
+        margin: 0;
+    }
 }
 
 
@@ -30,13 +98,73 @@
     .MainContainer-review{
         width: 100%;
         height: fit-content;
+    }
+    .reviewMain-cont{
+        width: 100%;
+        padding: 0px 20px 0px 20px;
     }    
     .HeadContainer-review{
         margin: 0 auto;
         max-width: 1280px;
         height: fit-content;
     }
-    
+    .reviewcard-header-cont{
+        width: 100%;
+        height: fit-content;
+    }
+    #avatarContent{
+        height: 50px;
+        width: 50px;
+    }
+    #avatarContent p {
+        text-transform: capitalize;
+        font-size: 30px;
+        font-family: 'Montserrat', sans-serif;
+        margin: 0;
+    }
+    .reviewcard-title{
+        width: 100%;
+        height: fit-content;
+    }
+    .reviewcard-title h3{
+        text-transform: capitalize;
+        font-size: 24px;
+        font-family: 'Montserrat', sans-serif;
+        text-align: left;
+        letter-spacing: 0px;
+        opacity: 1;
+        margin: 0;
+    }
+    .review-rating-number{
+        font-size: 16px;
+        font-family: 'Montserrat', sans-serif;
+        text-align: left;
+        letter-spacing: 0px;
+        opacity: 1;
+        margin: 0;
+        padding-top: 8px;
+        padding-left: 8px;
+    }
+    .reviewcard-date-cont{
+        width: 100%;
+        height: fit-content;
+    }
+    .reviewcard-date-cont p{
+        font-size: 12px;
+        font-family: 'Montserrat', sans-serif;
+        text-align: left;
+        letter-spacing: 0px;
+        opacity: 1;
+        margin: 0;
+    }
+    .reviewcard-feedback-decription p{
+        font-size: 14px;
+        font-family: 'Montserrat', sans-serif;
+        text-align: left;
+        letter-spacing: 0px;
+        opacity: 1;
+        margin: 0;
+    }
 }
 
 /* Desktop View */
@@ -46,17 +174,31 @@
         max-width: 1280px;
         height: fit-content;
     }
+    .reviewMain-cont{
+        width: 100%;
+        padding: 0px 50px 0px 50px;
+    }
     .reviewcard-header-cont{
-        padding-left: 20px;
         width: 100%;
         height: fit-content;
+    }
+    #avatarContent{
+        height: 60px;
+        width: 60px;
+    }
+    #avatarContent p {
+        font-size: 35px;
+        text-transform: capitalize;
+        font-family: 'Montserrat', sans-serif;
+        margin: 0;
     }
     .reviewcard-title{
         width: 100%;
         height: fit-content;
     }
     .reviewcard-title h3{
-        font-size: 28px;
+        text-transform: capitalize;
+        font-size: 24px;
         font-family: 'Montserrat', sans-serif;
         text-align: left;
         letter-spacing: 0px;
@@ -64,13 +206,13 @@
         margin: 0;
     }
     .review-rating-number{
-        font-size: 20px;
+        font-size: 18px;
         font-family: 'Montserrat', sans-serif;
         text-align: left;
         letter-spacing: 0px;
         opacity: 1;
         margin: 0;
-        padding-top: 5px;
+        padding-top: 6px;
         padding-left: 8px;
     }
     .reviewcard-date-cont{
@@ -78,6 +220,14 @@
         height: fit-content;
     }
     .reviewcard-date-cont p{
+        font-size: 12px;
+        font-family: 'Montserrat', sans-serif;
+        text-align: left;
+        letter-spacing: 0px;
+        opacity: 1;
+        margin: 0;
+    }
+    .reviewcard-feedback-decription p{
         font-size: 16px;
         font-family: 'Montserrat', sans-serif;
         text-align: left;

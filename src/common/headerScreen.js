@@ -1,4 +1,4 @@
-import React, { memo, useContext, useEffect } from 'react'
+import React, { memo, useState, useContext, useEffect } from 'react'
 import '../css/headerstyle.css';
 import { ThemeContext } from '../contexts/themeContext';
 import { Container, Navbar, Nav } from 'react-bootstrap';
@@ -12,6 +12,7 @@ import { useNavigate  } from "react-router-dom";
 const HeaderScreen = memo(({headerData}) => {
     const [{theme}, toggleTheme] = useContext(ThemeContext);
     const navigate  = useNavigate();
+    const [reviewshow, setReviewshow] = useState(false);
     console.log('headerdata ',headerData);
 
     const homeClick = () => {
@@ -28,6 +29,22 @@ const HeaderScreen = memo(({headerData}) => {
     const reviewClick = () => {
       navigate("/review", { state: {navigationcontent: 'review'}});
     }
+
+    const reviewstoreCheck = async() => {
+      let userstorevalue = localStorage.getItem('UserName');
+      if(userstorevalue === "sahanasanathkaranth")
+      {
+          setReviewshow(true);
+      }
+      else
+      {
+          setReviewshow(false);
+      }
+  }
+
+  useEffect(() => {
+    reviewstoreCheck();
+  },[]);
 
   return (
     <React.Fragment>
@@ -115,12 +132,13 @@ const HeaderScreen = memo(({headerData}) => {
                     <FontAwesomeIcon icon={faHome} color={theme.headericoncolor} />{' '}Home
                 </Nav.Link>
               </Tooltip>
-
+              { reviewshow &&
               <Tooltip title="Reviews">
                 <Nav.Link onClick={reviewClick} className='navtext' active>
                     <FontAwesomeIcon icon={faStar} color={theme.headericoncolor} />{' '}Reviews
                 </Nav.Link>
               </Tooltip>
+              }
             </Nav>
             <Nav>
               <Tooltip title="Feedback">

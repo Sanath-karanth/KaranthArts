@@ -5,6 +5,7 @@ import { useAuth } from "../contexts/AuthContext"
 import { useNavigate  } from "react-router-dom";
 import ReactStars from 'react-stars'
 import { Formik } from 'formik';
+import moment from 'moment';
 import CssBaseline from '@mui/material/CssBaseline';
 import HeaderScreen,{portraitClick, photographyClick} from '../common/headerScreen';
 import { Container, Row, Col, Button, Card, Alert, Form } from 'react-bootstrap';
@@ -23,6 +24,7 @@ const FeedbackScreen = memo(() => {
     const [headertextShow,setHeadertextShow] = useState('feedback');
     const navigate  = useNavigate();
     const { createdata } = useAuth();
+    let feedbackdate = moment().format('LLL');;
     const [{theme, isDark}, toggleTheme] = useContext(ThemeContext);
     const [usernameval, setUsernameval] = useState('');
     const [feedbackval, setFeedbackval] = useState('');
@@ -94,15 +96,17 @@ const FeedbackScreen = memo(() => {
         if(userstorevalue === usernameval)
         {
           console.log("username equal");
+          console.log(userstorevalue);
           setAlertshowfail(true);
           setAlertshowsuccess(false);
         }
         else
         {
             console.log("username not equal");
+            console.log(userstorevalue);
             localStorage.setItem('UserName',usernameval);
             let uniqueID = Math.floor(Math.random() * 1000);
-            let formfielddata = {uniqueID,usernameval,feedbackval,rate}
+            let formfielddata = {uniqueID,usernameval,feedbackval,rate,feedbackdate}
             try {
               await createdata('feedbackdata',formfielddata)
               console.log("db created");
@@ -116,6 +120,7 @@ const FeedbackScreen = memo(() => {
             }
         }
       }
+
 
   return (
     <Fragment>
@@ -245,7 +250,7 @@ const FeedbackScreen = memo(() => {
                                             count={5}
                                             value={rate}
                                             onChange={ratingChange}
-                                            size={10}
+                                            size={30}
                                             color={'#ffd700'} />
                                     </Form.Group>
                                     
