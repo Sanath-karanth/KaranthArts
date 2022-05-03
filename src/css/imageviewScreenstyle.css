@@ -1,0 +1,106 @@
+
+/* --------------    parent container styles    ------------------- */
+
+.imagerow {
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    -ms-flex-wrap: wrap; /* IE10 */
+    flex-wrap: wrap;
+    padding: 0 4px;
+  }
+  
+  /* Create four equal columns that sits next to each other */
+  .imagecolumn {
+    -ms-flex: 25%; /* IE10 */
+    flex: 25%;
+    max-width: 25%;
+    padding: 0 4px;
+  }
+  
+  .imagecolumn img {
+    margin-top: 8px;
+    vertical-align: middle;
+    width: 100%;
+  }
+
+
+/* Mobile View */
+@media (max-width: 767px) {
+    .HeadContainer-imageview{
+        margin: 0 auto;
+        max-width: 1280px;
+        height: fit-content;
+    }
+    .imagecolumn {
+        -ms-flex: 50%;
+        flex: 50%;
+        max-width: 50%;
+      }
+  
+}
+
+
+
+/* Tablet View */
+@media (min-width: 768px) and (max-width: 1199px){
+    .MainContainer-imageview{
+        width: 100%;
+        height: fit-content;
+    }    
+    .HeadContainer-imageview{
+        margin: 0 auto;
+        max-width: 1280px;
+        height: fit-content;
+    }  
+    .imagecolumn {
+        -ms-flex: 50%;
+        flex: 50%;
+        max-width: 50%;
+      }
+}
+
+/* Desktop View */
+@media (min-width: 1200px) {
+    .HeadContainer-imageview{
+        margin: 0 auto;
+        max-width: 1280px;
+        height: fit-content;
+    }
+
+}
+
+@media (min-width: 1367px) {
+    .HeadContainer-imageview{
+        margin: 0 auto;
+        max-width: 1300px;
+        height: fit-content;
+    }
+    
+}
+
+@media (min-width: 1729px) {
+    .SubContainer-imageview{
+        margin: 0 auto;
+        max-width: 1728px;
+        height: fit-content;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

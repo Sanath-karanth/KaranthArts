@@ -30,7 +30,7 @@ import SpeedDial from '@mui/material/SpeedDial';
 import SpeedDialIcon from '@mui/material/SpeedDialIcon';
 import SpeedDialAction from '@mui/material/SpeedDialAction';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHome, faPalette, faImage, faCircleUser, faPenToSquare, faSun, faMoon } from '@fortawesome/free-solid-svg-icons'
+import { faHome, faPalette, faImage, faCircleUser, faPenToSquare, faSun, faMoon, faCamera } from '@fortawesome/free-solid-svg-icons'
 
 
 const useStyles = makeStyles((thememui) => ({
@@ -45,7 +45,8 @@ const MainScreen = memo((props) => {
     const actions = [
       { icon: <FontAwesomeIcon icon={faHome} size="lg" />, name: 'Home', navigationto: homeClick },
       { icon: <FontAwesomeIcon icon={faPalette} size="lg" />, name: 'Portrait Arts and Sketchings', navigationto: portraitClick },
-      { icon: <FontAwesomeIcon icon={faImage} size="lg" />, name: 'Photography', navigationto: photographyClick },
+      { icon: <FontAwesomeIcon icon={faCamera} size="lg" />, name: 'Photography', navigationto: photographyClick },
+      { icon: <FontAwesomeIcon icon={faImage} size="lg" />, name: 'Gallery', navigationto: galleryClick },
       { icon: <FontAwesomeIcon icon={faCircleUser} size="lg" />, name: 'About', navigationto: aboutClick },
       { icon: <FontAwesomeIcon icon={faPenToSquare} size="lg" />, name: 'Feedback', navigationto: feedbackClick },
       { icon: <FontAwesomeIcon icon={isDark === false ? faSun : faMoon} size="lg" />, name: 'Theme', navigationto: toggleTheme },
@@ -68,6 +69,11 @@ const MainScreen = memo((props) => {
     function feedbackClick() 
     {
       navigate("/feedback");
+    }
+
+    function galleryClick() 
+    {
+      navigate("/gallery");
     }
     // const colors = [
     //   "linear-gradient(to left, #ee9ca7  0%,rgba(0,0,0,0) 60%), url('./images/banner/slider2.jpg') no-repeat",

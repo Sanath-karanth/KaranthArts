@@ -12,6 +12,7 @@ import MainPage from './components/MainScreen';
 import AboutPage from './components/aboutScreen';
 import FeedbackPage from './components/feedbackScreen';
 import ReviewPage from './components/reviewScreen';
+import ImageviewPage from './components/imagegridScreen';
 import DemoPage from './components/demo';
 
 const App = () => {
@@ -20,6 +21,7 @@ const App = () => {
     { path: "/about", element: <AboutPage /> },
     { path: "/feedback", element: <FeedbackPage /> },
     { path: "/review", element: <ReviewPage /> },
+    { path: "/gallery", element: <ImageviewPage /> },
     { path: "/demo", element: <DemoPage /> },
     
   ]);

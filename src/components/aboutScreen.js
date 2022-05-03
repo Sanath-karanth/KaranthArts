@@ -24,7 +24,7 @@ const AboutScreen = memo(() => {
 
     const actions = [
       { icon: <FontAwesomeIcon icon={faHome} size="lg" />, name: 'Home', navigationto: homeClick },
-      { icon: <FontAwesomeIcon icon={faCircleUser} size="lg" />, name: 'About', navigationto: aboutClick },
+      { icon: <FontAwesomeIcon icon={faImage} size="lg" />, name: 'Gallery', navigationto: galleryClick },
       { icon: <FontAwesomeIcon icon={faPenToSquare} size="lg" />, name: 'Feedback', navigationto: feedbackClick },
       { icon: <FontAwesomeIcon icon={isDark === false ? faSun : faMoon} size="lg" />, name: 'Theme', navigationto: toggleTheme },
     ];
@@ -38,14 +38,15 @@ const AboutScreen = memo(() => {
       });
     }
 
-    function aboutClick() 
-    {
-      navigate("/about");
-    }
 
     function feedbackClick() 
     {
       navigate("/feedback");
+    }
+
+    function galleryClick() 
+    {
+      navigate("/gallery");
     }
 
   return (
