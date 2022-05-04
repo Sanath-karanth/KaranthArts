@@ -899,3 +899,65 @@ export const slideData = [
         foursecondDuration: "4000"
     },
   ]; 
+
+
+
+  export const imagecol1Data = [
+    { 
+      imgTitle: "Indian Culture Map",
+      imgURL: "./images/art/indiamap.jpg"
+    },
+    { 
+      imgTitle: "Indian Army Soldier",
+      imgURL: "./images/art/armyman.jpg"
+    },
+    { 
+      imgTitle: "Indian Army Soldier",
+      imgURL: "./images/art/pubggun.jpg"
+    },
+  ];
+  
+  export const imagecol2Data = [
+    { 
+      imgTitle: "Indian Culture Map",
+      imgURL: "./images/art/indiamap.jpg"
+    },
+    { 
+      imgTitle: "Indian Army Soldier",
+      imgURL: "./images/art/armyman.jpg"
+    },
+    { 
+      imgTitle: "Indian Army Soldier",
+      imgURL: "./images/art/pubggun.jpg"
+    },
+  ];
+
+  export const imagecol3Data = [
+    { 
+      imgTitle: "Indian Culture Map",
+      imgURL: "./images/art/indiamap.jpg"
+    },
+    { 
+      imgTitle: "Indian Army Soldier",
+      imgURL: "./images/art/armyman.jpg"
+    },
+    { 
+      imgTitle: "Indian Army Soldier",
+      imgURL: "./images/art/pubggun.jpg"
+    },
+  ];
+
+  export const imagecol4Data = [
+    { 
+      imgTitle: "Indian Culture Map",
+      imgURL: "./images/art/indiamap.jpg"
+    },
+    { 
+      imgTitle: "Indian Army Soldier",
+      imgURL: "./images/art/armyman.jpg"
+    },
+    { 
+      imgTitle: "Indian Army Soldier",
+      imgURL: "./images/art/pubggun.jpg"
+    },
+  ];
