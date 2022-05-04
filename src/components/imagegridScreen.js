@@ -142,7 +142,7 @@ const ImagegridScreen = memo(() => {
               {/* ---------    main div   ----------- */}
 
               <Container fluid
-                         className='mb-4' 
+                         className='pb-4' 
                          style={{
                             backgroundColor:theme.backgroundColor, 
                             color: theme.color,

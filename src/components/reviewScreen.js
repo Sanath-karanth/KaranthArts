@@ -261,7 +261,7 @@ function DeleteModal(props) {
                                     </Col>
                                     <Col xs="1" sm="1" md="1" lg="1" xl="1" xxl="1" xxxl="1">
                                       <div onClick={() => deletepopup('feedbackdata',item.dbkey,item.username)}>
-                                          <FontAwesomeIcon icon={faTrashCan} size="sm" color="#8B0000" />
+                                          <FontAwesomeIcon icon={faTrashCan} size="sm" color="red" />
                                       </div>
                                     </Col>
                                   </Row>
