@@ -908,56 +908,148 @@ export const slideData = [
       imgURL: "./images/art/indiamap.jpg"
     },
     { 
-      imgTitle: "Indian Army Soldier",
-      imgURL: "./images/art/armyman.jpg"
+      imgTitle: "Pulvama Attack",
+      imgURL: "./images/art/pulwama.jpg"
     },
     { 
-      imgTitle: "Indian Army Soldier",
-      imgURL: "./images/art/pubggun.jpg"
+      imgTitle: "Sachin Tendulkar Sketch",
+      imgURL: "./images/art/sachintendulkar.jpg"
+    },
+    { 
+      imgTitle: "Lord Shiva",
+      imgURL: "./images/art/shiva.jpg"
+    },
+    { 
+      imgTitle: "Joker Paint",
+      imgURL: "./images/art/jokerface.jpg"
+    },
+    { 
+      imgTitle: "Egle Bird",
+      imgURL: "./images/art/egle.jpg"
+    },
+    { 
+      imgTitle: "RedEye",
+      imgURL: "./images/art/redeye.jpg"
+    },
+    { 
+      imgTitle: "Sun Rise",
+      imgURL: "./images/photography/sunraise.jpg"
     },
   ];
   
   export const imagecol2Data = [
     { 
-      imgTitle: "Indian Culture Map",
-      imgURL: "./images/art/indiamap.jpg"
-    },
-    { 
       imgTitle: "Indian Army Soldier",
       imgURL: "./images/art/armyman.jpg"
     },
     { 
-      imgTitle: "Indian Army Soldier",
-      imgURL: "./images/art/pubggun.jpg"
+      imgTitle: "Indian Army Weapon",
+      imgURL: "./images/art/armygunhat.jpg"
+    },
+    { 
+      imgTitle: "Actor Yash Sketch",
+      imgURL: "./images/art/yash.jpg"
+    },
+    { 
+      imgTitle: "Emotional Eye Tears",
+      imgURL: "./images/art/eye.jpg"
+    },
+    { 
+      imgTitle: "Hrithik Roshan",
+      imgURL: "./images/art/hrithik.jpg"
+    },
+    { 
+      imgTitle: "Sparrow",
+      imgURL: "./images/art/singlebird.jpg"
+    },
+    { 
+      imgTitle: "Racing",
+      imgURL: "./images/art/racebike.jpg"
+    },
+    { 
+      imgTitle: "Sun Set",
+      imgURL: "./images/photography/sunset.jpg"
+    },
+    { 
+      imgTitle: "Ocean Waves",
+      imgURL: "./images/photography/beachwaves.jpg"
     },
   ];
 
   export const imagecol3Data = [
     { 
-      imgTitle: "Indian Culture Map",
-      imgURL: "./images/art/indiamap.jpg"
+      imgTitle: "Positive shade Sketch",
+      imgURL: "./images/art/jokerpositive.jpg"
     },
     { 
-      imgTitle: "Indian Army Soldier",
-      imgURL: "./images/art/armyman.jpg"
+      imgTitle: "Indian Army Fitness",
+      imgURL: "./images/art/bodybuilder.jpg"
     },
     { 
-      imgTitle: "Indian Army Soldier",
-      imgURL: "./images/art/pubggun.jpg"
+      imgTitle: "God Hanuman",
+      imgURL: "./images/art/hanuman.jpg"
+    },
+    { 
+      imgTitle: "Water scarcity and poverty",
+      imgURL: "./images/art/glassdrop.jpg"
+    },
+    { 
+      imgTitle: "Wolworine",
+      imgURL: "./images/art/wolworine.jpg"
+    },
+    { 
+      imgTitle: "Love Birds",
+      imgURL: "./images/art/lovebird.jpg"
+    },
+    { 
+      imgTitle: "Beach",
+      imgURL: "./images/photography/beach.jpg"
+    },
+    { 
+      imgTitle: "Sun Shine",
+      imgURL: "./images/photography/sunshine.jpg"
+    },
+    { 
+      imgTitle: "River Shore",
+      imgURL: "./images/photography/rivershore.jpg"
     },
   ];
 
   export const imagecol4Data = [
     { 
-      imgTitle: "Indian Culture Map",
-      imgURL: "./images/art/indiamap.jpg"
+      imgTitle: "Negative shade Sketch",
+      imgURL: "./images/art/jokernegative.jpg"
     },
     { 
-      imgTitle: "Indian Army Soldier",
-      imgURL: "./images/art/armyman.jpg"
-    },
-    { 
-      imgTitle: "Indian Army Soldier",
+      imgTitle: "Indian army Sniper",
       imgURL: "./images/art/pubggun.jpg"
+    },
+    { 
+      imgTitle: "Lord Sri Ram",
+      imgURL: "./images/art/ram.jpg"
+    },
+    { 
+      imgTitle: "Om Sketch",
+      imgURL: "./images/art/omm.jpg"
+    },
+    { 
+      imgTitle: "Bottle Pencil Sketch",
+      imgURL: "./images/art/bottle.jpg"
+    },
+    { 
+      imgTitle: "Alone Life",
+      imgURL: "./images/art/aloneman.jpg"
+    },
+    { 
+      imgTitle: "Beach Adventure",
+      imgURL: "./images/photography/beachride.jpg"
+    },
+    { 
+      imgTitle: "Red Rose",
+      imgURL: "./images/photography/redrose.jpg"
+    },
+    { 
+      imgTitle: "Yellow Rose",
+      imgURL: "./images/photography/yellowrose.jpg"
     },
   ];

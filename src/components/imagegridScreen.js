@@ -81,7 +81,7 @@ const ImagegridScreen = memo(() => {
             </Modal.Header>
             <Modal.Body>
                 <div className='image-content'>
-                  <img src={props.dynData.imageURL} alt="W3Schools" style={{width:'100%'}} />
+                  <img src={props.dynData.imageURL} alt="Modalimages" style={{width:'100%'}} />
                 </div>
             </Modal.Body>
             <Modal.Footer>
@@ -141,7 +141,8 @@ const ImagegridScreen = memo(() => {
 
               {/* ---------    main div   ----------- */}
 
-              <Container fluid 
+              <Container fluid
+                         className='mb-4' 
                          style={{
                             backgroundColor:theme.backgroundColor, 
                             color: theme.color,

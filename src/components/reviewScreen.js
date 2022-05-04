@@ -6,7 +6,7 @@ import { useNavigate  } from "react-router-dom";
 import ReactStars from 'react-stars'
 import CssBaseline from '@mui/material/CssBaseline';
 import HeaderScreen,{portraitClick, photographyClick} from '../common/headerScreen';
-import { Container, Row, Col, Button, Card, Alert, Form } from 'react-bootstrap';
+import { Container, Row, Col, Button, Card, Alert, Modal } from 'react-bootstrap';
 import SpeedDial from '@mui/material/SpeedDial';
 import SpeedDialIcon from '@mui/material/SpeedDialIcon';
 import SpeedDialAction from '@mui/material/SpeedDialAction';
@@ -15,8 +15,8 @@ import { faHome, faPalette,
          faImage, faCircleUser, 
          faPenToSquare, faSun, 
          faMoon, faAngleLeft,
-         faPhone, faGlobe,
-         faLocationDot} from '@fortawesome/free-solid-svg-icons'
+         faPhone,
+         faTrashCan} from '@fortawesome/free-solid-svg-icons'
 import Avatar from '@mui/material/Avatar';
 import Divider from '@mui/material/Divider';
 import { deepOrange, deepPurple } from '@mui/material/colors';
@@ -29,10 +29,11 @@ const ReviewScreen = memo(() => {
   const { getAlldata, createdata, deletedata } = useAuth();
   const [{theme, isDark}, toggleTheme] = useContext(ThemeContext);
   const [carddatavalues,setCarddatavalues] = useState([]);
-  const [tablevalues,setTablevalues] = useState([]);
+  const [deletemodalShow, setDeletemodalShow] = useState(false);
   const [tablenull,setTablenull] = useState(false);
-  const [rate,setRate] = useState(5);
-  var interval = null;
+  const [pathvalue,setPathvalue] = useState('');
+  const [idvalue,setIdvalue] = useState('');
+  const [usernamevalue,setUsernamevalue] = useState('');
 
   const actions = [
     { icon: <FontAwesomeIcon icon={faHome} size="lg" />, name: 'Home', navigationto: homeClick },
@@ -107,9 +108,55 @@ const reviewData = async() => {
  }
 };
 
+const deletepopup = (pathval,idval,usernameval) => {
+      setDeletemodalShow(true);
+      setPathvalue(pathval);
+      setIdvalue(idval);
+      setUsernamevalue(usernameval);
+}
+
+const deleteData = async() => {
+  setDeletemodalShow(false);
+  deletedata(pathvalue,idvalue)
+  .then(() => {
+    console.log('deleted successfully');
+  })
+  .catch((e) => {
+    console.log(e);
+  });
+}
+
 useEffect(() => {
   reviewData();
 },[]);
+
+
+function DeleteModal(props) {
+  return (
+    <Modal
+      {...props}
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
+    >
+      <Modal.Header closeButton>
+        <Modal.Title id="contained-modal-title-vcenter">
+          <div className='deletemodalheader'>
+            <h4>{usernamevalue}</h4>
+          </div>
+        </Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <div className='deletemodalquestion'>
+          <h2>Are you Sure?</h2>
+        </div>
+      </Modal.Body>
+      <Modal.Footer>
+        <Button onClick={props.onHide}>Cancel</Button>
+        <Button variant='success' onClick={deleteData}>OK</Button>
+      </Modal.Footer>
+    </Modal>
+  );
+}
 
   return (
     <Fragment>
@@ -161,6 +208,10 @@ useEffect(() => {
                            overflow: 'hidden',
                            paddingBottom:'60px'
                            }}>
+                <DeleteModal
+                  show={deletemodalShow}
+                  onHide={() => setDeletemodalShow(false)}
+                />
                 <div className='reviewcard-header' onClick={backClick}>
                   <FontAwesomeIcon icon={faAngleLeft} size="lg" />
                 </div>
@@ -186,7 +237,7 @@ useEffect(() => {
                                           <p>{item?.username ?.charAt(0) || "UN"}</p>
                                       </Avatar>
                                     </Col>
-                                    <Col xs="10" sm="10" md="10" lg="10" xl="10" xxl="10" xxxl="10">
+                                    <Col xs="9" sm="9" md="9" lg="9" xl="9" xxl="9" xxxl="9">
                                       <div className='reviewcard-header-cont'>
                                             <div className='reviewcard-title'>
                                               <h3>{item.username}</h3>
@@ -206,6 +257,11 @@ useEffect(() => {
                                             <div className='reviewcard-date-cont'>
                                               <p>{item.feedbackdate}</p>
                                             </div>
+                                      </div>
+                                    </Col>
+                                    <Col xs="1" sm="1" md="1" lg="1" xl="1" xxl="1" xxxl="1">
+                                      <div onClick={() => deletepopup('feedbackdata',item.dbkey,item.username)}>
+                                          <FontAwesomeIcon icon={faTrashCan} size="sm" color="#8B0000" />
                                       </div>
                                     </Col>
                                   </Row>

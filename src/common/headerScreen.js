@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHome, faPalette, faImage, faCircleUser, faPenToSquare, faStar, faCamera } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate  } from "react-router-dom";
 
-const HeaderScreen = memo(({headerData}) => {
+const HeaderScreen = memo(({headerData}) => {     ///////////  'sanathorthotech' for localstorage data
     const [{theme}, toggleTheme] = useContext(ThemeContext);
     const navigate  = useNavigate();
     const [reviewshow, setReviewshow] = useState(false);
@@ -35,7 +35,7 @@ const HeaderScreen = memo(({headerData}) => {
 
     const reviewstoreCheck = async() => {
       let userstorevalue = localStorage.getItem('UserName');
-      if(userstorevalue === "sahanasanathkaranth")
+      if(userstorevalue === "sanathorthotech")
       {
           setReviewshow(true);
       }

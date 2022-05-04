@@ -1,5 +1,10 @@
 
 /* --------------    parent container styles    ------------------- */
+
+img {
+  pointer-events: none;
+}
+
 .mainheader {
     /* min-height: 100vh; */
     /* display: flex; */

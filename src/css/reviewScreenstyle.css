@@ -20,6 +20,12 @@
     color: red;
     margin: 0;
 }
+.deletemodalquestion h2{
+    font-size: 24px;
+    font-family: 'Montserrat', sans-serif;
+    color: red;
+    margin: 0;
+}
 
 /* Mobile View */
 @media (max-width: 767px) {
@@ -88,6 +94,11 @@
         text-align: left;
         letter-spacing: 0px;
         opacity: 1;
+        margin: 0;
+    }
+    .deletemodalheader h4{
+        font-size: 16px;
+        font-family: 'Montserrat', sans-serif;
         margin: 0;
     }
 }
@@ -166,6 +177,11 @@
         opacity: 1;
         margin: 0;
     }
+    .deletemodalheader h4{
+        font-size: 20px;
+        font-family: 'Montserrat', sans-serif;
+        margin: 0;
+    }
 }
 
 /* Desktop View */
@@ -234,6 +250,11 @@
         text-align: left;
         letter-spacing: 0px;
         opacity: 1;
+        margin: 0;
+    }
+    .deletemodalheader h4{
+        font-size: 24px;
+        font-family: 'Montserrat', sans-serif;
         margin: 0;
     }   
 }
