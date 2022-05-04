@@ -33,12 +33,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHome, faPalette, faImage, faCircleUser, faPenToSquare, faSun, faMoon, faCamera } from '@fortawesome/free-solid-svg-icons'
 
 
-const useStyles = makeStyles((thememui) => ({
-
-}))
-
 const MainScreen = memo((props) => {
-    const classes = useStyles();
     const navigate  = useNavigate();
     const [{theme, isDark}, toggleTheme] = useContext(ThemeContext);
     console.log("theme is ", theme)
@@ -418,7 +413,7 @@ const MainScreen = memo((props) => {
                         </Card>
                       </div>
                       <div className='borderbox-bottom pb-2'
-                          style={{backgroundColor: eval("theme." + item.bordercolor)}}
+                          style={{background: eval("theme." + item.bordercolor)}}
                           data-aos={item.borderdirection}
                           data-aos-duration={item.twosecondDuration}>
                       </div>
@@ -496,7 +491,7 @@ const MainScreen = memo((props) => {
                               </Card>
                             </div>
                             <div className='borderbox-bottom pb-2'
-                                style={{backgroundColor: eval("theme." + item.bordercolor)}}
+                                style={{background: eval("theme." + item.bordercolor)}}
                                 data-aos={item.borderdirection}
                                 data-aos-duration={item.twosecondDuration}>
                             </div>
@@ -570,7 +565,7 @@ const MainScreen = memo((props) => {
                               </Card>
                             </div>
                             <div className='borderbox-bottom pb-2'
-                                style={{backgroundColor: eval("theme." + item.bordercolor)}}
+                                style={{background: eval("theme." + item.bordercolor)}}
                                 data-aos={item.borderdirection}
                                 data-aos-duration={item.twosecondDuration}>
                             </div>
@@ -733,7 +728,7 @@ const MainScreen = memo((props) => {
                               </Card>
                             </div>
                             <div className='borderbox-bottom pb-2'
-                                style={{backgroundColor: eval("theme." + item.bordercolor)}}
+                                style={{background: eval("theme." + item.bordercolor)}}
                                 data-aos={item.borderdirection}
                                 data-aos-duration={item.twosecondDuration}>
                             </div>
@@ -807,7 +802,7 @@ const MainScreen = memo((props) => {
                               </Card>
                             </div>
                             <div className='borderbox-bottom pb-2'
-                                style={{backgroundColor: eval("theme." + item.bordercolor)}}
+                                style={{background: eval("theme." + item.bordercolor)}}
                                 data-aos={item.borderdirection}
                                 data-aos-duration={item.twosecondDuration}>
                             </div>
@@ -902,7 +897,7 @@ const MainScreen = memo((props) => {
                         </Card>
                       </div>
                       <div className='borderbox-bottom pb-2'
-                          style={{backgroundColor: eval("theme." + item.bordercolor)}}
+                           style={{background: eval("theme." + item.bordercolor)}}
                           data-aos={item.borderdirection}
                           data-aos-duration={item.twosecondDuration}>
                       </div>
@@ -980,7 +975,7 @@ const MainScreen = memo((props) => {
                               </Card>
                             </div>
                             <div className='borderbox-bottom pb-2'
-                                style={{backgroundColor: eval("theme." + item.bordercolor)}}
+                                style={{background: eval("theme." + item.bordercolor)}}
                                 data-aos={item.borderdirection}
                                 data-aos-duration={item.twosecondDuration}>
                             </div>
@@ -1055,7 +1050,7 @@ const MainScreen = memo((props) => {
                               </Card>
                             </div>
                             <div className='borderbox-bottom pb-2'
-                                style={{backgroundColor: eval("theme." + item.bordercolor)}}
+                                style={{background: eval("theme." + item.bordercolor)}}
                                 data-aos={item.borderdirection}
                                 data-aos-duration={item.twosecondDuration}>
                             </div>
@@ -1130,7 +1125,7 @@ const MainScreen = memo((props) => {
                               </Card>
                             </div>
                             <div className='borderbox-bottom pb-2'
-                                style={{backgroundColor: eval("theme." + item.bordercolor)}}
+                                style={{background: eval("theme." + item.bordercolor)}}
                                 data-aos={item.borderdirection}
                                 data-aos-duration={item.twosecondDuration}>
                             </div>
@@ -2178,96 +2173,8 @@ const MainScreen = memo((props) => {
               </Container>
 
 
-              <Container fluid >
-                <div style={{background: 'linear-gradient(to right, #EFEFBB 0%, #D4D3DD 100%)'}}>
-                  <Row className='gx-0'>
-                    <Col>
-                        <h2>Div gradient 1</h2>
-                    </Col>
-                  </Row>
-                </div> 
-              </Container>
-              <Container fluid >
-                <div style={{background: 'linear-gradient(to right, #4b6cb7 0%, #182848 100%)'}}>
-                  <Row className='gx-0'>
-                    <Col>
-                        <h2>Div gradient 2</h2>
-                    </Col>
-                  </Row>
-                </div> 
-              </Container>
-              <Container fluid >
-                <div style={{background: 'linear-gradient(to right, #c9ffe5 0%, #0ABFBC 100%)'}}>
-                  <Row className='gx-0'>
-                    <Col>
-                        <h2>Div gradient 3</h2>
-                    </Col>
-                  </Row>
-                </div> 
-              </Container>
-              <Container fluid >
-                <div style={{background: 'linear-gradient(to right, #5f2c82 0%, #49a09d 100%)'}}>
-                  <Row className='gx-0'>
-                    <Col>
-                        <h2>Div gradient 4</h2>
-                    </Col>
-                  </Row>
-                </div> 
-              </Container>
-              <Container fluid >
-                <div style={{background: 'linear-gradient(to right, #EC6F66 0%, #F3A183 100%)'}}>
-                  <Row className='gx-0'>
-                    <Col>
-                        <h2>Div gradient 5</h2>
-                    </Col>
-                  </Row>
-                </div> 
-              </Container>
-              <Container fluid >
-                <div style={{background: 'linear-gradient(to right, #ECE9E6 0%, #D4D3DD 100%)'}}>
-                  <Row className='gx-0'>
-                    <Col>
-                        <h2>Div gradient 6</h2>
-                    </Col>
-                  </Row>
-                </div> 
-              </Container>
-              <Container fluid >
-                <div style={{background: 'linear-gradient(to right, #283048 0%, #859398 100%)'}}>
-                  <Row className='gx-0'>
-                    <Col>
-                        <h2>Div gradient 7</h2>
-                    </Col>
-                  </Row>
-                </div> 
-              </Container>
-              <Container fluid >
-                <div style={{background: 'linear-gradient(to right, #757F9A 0%, #D7DDE8 100%)'}}>
-                  <Row className='gx-0'>
-                    <Col>
-                        <h2>Div gradient 8</h2>
-                    </Col>
-                  </Row>
-                </div> 
-              </Container>
-              <Container fluid >
-                <div style={{background: 'linear-gradient(to right, #076585 0%, #ffffff 100%)'}}>
-                  <Row className='gx-0'>
-                    <Col>
-                        <h2>Div gradient 9</h2>
-                    </Col>
-                  </Row>
-                </div> 
-              </Container>
-              <Container fluid >
-                <div style={{background: 'linear-gradient(to right, #BBD2C5 0%, #536976 100%)'}}>
-                  <Row className='gx-0'>
-                    <Col>
-                        <h2>Div gradient 10</h2>
-                    </Col>
-                  </Row>
-                </div> 
-              </Container>
+             
+             
 
              {/* <div className="slideshow">
                 <div
