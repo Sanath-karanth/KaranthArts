@@ -56,7 +56,7 @@ const HeaderScreen = memo(({headerData}) => {     ///////////  'sanathorthotech'
         <Navbar  
                 expand="lg"
                 sticky="top"
-                className='p-3'
+                className='p-2'
                 bg={theme.headercolor} 
                 variant={theme.headercolor}>
           <Container fluid>
