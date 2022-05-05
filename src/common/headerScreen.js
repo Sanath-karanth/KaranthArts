@@ -1,13 +1,14 @@
 import React, { memo, useState, useContext, useEffect } from 'react'
 import '../css/headerstyle.css';
 import { ThemeContext } from '../contexts/themeContext';
-import { Container, Navbar, Nav } from 'react-bootstrap';
 import  ToggleButton  from '../common/toggleButton';
+import { useNavigate  } from "react-router-dom";
+import { Container, Navbar, Nav } from 'react-bootstrap';
 import { IconButton } from '@mui/material';
 import Tooltip from '@mui/material/Tooltip';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHome, faPalette, faImage, faCircleUser, faPenToSquare, faStar, faCamera } from '@fortawesome/free-solid-svg-icons'
-import { useNavigate  } from "react-router-dom";
+
 
 const HeaderScreen = memo(({headerData}) => {     ///////////  'sanathorthotech' for localstorage data
     const [{theme}, toggleTheme] = useContext(ThemeContext);
@@ -24,13 +25,13 @@ const HeaderScreen = memo(({headerData}) => {     ///////////  'sanathorthotech'
       navigate("/about", { state: {navigationcontent: 'about'}});
     }
     const feedbackClick = () => {
-      navigate("/feedback", { state: {navigationcontent: 'feedback'}});
+      navigate("/feedback");
     }
     const reviewClick = () => {
-      navigate("/review", { state: {navigationcontent: 'review'}});
+      navigate("/review");
     }
     const galleryClick = () => {
-      navigate("/gallery", { state: {navigationcontent: 'review'}});
+      navigate("/gallery");
     }
 
     const reviewstoreCheck = async() => {
@@ -60,6 +61,9 @@ const HeaderScreen = memo(({headerData}) => {     ///////////  'sanathorthotech'
                 variant={theme.headercolor}>
           <Container fluid>
           <Navbar.Brand className='artanimation'>
+            <span style={{paddingRight: '5px'}}>
+              <img src="./images/atom.png" className="App-logo" alt="logo" />
+            </span>
             <span className='word' style={{color:theme.headerheadtextcolor}}>ART</span>{' '} 
             <span className='word' style={{color:theme.headerheadtextcolor}}>GALLERY</span>
           </Navbar.Brand>
@@ -73,9 +77,9 @@ const HeaderScreen = memo(({headerData}) => {     ///////////  'sanathorthotech'
                 </Nav.Link>
               </Tooltip>
 
-              <Tooltip title="Portrait Sketchings">
+              <Tooltip title="Sketchings">
                 <Nav.Link onClick={portraitClick} className='navtext'>
-                  <FontAwesomeIcon icon={faPalette} color={theme.headericoncolor} />{' '}Portrait Sketchings
+                  <FontAwesomeIcon icon={faPalette} color={theme.headericoncolor} />{' '}Sketchings
                 </Nav.Link>
               </Tooltip>
 
@@ -129,6 +133,9 @@ const HeaderScreen = memo(({headerData}) => {     ///////////  'sanathorthotech'
                 variant={theme.headercolor}>
           <Container fluid>
           <Navbar.Brand className='artanimation'>
+            <span style={{paddingRight: '5px'}}>
+              <img src="./images/atom.png" className="App-logo" alt="logo" />
+            </span>
             <span className='word' style={{color:theme.headerheadtextcolor}}>ART</span>{' '} 
             <span className='word' style={{color:theme.headerheadtextcolor}}>GALLERY</span>
           </Navbar.Brand>
@@ -187,6 +194,9 @@ const HeaderScreen = memo(({headerData}) => {     ///////////  'sanathorthotech'
                 variant={theme.headercolor}>
           <Container fluid>
           <Navbar.Brand className='artanimation'>
+            <span style={{paddingRight: '5px'}}>
+              <img src="./images/atom.png" className="App-logo" alt="logo" />
+            </span>
             <span className='word' style={{color:theme.headerheadtextcolor}}>ART</span>{' '} 
             <span className='word' style={{color:theme.headerheadtextcolor}}>GALLERY</span>
           </Navbar.Brand>
@@ -239,6 +249,9 @@ const HeaderScreen = memo(({headerData}) => {     ///////////  'sanathorthotech'
                 variant={theme.headercolor}>
           <Container fluid>
           <Navbar.Brand className='artanimation'>
+            <span style={{paddingRight: '5px'}}>
+              <img src="./images/atom.png" className="App-logo" alt="logo" />
+            </span>
             <span className='word' style={{color:theme.headerheadtextcolor}}>ART</span>{' '} 
             <span className='word' style={{color:theme.headerheadtextcolor}}>GALLERY</span>
           </Navbar.Brand>

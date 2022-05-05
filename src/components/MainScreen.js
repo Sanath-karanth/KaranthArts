@@ -1,4 +1,4 @@
-import React, { memo, useState, useEffect, useContext, Fragment } from 'react'
+import React, { memo, useEffect, useContext, Fragment } from 'react'
 import '../css/MainScreenstyle.css';
 import { ThemeContext } from '../contexts/themeContext';
 import HeaderScreen,{portraitClick, photographyClick} from '../common/headerScreen';
@@ -15,8 +15,9 @@ import { slideData, indiamapCardData,
          sunRiseCardData, sunsetCardData, 
          sunshineCardData, redRoseCardData, 
          yellowRoseCardData, OceanCardData, RivershoreCardData} from "../json/jsonData"
-import { makeStyles } from '@mui/styles';
+import { useNavigate  } from "react-router-dom";
 import { Container, Row, Col, Button, Card, Carousel } from 'react-bootstrap';
+import AOS from 'aos';
 import PropTypes from 'prop-types';
 import CssBaseline from '@mui/material/CssBaseline';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
@@ -24,8 +25,6 @@ import Box from '@mui/material/Box';
 import Fab from '@mui/material/Fab';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import Zoom from '@mui/material/Zoom';
-import AOS from 'aos';
-import { useNavigate  } from "react-router-dom";
 import SpeedDial from '@mui/material/SpeedDial';
 import SpeedDialIcon from '@mui/material/SpeedDialIcon';
 import SpeedDialAction from '@mui/material/SpeedDialAction';
@@ -36,7 +35,7 @@ import { faHome, faPalette, faImage, faCircleUser, faPenToSquare, faSun, faMoon,
 const MainScreen = memo((props) => {
     const navigate  = useNavigate();
     const [{theme, isDark}, toggleTheme] = useContext(ThemeContext);
-    console.log("theme is ", theme)
+    // console.log("theme is ", theme)
     const actions = [
       { icon: <FontAwesomeIcon icon={faHome} size="lg" />, name: 'Home', navigationto: homeClick },
       { icon: <FontAwesomeIcon icon={faPalette} size="lg" />, name: 'Portrait Arts and Sketchings', navigationto: portraitClick },
@@ -49,7 +48,6 @@ const MainScreen = memo((props) => {
 
     function homeClick() 
     {
-      console.log("home clicked")
       navigate("/");
       document.getElementById('back-to-top-anchor').scrollIntoView({
         behavior: 'smooth'
@@ -70,30 +68,14 @@ const MainScreen = memo((props) => {
     {
       navigate("/gallery");
     }
-    // const colors = [
-    //   "linear-gradient(to left, #ee9ca7  0%,rgba(0,0,0,0) 60%), url('./images/banner/slider2.jpg') no-repeat",
-    // "linear-gradient(to left, #ee9ca7  0%,rgba(0,0,0,0) 60%), url('./images/banner/slider1.jpg') no-repeat",
-    // "linear-gradient(286deg, #5563A926  0%,#E9EAF4E6 35%, #FCFCFD 72%, #FFFFFF 100%), url('./images/banner/slider3.jpg') no-repeat"
-    // ];
-    // const delay = 2500;
-  
-  
-    // const [index, setIndex] = React.useState(0);
-    // const timeoutRef = React.useRef(null);
-  
-    // function resetTimeout() {
-    //   if (timeoutRef.current) {
-    //     clearTimeout(timeoutRef.current);
-    //   }
-    // }
 
-  function ScrollTop(props) {
-    const { children, window } = props;
-    const trigger = useScrollTrigger({
-      target: window ? window() : undefined,
-      disableHysteresis: true,
-      threshold: 100,
-    });
+    function ScrollTop(props) {
+      const { children, window } = props;
+      const trigger = useScrollTrigger({
+        target: window ? window() : undefined,
+        disableHysteresis: true,
+        threshold: 100,
+      });
   
     const handleClick = (event) => {
       const anchor = (event.target.ownerDocument || document).querySelector(
@@ -118,30 +100,13 @@ const MainScreen = memo((props) => {
           {children}
         </Box>
       </Zoom>
-    );
-  }
-  
-  ScrollTop.propTypes = {
-    children: PropTypes.element.isRequired,
-    window: PropTypes.func,
-  };
-
- 
-  
-    // React.useEffect(() => {
-    //   resetTimeout();
-    //   timeoutRef.current = setTimeout(
-    //     () =>
-    //       setIndex((prevIndex) =>
-    //         prevIndex === colors.length - 1 ? 0 : prevIndex + 1
-    //       ),
-    //     delay
-    //   );
-  
-    //   return () => {
-    //     resetTimeout();
-    //   };
-    // }, [index]);
+      );
+    }
+    
+    ScrollTop.propTypes = {
+      children: PropTypes.element.isRequired,
+      window: PropTypes.func,
+    };
   
     useEffect(() => {
       AOS.init({
@@ -189,13 +154,16 @@ const MainScreen = memo((props) => {
                   ))}
               </SpeedDial>
               <div id="back-to-top-anchor"></div>
-            <CssBaseline  />
-            <HeaderScreen  />
+              <CssBaseline  />
+              <HeaderScreen  />
             
             <Container fluid 
-                  className='mainheader' 
-                  style={{backgroundColor:theme.backgroundColor, color: theme.color,overflow: 'hidden'}}>
-            
+                       className='mainheader' 
+                       style={{
+                         backgroundColor:theme.backgroundColor, 
+                         color: theme.color,
+                         overflow: 'hidden'
+                         }}>
 
             {/* -----------   Slide Show design   ----------- */}
               
@@ -218,11 +186,9 @@ const MainScreen = memo((props) => {
                   })
                 }
               </Carousel>
-              
             </div>
 
              {/*--------------   Sketchings design part   ---------  */}
-             
 
                 {/* -----------    Heading Sketching   ------------- */}
 
@@ -235,100 +201,89 @@ const MainScreen = memo((props) => {
                 {/* -----------    India map Container   ------------- */}
                 
                <Container>
-      
-                <div className='maincontentContainer mt-3 mb-3 pt-3 pb-3'>
-                {indiamapCardData.map((item,key) => {
-                    return(
-                    <Fragment key={key}>
-                      <div className='shadow-lg bg-white rounded' 
-                       data-aos={item.carddirection}
-                       data-aos-duration={item.twosecondDuration} 
-                       >
-                      <Card 
-                        style={{
-                          border: 'none',
-                          borderRadius:'0',
-                          backgroundColor:theme.cardbgColor, 
-                          color: theme.color
-                          }}>
-                        <Row className='gx-0' key={key}>
-                          <Col xxs="12" xs="12" sm="12" md="5" lg="5" xl="5" xxl="5" xxxl="5">
-                              <div className='cardone-image shadow p-3 bg-white'>
-                                <img
-                                    className='p-0' 
-                                    data-aos={item.imagedirection} 
-                                    data-aos-duration={item.twosecondDuration}
-                                    src={item.imgUrl}
-                                    alt='Cardimages here'
-                                    >
-                                </img>
-                                <div className="artnameoverlay maincard-title-content">
-                                  <h3>{item.title}</h3>
+                  <div className='maincontentContainer mt-3 mb-3 pt-3 pb-3'>
+                  {indiamapCardData.map((item,key) => {
+                      return(
+                      <Fragment key={key}>
+                        <div className='shadow-lg bg-white rounded' 
+                             data-aos={item.carddirection}
+                             data-aos-duration={item.twosecondDuration} 
+                        >
+                        <Card 
+                          style={{
+                            border: 'none',
+                            borderRadius:'0',
+                            backgroundColor:theme.cardbgColor, 
+                            color: theme.color
+                            }}>
+                          <Row className='gx-0' key={key}>
+                            <Col xxs="12" xs="12" sm="12" md="5" lg="5" xl="5" xxl="5" xxxl="5">
+                                <div className='cardone-image shadow p-3 bg-white'>
+                                  <img
+                                      className='p-0' 
+                                      data-aos={item.imagedirection} 
+                                      data-aos-duration={item.twosecondDuration}
+                                      src={item.imgUrl}
+                                      alt='Cardimages here'
+                                      >
+                                  </img>
+                                  <div className="artnameoverlay maincard-title-content">
+                                    <h3>{item.title}</h3>
+                                  </div>
+                                  <div className="arttextoverlay" 
+                                       style={Object.assign({justifyContent: item.artworkdisplay}, item.artworkposition === 'bottom' ? {bottom: 0} : {top:0})}
+                                      >
+                                    <p style={{color:item.arttextcolor,padding: item.artworkpadding}}>{item.artworkcategory}</p>
+                                  </div>
                                 </div>
-                                <div className="arttextoverlay" 
-                                     style={Object.assign({justifyContent: item.artworkdisplay}, item.artworkposition === 'bottom' ? {bottom: 0} : {top:0})}
-                                    >
-                                  <p style={{color:item.arttextcolor,padding: item.artworkpadding}}>{item.artworkcategory}</p>
+                            </Col>
+                            <Col xxs="12" xs="12" sm="12" md="7" lg="7" xl="7" xxl="7" xxxl="7">
+                              <div className='singlecardtext-contentContainer'>
+                                <div className='maincard-title-content'>
+                                  <h3 data-aos={item.textdirection}
+                                      data-aos-duration={item.twosecondDuration} 
+                                      style={{color:theme.cardtitletextcolor}}>{item.title}</h3>
+                                </div>
+                                <div className='maincard-quotedesp-content'>
+                                  <p>
+                                    <i className="fa fa-quote-left p-2"></i> 
+                                      {item.quotedescription}
+                                    <i className="fa fa-quote-right p-2"></i>
+                                  </p>
+                                </div>
+                                <div className='maincard-desp-content'>
+                                  <p>
+                                    {item.description}
+                                  </p>
+                                </div>
+                                <div className='maincard-artdesp-content'>
+                                  <p>Art Creation Date:&nbsp;
+                                    <small style={{color:theme.cardartdatetextcolor}}>{item.artdate}</small>
+                                  </p>
+                                </div>
+                                <div className='maincard-button-content'>
+                                  <Button 
+                                    className='buttonanchor'
+                                    style={{boxShadow: "4px 4px 3px rgba(46, 46, 46, 0.62)"}}
+                                    onClick={()=> window.open(item.aboutUrl, "_blank", "noopener noreferrer")}
+                                    variant={`outline-${theme.cardbuttoncolor}`}>
+                                      {item.abouttext}
+                                  </Button>
                                 </div>
                               </div>
-                          </Col>
-                          <Col xxs="12" xs="12" sm="12" md="7" lg="7" xl="7" xxl="7" xxxl="7">
-                            <div className='singlecardtext-contentContainer'>
-                              <div className='maincard-title-content'>
-                                <h3 data-aos={item.textdirection}
-                                    data-aos-duration={item.twosecondDuration} 
-                                    style={{color:theme.cardtitletextcolor}}>{item.title}</h3>
-                              </div>
-                              <div className='maincard-quotedesp-content'>
-                                <p>
-                                  <i className="fa fa-quote-left p-2"></i> 
-                                    {item.quotedescription}
-                                  <i className="fa fa-quote-right p-2"></i>
-                                </p>
-                              </div>
-                              <div className='maincard-desp-content'>
-                                <p>
-                                  {item.description}
-                                </p>
-                              </div>
-                              <div className='maincard-artdesp-content'>
-                                <p>Art Creation Date:&nbsp;
-                                  <small style={{color:theme.cardartdatetextcolor}}>{item.artdate}</small>
-                                </p>
-                              </div>
-                              <div className='maincard-button-content'>
-                                {/* <a 
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className='anchorbutton'
-                                  onMouseOver={{color:'red'}}
-                                  style={{color: theme.cardbuttontextbordercolor, 
-                                          border: `1px solid ${theme.cardbuttontextbordercolor}`}} 
-                                  href={item.aboutUrl}>
-                                    {item.abouttext}
-                                </a> */}
-                                <Button 
-                                  className='buttonanchor'
-                                  style={{boxShadow: "4px 4px 3px rgba(46, 46, 46, 0.62)"}}
-                                  onClick={()=> window.open(item.aboutUrl, "_blank", "noopener noreferrer")}
-                                  variant={`outline-${theme.cardbuttoncolor}`}>
-                                    {item.abouttext}
-                                </Button>
-                              </div>
-                            </div>
-                          </Col>
-                        </Row>
-                        </Card>
-                      </div>
-                      <div className='borderbox-bottom pb-2'
-                          style={{background: eval("theme." + item.bordercolor)}}
-                          data-aos={item.borderdirection}
-                          data-aos-duration={item.twosecondDuration}>
-                      </div>
-                    </Fragment>
-                    )
-                })}
-                </div>
+                            </Col>
+                          </Row>
+                          </Card>
+                        </div>
+                        <div className='borderbox-bottom pb-2'
+                            style={{background: eval("theme." + item.bordercolor)}}
+                            data-aos={item.borderdirection}
+                            data-aos-duration={item.twosecondDuration}>
+                        </div>
+                      </Fragment>
+                      )
+                  })}
+                  </div>
               </Container>
 
               {/* -----------    Indian army soldier Container   ------------- */}
@@ -339,8 +294,8 @@ const MainScreen = memo((props) => {
                     return(
                     <Fragment key={key}>   
                       <div className='shadow-lg bg-white rounded' 
-                          data-aos={item.carddirection}
-                          data-aos-duration={item.twosecondDuration}
+                           data-aos={item.carddirection}
+                           data-aos-duration={item.twosecondDuration}
                           >
                         <Card 
                           style={{
@@ -383,10 +338,8 @@ const MainScreen = memo((props) => {
                                       variant={`outline-${theme.cardbuttoncolor}`}>
                                         {item.abouttext}
                                   </Button>
-                                </div>
-                                
+                                </div>     
                               </div>
-                              
                             </Col>
                             <Col xxs="12" xs="12" sm="12" md="5" lg="5" xl="5" xxl="5" xxxl="5">
                                 <div className='cardone-image shadow p-3 bg-white'>
@@ -409,13 +362,12 @@ const MainScreen = memo((props) => {
                                 </div>
                             </Col>
                           </Row>
-                      
                         </Card>
                       </div>
                       <div className='borderbox-bottom pb-2'
-                          style={{background: eval("theme." + item.bordercolor)}}
-                          data-aos={item.borderdirection}
-                          data-aos-duration={item.twosecondDuration}>
+                           style={{background: eval("theme." + item.bordercolor)}}
+                           data-aos={item.borderdirection}
+                           data-aos-duration={item.twosecondDuration}>
                       </div>
                   </Fragment>
                    )
@@ -491,9 +443,9 @@ const MainScreen = memo((props) => {
                               </Card>
                             </div>
                             <div className='borderbox-bottom pb-2'
-                                style={{background: eval("theme." + item.bordercolor)}}
-                                data-aos={item.borderdirection}
-                                data-aos-duration={item.twosecondDuration}>
+                                 style={{background: eval("theme." + item.bordercolor)}}
+                                 data-aos={item.borderdirection}
+                                 data-aos-duration={item.twosecondDuration}>
                             </div>
                           </Col>
                       </Fragment>
@@ -515,9 +467,9 @@ const MainScreen = memo((props) => {
                       <Fragment key={key}>
                           <Col xxs="12" xs="12" sm="12" md="4" lg="4" xl="4" xxl="4" xxxl="4">
                             <div className='shadow-lg card-topborders' 
-                                  data-aos={item.carddirection}
-                                  data-aos-duration={item.twosecondDuration}
-                                  >
+                                 data-aos={item.carddirection}
+                                 data-aos-duration={item.twosecondDuration}
+                            >
                               <Card 
                                 className='card-topborders' 
                                 style={{
@@ -565,9 +517,9 @@ const MainScreen = memo((props) => {
                               </Card>
                             </div>
                             <div className='borderbox-bottom pb-2'
-                                style={{background: eval("theme." + item.bordercolor)}}
-                                data-aos={item.borderdirection}
-                                data-aos-duration={item.twosecondDuration}>
+                                 style={{background: eval("theme." + item.bordercolor)}}
+                                 data-aos={item.borderdirection}
+                                 data-aos-duration={item.twosecondDuration}>
                             </div>
                           </Col>
                       </Fragment>
@@ -651,7 +603,6 @@ const MainScreen = memo((props) => {
                                   </div>
                                 </div>
                               </Col>
-                              
                             </Row>
                         </div>
                     </Fragment>
@@ -671,9 +622,9 @@ const MainScreen = memo((props) => {
                       <Fragment key={key}>
                           <Col xxs="12" xs="12" sm="12" md="6" lg="6" xl="6" xxl="6" xxxl="6">
                             <div className='shadow-lg card-topborders' 
-                                  data-aos={item.carddirection}
-                                  data-aos-duration={item.twosecondDuration}
-                                  >
+                                 data-aos={item.carddirection}
+                                 data-aos-duration={item.twosecondDuration}
+                            >
                               <Card 
                                 className='card-topborders' 
                                 style={{
@@ -728,9 +679,9 @@ const MainScreen = memo((props) => {
                               </Card>
                             </div>
                             <div className='borderbox-bottom pb-2'
-                                style={{background: eval("theme." + item.bordercolor)}}
-                                data-aos={item.borderdirection}
-                                data-aos-duration={item.twosecondDuration}>
+                                 style={{background: eval("theme." + item.bordercolor)}}
+                                 data-aos={item.borderdirection}
+                                 data-aos-duration={item.twosecondDuration}>
                             </div>
                           </Col>
                       </Fragment>
@@ -752,9 +703,9 @@ const MainScreen = memo((props) => {
                       <Fragment key={key}>
                           <Col xxs="12" xs="12" sm="12" md="4" lg="4" xl="4" xxl="4" xxxl="4">
                             <div className='shadow-lg card-topborders' 
-                                  data-aos={item.carddirection}
-                                  data-aos-duration={item.twosecondDuration}
-                                  >
+                                 data-aos={item.carddirection}
+                                 data-aos-duration={item.twosecondDuration}
+                            >
                               <Card 
                                 className='card-topborders' 
                                 style={{
@@ -802,9 +753,9 @@ const MainScreen = memo((props) => {
                               </Card>
                             </div>
                             <div className='borderbox-bottom pb-2'
-                                style={{background: eval("theme." + item.bordercolor)}}
-                                data-aos={item.borderdirection}
-                                data-aos-duration={item.twosecondDuration}>
+                                 style={{background: eval("theme." + item.bordercolor)}}
+                                 data-aos={item.borderdirection}
+                                 data-aos-duration={item.twosecondDuration}>
                             </div>
                           </Col>
                       </Fragment>
@@ -823,9 +774,9 @@ const MainScreen = memo((props) => {
                     return(
                     <Fragment key={key}>   
                       <div className='shadow-lg bg-white rounded' 
-                          data-aos={item.carddirection}
-                          data-aos-duration={item.twosecondDuration}
-                          >
+                           data-aos={item.carddirection}
+                           data-aos-duration={item.twosecondDuration}
+                      >
                         <Card 
                           style={{
                               border: 'none',
@@ -868,9 +819,7 @@ const MainScreen = memo((props) => {
                                         {item.abouttext}
                                   </Button>
                                 </div>
-                                
                               </div>
-                              
                             </Col>
                             <Col xxs="12" xs="12" sm="12" md="6" lg="6" xl="6" xxl="6" xxxl="6">
                                 <div className='cardone-image shadow p-3 bg-white'>
@@ -898,8 +847,8 @@ const MainScreen = memo((props) => {
                       </div>
                       <div className='borderbox-bottom pb-2'
                            style={{background: eval("theme." + item.bordercolor)}}
-                          data-aos={item.borderdirection}
-                          data-aos-duration={item.twosecondDuration}>
+                           data-aos={item.borderdirection}
+                           data-aos-duration={item.twosecondDuration}>
                       </div>
                   </Fragment>
                    )
@@ -918,9 +867,9 @@ const MainScreen = memo((props) => {
                       <Fragment key={key}>
                           <Col xxs="12" xs="12" sm="12" md="6" lg="6" xl="6" xxl="6" xxxl="6">
                             <div className='shadow-lg card-topborders' 
-                                  data-aos={item.carddirection}
-                                  data-aos-duration={item.twosecondDuration}
-                                  >
+                                 data-aos={item.carddirection}
+                                 data-aos-duration={item.twosecondDuration}
+                            >
                               <Card 
                                 className='card-topborders' 
                                 style={{
@@ -975,9 +924,9 @@ const MainScreen = memo((props) => {
                               </Card>
                             </div>
                             <div className='borderbox-bottom pb-2'
-                                style={{background: eval("theme." + item.bordercolor)}}
-                                data-aos={item.borderdirection}
-                                data-aos-duration={item.twosecondDuration}>
+                                 style={{background: eval("theme." + item.bordercolor)}}
+                                 data-aos={item.borderdirection}
+                                 data-aos-duration={item.twosecondDuration}>
                             </div>
                           </Col>
                       </Fragment>
@@ -1000,9 +949,9 @@ const MainScreen = memo((props) => {
                       <Fragment key={key}>
                           <Col xxs="12" xs="12" sm="12" md="4" lg="4" xl="4" xxl="4" xxxl="4">
                             <div className='shadow-lg card-topborders' 
-                                  data-aos={item.carddirection}
-                                  data-aos-duration={item.twosecondDuration}
-                                  >
+                                 data-aos={item.carddirection}
+                                 data-aos-duration={item.twosecondDuration}
+                            >
                               <Card 
                                 className='card-topborders' 
                                 style={{
@@ -1050,9 +999,9 @@ const MainScreen = memo((props) => {
                               </Card>
                             </div>
                             <div className='borderbox-bottom pb-2'
-                                style={{background: eval("theme." + item.bordercolor)}}
-                                data-aos={item.borderdirection}
-                                data-aos-duration={item.twosecondDuration}>
+                                 style={{background: eval("theme." + item.bordercolor)}}
+                                 data-aos={item.borderdirection}
+                                 data-aos-duration={item.twosecondDuration}>
                             </div>
                           </Col>
                       </Fragment>
@@ -1075,9 +1024,9 @@ const MainScreen = memo((props) => {
                       <Fragment key={key}>
                           <Col xxs="12" xs="12" sm="12" md="4" lg="4" xl="4" xxl="4" xxxl="4">
                             <div className='shadow-lg card-topborders' 
-                                  data-aos={item.carddirection}
-                                  data-aos-duration={item.twosecondDuration}
-                                  >
+                                 data-aos={item.carddirection}
+                                 data-aos-duration={item.twosecondDuration}
+                            >
                               <Card 
                                 className='card-topborders' 
                                 style={{
@@ -1125,9 +1074,9 @@ const MainScreen = memo((props) => {
                               </Card>
                             </div>
                             <div className='borderbox-bottom pb-2'
-                                style={{background: eval("theme." + item.bordercolor)}}
-                                data-aos={item.borderdirection}
-                                data-aos-duration={item.twosecondDuration}>
+                                 style={{background: eval("theme." + item.bordercolor)}}
+                                 data-aos={item.borderdirection}
+                                 data-aos-duration={item.twosecondDuration}>
                             </div>
                           </Col>
                       </Fragment>
@@ -1211,7 +1160,6 @@ const MainScreen = memo((props) => {
                                   </div>
                                 </div>
                               </Col>
-                              
                             </Row>
                         </div>
                     </Fragment>
@@ -1294,7 +1242,6 @@ const MainScreen = memo((props) => {
                                     </div>
                                   </div>
                               </Col>
-
                             </Row>
                         </div>
                     </Fragment>
@@ -1334,8 +1281,8 @@ const MainScreen = memo((props) => {
                                       <h3>{item.title}</h3>
                                     </div>
                                     <div className="arttextoverlay" 
-                                        style={Object.assign({justifyContent: item.artworkdisplay}, item.artworkposition === 'bottom' ? {bottom: 0} : {top:0})}
-                                        >
+                                         style={Object.assign({justifyContent: item.artworkdisplay}, item.artworkposition === 'bottom' ? {bottom: 0} : {top:0})}
+                                         >
                                       <p style={{color:item.arttextcolor,padding: item.artworkpadding}}>{item.artworkcategory}</p>
                                     </div>
                                   </div>
@@ -1376,7 +1323,6 @@ const MainScreen = memo((props) => {
                                   </div>
                                 </div>
                               </Col>
-                              
                             </Row>
                         </div>
                     </Fragment>
@@ -1402,8 +1348,7 @@ const MainScreen = memo((props) => {
                               color: theme.color
                               }}
                             >
-                              <Row className='gx-0 cardreverse' >
-                              
+                            <Row className='gx-0 cardreverse' >
                               <Col xxs="12" xs="12" sm="12" md="8" lg="8" xl="8" xxl="8" xxxl="8">
                                 <div className='singlewithoutcardtext-contentContainer'>
                                   <div className='maincard-title-content'>
@@ -1459,7 +1404,6 @@ const MainScreen = memo((props) => {
                                     </div>
                                   </div>
                               </Col>
-
                             </Row>
                         </div>
                     </Fragment>
@@ -1508,7 +1452,6 @@ const MainScreen = memo((props) => {
                                       <h3>{item.title}</h3>
                                     </div>
                                   </div>
-                                  
                               </Col>
                               <Col xxs="12" xs="12" sm="12" md="6" lg="6" xl="6" xxl="6" xxxl="6">
                                 <div className='singlewithoutcardtext-contentContainer'>
@@ -1545,7 +1488,6 @@ const MainScreen = memo((props) => {
                                   </div>
                                 </div>
                               </Col>
-                              
                             </Row>
                         </div>
                     </Fragment>
@@ -1571,7 +1513,7 @@ const MainScreen = memo((props) => {
                               color: theme.color
                               }}
                             >
-                              <Row className='gx-0 cardreverse'>
+                            <Row className='gx-0 cardreverse'>
                               <Col xxs="12" xs="12" sm="12" md="6" lg="6" xl="6" xxl="6" xxxl="6">
                                 <div className='singlewithoutcardtext-contentContainer'>
                                   <div className='maincard-title-content'>
@@ -1621,7 +1563,6 @@ const MainScreen = memo((props) => {
                                       <h3>{item.title}</h3>
                                     </div>
                                   </div>
-                                  
                               </Col>
                             </Row>
                         </div>
@@ -1648,7 +1589,7 @@ const MainScreen = memo((props) => {
                               color: theme.color
                               }}
                             >
-                              <Row className='gx-0' >
+                            <Row className='gx-0' >
                               <Col xxs="12" xs="12" sm="12" md="6" lg="6" xl="6" xxl="6" xxxl="6">
                                   <div className='cardone-image' style={{boxShadow:theme.imageshadow}}>
                                     <img
@@ -1663,7 +1604,6 @@ const MainScreen = memo((props) => {
                                       <h3>{item.title}</h3>
                                     </div>
                                   </div>
-                                  
                               </Col>
                               <Col xxs="12" xs="12" sm="12" md="6" lg="6" xl="6" xxl="6" xxxl="6">
                                 <div className='singlewithoutcardtext-contentContainer'>
@@ -1700,7 +1640,6 @@ const MainScreen = memo((props) => {
                                   </div>
                                 </div>
                               </Col>
-                              
                             </Row>
                         </div>
                     </Fragment>
@@ -1726,7 +1665,7 @@ const MainScreen = memo((props) => {
                               color: theme.color
                               }}
                             >
-                              <Row className='gx-0 cardreverse'>
+                            <Row className='gx-0 cardreverse'>
                               <Col xxs="12" xs="12" sm="12" md="6" lg="6" xl="6" xxl="6" xxxl="6">
                                 <div className='singlewithoutcardtext-contentContainer'>
                                   <div className='maincard-title-content'>
@@ -1776,7 +1715,6 @@ const MainScreen = memo((props) => {
                                       <h3>{item.title}</h3>
                                     </div>
                                   </div>
-                                  
                               </Col>
                             </Row>
                         </div>
@@ -1803,7 +1741,7 @@ const MainScreen = memo((props) => {
                               color: theme.color
                               }}
                             >
-                              <Row className='gx-0'>
+                            <Row className='gx-0'>
                               <Col xxs="12" xs="12" sm="12" md="6" lg="6" xl="6" xxl="6" xxxl="6">
                                   <div className='cardone-image' style={{boxShadow:theme.imageshadow}}>
                                     <img
@@ -1855,7 +1793,6 @@ const MainScreen = memo((props) => {
                                   </div>
                                 </div>
                               </Col>
-                              
                             </Row>
                         </div>
                     </Fragment>
@@ -1881,7 +1818,7 @@ const MainScreen = memo((props) => {
                               color: theme.color
                               }}
                             >
-                              <Row className='gx-0 cardreverse'>
+                            <Row className='gx-0 cardreverse'>
                               <Col xxs="12" xs="12" sm="12" md="7" lg="7" xl="7" xxl="7" xxxl="7">
                                 <div className='singlewithoutcardtext-contentContainer'>
                                   <div className='maincard-title-content'>
@@ -1931,7 +1868,6 @@ const MainScreen = memo((props) => {
                                       <h3>{item.title}</h3>
                                     </div>
                                   </div>
-                                  
                               </Col>
                             </Row>
                         </div>
@@ -1957,7 +1893,7 @@ const MainScreen = memo((props) => {
                               color: theme.color
                               }}
                             >
-                              <Row className='gx-0'>
+                            <Row className='gx-0'>
                               <Col xxs="12" xs="12" sm="12" md="5" lg="5" xl="5" xxl="5" xxxl="5">
                                   <div className='cardone-image' style={{boxShadow:theme.imageshadow}}>
                                     <img
@@ -1972,7 +1908,6 @@ const MainScreen = memo((props) => {
                                       <h3>{item.title}</h3>
                                     </div>
                                   </div>
-                                  
                               </Col>
                               <Col xxs="12" xs="12" sm="12" md="7" lg="7" xl="7" xxl="7" xxxl="7">
                                 <div className='singlewithoutcardtext-contentContainer'>
@@ -2034,7 +1969,7 @@ const MainScreen = memo((props) => {
                               color: theme.color
                               }}
                             >
-                              <Row className='gx-0 cardreverse'>
+                            <Row className='gx-0 cardreverse'>
                               <Col xxs="12" xs="12" sm="12" md="6" lg="6" xl="6" xxl="6" xxxl="6">
                                 <div className='singlewithoutcardtext-contentContainer'>
                                   <div className='maincard-title-content'>
@@ -2084,7 +2019,6 @@ const MainScreen = memo((props) => {
                                       <h3>{item.title}</h3>
                                     </div>
                                   </div>
-                                  
                               </Col>
                             </Row>
                         </div>
@@ -2111,7 +2045,7 @@ const MainScreen = memo((props) => {
                               color: theme.color
                               }}
                             >
-                              <Row className='gx-0'>
+                            <Row className='gx-0'>
                               <Col xxs="12" xs="12" sm="12" md="6" lg="6" xl="6" xxl="6" xxxl="6">
                                   <div className='cardone-image' style={{boxShadow:theme.imageshadow}}>
                                     <img
@@ -2163,7 +2097,6 @@ const MainScreen = memo((props) => {
                                   </div>
                                 </div>
                               </Col>
-                              
                             </Row>
                         </div>
                     </Fragment>
@@ -2172,88 +2105,7 @@ const MainScreen = memo((props) => {
                 </div>
               </Container>
 
-
-             
-             
-
-             {/* <div className="slideshow">
-                <div
-                  className="slideshowSlider"
-                  style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}
-                >
-                  {colors.map((backgroundColor, index) => (
-                    <div
-                      className="slide"
-                      key={index}
-                      style={{ background: backgroundColor }}
-                    >
-                      <p>uuu</p>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="slideshowDots">
-                  {colors.map((_, idx) => (
-                    <div
-                      key={idx}
-                      className={`slideshowDot${index === idx ? " active" : ""}`}
-                      onClick={() => {
-                        setIndex(idx);
-                      }}
-                    ></div>
-                  ))}
-                </div>
-              </div> */}
-
-             {/* <div>
-               <Button onClick={cardgo}>
-                 save
-               </Button>
-             </div>
-             <div className='card-Container'>
-             <Card style={{ width: '18rem',backgroundColor:theme.cardColor, color: theme.color }}>
-                <Card.Body>
-                  <Card.Title>Card Title</Card.Title>
-                  <Card.Text>
-                    Some quick example text to build on the card title and make up the bulk of
-                    the card's content.
-                  </Card.Text>
-                  <Button variant="primary" className='buttonofgo'>Go somewhere</Button>
-                </Card.Body>
-              </Card>
-              <Card style={{ width: '18rem',backgroundColor:theme.cardColor, color: theme.color }}>
-                <Card.Body>
-                  <Card.Title>Card Title</Card.Title>
-                  <Card.Text>
-                    Some quick example text to build on the card title and make up the bulk of
-                    the card's content.
-                  </Card.Text>
-                  <Button variant="primary" className='buttonofgo'>Go somewhere</Button>
-                </Card.Body>
-              </Card>
-              <Card style={{ width: '18rem',backgroundColor:theme.cardColor, color: theme.color }}>
-                <Card.Body>
-                  <Card.Title>Card Title</Card.Title>
-                  <Card.Text>
-                    Some quick example text to build on the card title and make up the bulk of
-                    the card's content.
-                  </Card.Text>
-                  <Button variant="primary" className='buttonofgo'>Go somewhere</Button>
-                </Card.Body>
-              </Card>
-              <Card id='card4' style={{ width: '18rem',backgroundColor:theme.cardColor, color: theme.color }}>
-                <Card.Body>
-                  <Card.Title>Card Title</Card.Title>
-                  <Card.Text>
-                    Some quick example text to build on the card title and make up the bulk of
-                    the card's content.
-                  </Card.Text>
-                  <Button variant="primary" className='buttonofgo'>Go somewhere</Button>
-                </Card.Body>
-              </Card>
-             </div> */}
-              
-              <FooterScreen />
+            <FooterScreen />
             </Container>
             
             <ScrollTop {...props}>

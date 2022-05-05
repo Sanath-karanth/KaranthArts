@@ -6,11 +6,6 @@ img {
 }
 
 .mainheader {
-    /* min-height: 100vh; */
-    /* display: flex; */
-    /* flex-direction: column; */
-    /* align-items: center; */
-    /* min-height: fit-content; */
     min-width: fit-content;
     justify-content: center;
     overflow: hidden;
@@ -106,18 +101,15 @@ img {
     height: 100%;
     color: white;
     backdrop-filter: blur(0px) brightness(40%);
-    /* background: linear-gradient(rgb(72,0,72,0.8), rgb(192,72,72,0.8)); */
   }
   .arttextoverlay{
     position: absolute; 
     left: 0; 
     width: 100%;
     display: flex;
-    /* justify-content: flex-start;  */
     align-items: center;
     height: 15%;
     backdrop-filter: blur(1px) brightness(80%);
-    /* background: linear-gradient(rgb(72,0,72,0.8), rgb(192,72,72,0.8)); */
   }
   .arttextoverlay p{
     font-size: 18px;
@@ -195,17 +187,6 @@ img {
     opacity: 1;
     margin: 0;
   }
-  /* .anchorbutton{
-    display: inline-block;
-    text-decoration: none !important;
-    padding: 6px 20px;
-    border-radius:4px;
-  }
-  .anchorbutton:hover{
-    display: inline-block;
-    text-decoration: none !important;
-    animation: pulsate 2s ease-in-out;
-  } */
   .buttonanchor {
     font-size: 14px;
     font-family: 'Montserrat', sans-serif;
@@ -247,65 +228,6 @@ img {
   }
 
 
-/* ------------------   custum slideshow  styles    ------------------ */
-  .slideshow {
-    margin: 0 auto;
-    overflow: hidden;
-    width: 100%;
-  }
-  
-  .slideshowSlider {
-    white-space: nowrap;
-    transition: ease 1000ms;
-  }
-  
-  .slide {
-    display: inline-block;
-    height: 400px;
-    object-fit: cover;
-    width: 100%;
-  }
-  
-  .slideshowDots {
-    text-align: center;
-  }
-  
-  .slideshowDot {
-    display: inline-block;
-    height: 10px;
-    width: 10px;
-    border-radius: 50%;
-  
-    cursor: pointer;
-    margin: 10px 7px 0px;
-  
-    background-color: #c4c4c4;
-  }
-  
-  .slideshowDot.active {
-    background-color: #7d7b7e;
-  }
-
-  /* -----------------   Main content styles    -------- */
-  .square {
-    width: 200px;
-    height: 200px;
-    background: teal;
-    border-radius: 8px;
-    opacity: 0;
-    transform: scale(1.2);
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .square {
-    transition: opacity 1.5s ease, transform 1.5s ease;
-  }
-}
-
-.square-transition {
-    opacity: 1;
-    transform: none;
-}
 
 /* Mobile View */
 @media (max-width: 767px) {
@@ -373,10 +295,10 @@ img {
     padding: 40px 0px 0px 10px;
   }
   .doublecardtext-contentContainer{
-    padding: 10px 30px 30px 30px;
+    padding: 20px 30px 30px 30px;
   }
   .thribblecardtext-contentContainer{
-    padding: 30px 30px 30px 30px;
+    padding: 20px 30px 30px 30px;
   }
   .cardtwo-image img{
     object-fit: cover;
@@ -589,7 +511,6 @@ img {
       margin: 0 auto;
       padding-top: 40px;
       padding-bottom: 40px;
-      /* clip-path: polygon(36% 0, 100% 0, 100% 100%, 0 100%); */
     }
     .paddingmarginContainer{
       margin: 30px 0px 0px 0px;

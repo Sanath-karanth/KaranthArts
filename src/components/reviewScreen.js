@@ -3,30 +3,21 @@ import '../css/reviewScreenstyle.css';
 import { ThemeContext } from '../contexts/themeContext';
 import { useAuth } from "../contexts/AuthContext"
 import { useNavigate  } from "react-router-dom";
+import { Container, Row, Col, Button, Card, Modal } from 'react-bootstrap';
 import ReactStars from 'react-stars'
 import CssBaseline from '@mui/material/CssBaseline';
-import HeaderScreen,{portraitClick, photographyClick} from '../common/headerScreen';
-import { Container, Row, Col, Button, Card, Alert, Modal } from 'react-bootstrap';
 import SpeedDial from '@mui/material/SpeedDial';
 import SpeedDialIcon from '@mui/material/SpeedDialIcon';
 import SpeedDialAction from '@mui/material/SpeedDialAction';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHome, faPalette, 
-         faImage, faCircleUser, 
-         faPenToSquare, faSun, 
-         faMoon, faAngleLeft,
-         faPhone,
-         faTrashCan} from '@fortawesome/free-solid-svg-icons'
 import Avatar from '@mui/material/Avatar';
-import Divider from '@mui/material/Divider';
-import { deepOrange, deepPurple } from '@mui/material/colors';
-import { fontFamily, height } from '@mui/system';
+import { faHome, faCircleUser, faPenToSquare, faSun, faMoon, faAngleLeft, faTrashCan} from '@fortawesome/free-solid-svg-icons'
+
 
 const ReviewScreen = memo(() => {
 
-  const [headertextShow,setHeadertextShow] = useState('feedback');
   const navigate  = useNavigate();
-  const { getAlldata, createdata, deletedata } = useAuth();
+  const { getAlldata, deletedata } = useAuth();
   const [{theme, isDark}, toggleTheme] = useContext(ThemeContext);
   const [carddatavalues,setCarddatavalues] = useState([]);
   const [deletemodalShow, setDeletemodalShow] = useState(false);
@@ -37,8 +28,6 @@ const ReviewScreen = memo(() => {
 
   const actions = [
     { icon: <FontAwesomeIcon icon={faHome} size="lg" />, name: 'Home', navigationto: homeClick },
-    { icon: <FontAwesomeIcon icon={faPalette} size="lg" />, name: 'Portrait Arts and Sketchings', navigationto: portraitClick },
-    { icon: <FontAwesomeIcon icon={faImage} size="lg" />, name: 'Photography', navigationto: photographyClick },
     { icon: <FontAwesomeIcon icon={faCircleUser} size="lg" />, name: 'About', navigationto: aboutClick },
     { icon: <FontAwesomeIcon icon={faPenToSquare} size="lg" />, name: 'Feedback', navigationto: feedbackClick },
     { icon: <FontAwesomeIcon icon={isDark === false ? faSun : faMoon} size="lg" />, name: 'Theme', navigationto: toggleTheme },
@@ -46,7 +35,6 @@ const ReviewScreen = memo(() => {
 
   function homeClick() 
   {
-    console.log("home clicked")
     navigate("/");
     document.getElementById('back-to-top-anchor').scrollIntoView({
       behavior: 'smooth'
@@ -96,7 +84,7 @@ const reviewData = async() => {
       });
 
       setCarddatavalues(mainarr);
-       console.log("mail arr  ",mainarr);
+       console.log("Review array data  ",mainarr);
       }
       else
       {
@@ -119,7 +107,7 @@ const deleteData = async() => {
   setDeletemodalShow(false);
   deletedata(pathvalue,idvalue)
   .then(() => {
-    console.log('deleted successfully');
+    console.log('Data deleted successfully!');
   })
   .catch((e) => {
     console.log(e);
@@ -265,7 +253,7 @@ function DeleteModal(props) {
                                       </div>
                                     </Col>
                                   </Row>
-                                  {/* <Divider variant="inset" /> */}
+                                  
                                   <Row>
                                     <Col>
                                       <div className='reviewcard-feedback-decription'>

@@ -1,24 +1,22 @@
-import React, { memo, useState, useEffect, useContext, Fragment } from 'react'
+import React, { memo, useState, useContext, Fragment } from 'react'
 import '../css/aboutScreenstyle.css';
 import { ThemeContext } from '../contexts/themeContext';
+import HeaderScreen from '../common/headerScreen';
 import { useNavigate  } from "react-router-dom";
 import CssBaseline from '@mui/material/CssBaseline';
-import HeaderScreen,{portraitClick, photographyClick} from '../common/headerScreen';
-import FooterScreen from '../common/footerScreen';
-import { Container, Row, Col, Button, Card, Carousel } from 'react-bootstrap';
 import SpeedDial from '@mui/material/SpeedDial';
 import SpeedDialIcon from '@mui/material/SpeedDialIcon';
 import SpeedDialAction from '@mui/material/SpeedDialAction';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHome, faPalette, 
-         faImage, faCircleUser, 
+import { faHome, faImage,  
          faPenToSquare, faSun, 
          faMoon, faEnvelope,
          faPhone, faGlobe,
          faLocationDot} from '@fortawesome/free-solid-svg-icons'
+import Title from 'react-vanilla-tilt'
 
 const AboutScreen = memo(() => {
-  const [headertextShow,setHeadertextShow] = useState('about');
+  const headertextShow = 'about';
   const navigate  = useNavigate();
     const [{theme, isDark}, toggleTheme] = useContext(ThemeContext);
 
@@ -31,13 +29,11 @@ const AboutScreen = memo(() => {
 
     function homeClick() 
     {
-      console.log("home clicked")
       navigate("/");
       document.getElementById('back-to-top-anchor').scrollIntoView({
         behavior: 'smooth'
       });
     }
-
 
     function feedbackClick() 
     {
@@ -94,11 +90,11 @@ const AboutScreen = memo(() => {
               <div className='MainAbout-cont' 
                    style={{
                         backgroundColor:theme.backgroundColor, 
-                        // color: theme.color,
                         backgroundImage: "url('./images/a5.jpg')"
                       }}
                    >
-
+              <Title options={{ scale: 2, max: 25 }}>
+                
                   <div className='cardcontent' 
                        style={{boxShadow: theme.aboutgradient}}
                        >
@@ -164,20 +160,19 @@ const AboutScreen = memo(() => {
                                 </a>
                             </div>
                             <div className='Aboutsocial-icon-cont'>
-                                <a href="http://www.facebook.com" target="_blank" rel="noopener noreferrer">
+                                <a href="https://www.facebook.com/sanaths.karanth/" target="_blank" rel="noopener noreferrer">
                                     <i className="fa fa-facebook Aboutsocial-socialicon" style={{color:theme.aboutsocialiconcolor}}></i>
                                 </a>
                             </div>
                             <div className='Aboutsocial-icon-cont'>
-                                <a href="http://www.linkedin.com" target="_blank" rel="noopener noreferrer">
+                                <a href="https://www.linkedin.com/in/sanath-s-karanth-758bbb176" target="_blank" rel="noopener noreferrer">
                                     <i className="fa fa-linkedin-square Aboutsocial-socialicon" style={{color:theme.aboutsocialiconcolor}}></i>
                                 </a>
                             </div>
                         </div>
                     </div>
-                    
                   </div>
-
+                  </Title>
               </div>
 
             {/* ---------    main div close  ----------- */}

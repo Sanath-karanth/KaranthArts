@@ -1,31 +1,22 @@
-import React, { memo, useState, useEffect, useContext, Fragment } from 'react'
+import React, { memo, useState, useContext, Fragment } from 'react'
 import '../css/imageviewScreenstyle.css';
 import { ThemeContext } from '../contexts/themeContext';
-import { useAuth } from "../contexts/AuthContext"
-import { useNavigate  } from "react-router-dom";
-import ReactStars from 'react-stars'
-import { Formik } from 'formik';
-import moment from 'moment';
+import HeaderScreen from '../common/headerScreen';
 import { imagecol1Data, imagecol2Data, imagecol3Data, imagecol4Data} from "../json/jsonData"
+import { useNavigate  } from "react-router-dom";
+import { Container, Button, Modal } from 'react-bootstrap';
 import CssBaseline from '@mui/material/CssBaseline';
 import Tooltip from '@mui/material/Tooltip';
-import HeaderScreen,{portraitClick, photographyClick} from '../common/headerScreen';
-import { Container, Row, Col, Button, Card, Alert, Modal } from 'react-bootstrap';
 import SpeedDial from '@mui/material/SpeedDial';
 import SpeedDialIcon from '@mui/material/SpeedDialIcon';
 import SpeedDialAction from '@mui/material/SpeedDialAction';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHome, faPalette, 
-         faImage, faCircleUser, 
-         faPenToSquare, faSun, 
-         faMoon, faEnvelope,
-         faPhone, faDownload } from '@fortawesome/free-solid-svg-icons'
+import { faHome, faCircleUser, faPenToSquare, faSun, faMoon, faDownload } from '@fortawesome/free-solid-svg-icons'
 
 const ImagegridScreen = memo(() => {
 
-    const [headertextShow,setHeadertextShow] = useState('imageview');
+    const headertextShow = 'imageview';
     const navigate  = useNavigate();
-    const { createdata } = useAuth();
     const [{theme, isDark}, toggleTheme] = useContext(ThemeContext);
     const [imagemodalShow, setImagemodalShow] = useState(false);
     const [modalData,setModalData] = useState({imageTitle: '', imageURL: ''});
@@ -39,7 +30,6 @@ const ImagegridScreen = memo(() => {
 
       function homeClick() 
       {
-        console.log("home clicked")
         navigate("/");
         document.getElementById('back-to-top-anchor').scrollIntoView({
           behavior: 'smooth'
@@ -157,8 +147,8 @@ const ImagegridScreen = memo(() => {
                     <h1>Gallery</h1>
                   </div>
                   
-                  <div class="imagerow"> 
-                    <div class="imagecolumn">
+                  <div className="imagerow"> 
+                    <div className="imagecolumn">
                       { imagecol1Data.map((item,key) => {
                         return(
                           <Fragment key={key}>
@@ -170,7 +160,7 @@ const ImagegridScreen = memo(() => {
                       })}
                     </div>
 
-                    <div class="imagecolumn">
+                    <div className="imagecolumn">
                       { imagecol2Data.map((item,key) => {
                         return(
                           <Fragment key={key}>
@@ -182,7 +172,7 @@ const ImagegridScreen = memo(() => {
                       })}
                     </div>  
 
-                    <div class="imagecolumn">
+                    <div className="imagecolumn">
                       { imagecol3Data.map((item,key) => {
                         return(
                           <Fragment key={key}>
@@ -194,7 +184,7 @@ const ImagegridScreen = memo(() => {
                       })}
                     </div>
 
-                    <div class="imagecolumn">
+                    <div className="imagecolumn">
                       { imagecol4Data.map((item,key) => {
                         return(
                           <Fragment key={key}>

@@ -2,13 +2,13 @@ import React, { memo, useContext } from 'react'
 import '../css/footerstyle.css';
 import logo from '../logo.svg';
 import { ThemeContext } from '../contexts/themeContext';
-import { Container, Row, Col, Button, Card, Navbar, Nav } from 'react-bootstrap';
+import { Container, Row, Col} from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faBriefcase, faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import moment from 'moment';
 
 const FooterScreen = memo(() => {
-    const [{theme, isDark}, toggleTheme] = useContext(ThemeContext);
+    const [{theme}] = useContext(ThemeContext);
     const currentyear = moment().format('YYYY');
   return (
     <Container 
@@ -86,7 +86,7 @@ const FooterScreen = memo(() => {
                 </Col>
     
             </Row>
-            {/* <hr></hr> */}
+            
             <Row className="gx-0">
                 <div className="social-icons-container">
                     <div className='icon-cont'>
@@ -95,12 +95,12 @@ const FooterScreen = memo(() => {
                         </a>
                     </div>
                     <div className='icon-cont'>
-                        <a href="http://www.facebook.com" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.facebook.com/sanaths.karanth/" target="_blank" rel="noopener noreferrer">
                             <i className="fa fa-facebook socialicon" style={{color:theme.footericoncolor}}></i>
                         </a>
                     </div>
                     <div className='icon-cont'>
-                        <a href="http://www.linkedin.com" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.linkedin.com/in/sanath-s-karanth-758bbb176" target="_blank" rel="noopener noreferrer">
                             <i className="fa fa-linkedin-square socialicon" style={{color:theme.footericoncolor}}></i>
                         </a>
                     </div>

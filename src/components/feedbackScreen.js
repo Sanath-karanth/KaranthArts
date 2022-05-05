@@ -1,27 +1,22 @@
-import React, { memo, useState, useEffect, useContext, Fragment } from 'react'
+import React, { memo, useState, useContext, Fragment } from 'react'
 import '../css/feedbackScreenstyle.css';
 import { ThemeContext } from '../contexts/themeContext';
-import { useAuth } from "../contexts/AuthContext"
+import { useAuth } from "../contexts/AuthContext";
+import HeaderScreen from '../common/headerScreen';
 import { useNavigate  } from "react-router-dom";
+import { Container, Row, Col, Button, Card, Alert, Form } from 'react-bootstrap';
 import ReactStars from 'react-stars'
 import { Formik } from 'formik';
 import moment from 'moment';
 import CssBaseline from '@mui/material/CssBaseline';
-import HeaderScreen,{portraitClick, photographyClick} from '../common/headerScreen';
-import { Container, Row, Col, Button, Card, Alert, Form } from 'react-bootstrap';
 import SpeedDial from '@mui/material/SpeedDial';
 import SpeedDialIcon from '@mui/material/SpeedDialIcon';
 import SpeedDialAction from '@mui/material/SpeedDialAction';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHome, faPalette, 
-         faImage, faCircleUser, 
-         faPenToSquare, faSun, 
-         faMoon, faEnvelope,
-         faPhone, faGlobe,
-         faLocationDot} from '@fortawesome/free-solid-svg-icons'
+import { faHome, faImage, faCircleUser, faSun, faMoon} from '@fortawesome/free-solid-svg-icons'
 
 const FeedbackScreen = memo(() => {
-    const [headertextShow,setHeadertextShow] = useState('feedback');
+    const headertextShow = 'feedback';
     const navigate  = useNavigate();
     const { createdata } = useAuth();
     let feedbackdate = moment().format('LLL');;
@@ -42,7 +37,6 @@ const FeedbackScreen = memo(() => {
 
     function homeClick() 
     {
-      console.log("home clicked")
       navigate("/");
       document.getElementById('back-to-top-anchor').scrollIntoView({
         behavior: 'smooth'
@@ -107,7 +101,7 @@ const FeedbackScreen = memo(() => {
             let formfielddata = {uniqueID,usernameval,feedbackval,rate,feedbackdate}
             try {
               await createdata('feedbackdata',formfielddata)
-              console.log("db created");
+              console.log("Database created...");
               setAlertshowfail(false);
               setAlertshowsuccess(true);
               values.username = ""
@@ -190,7 +184,7 @@ const FeedbackScreen = memo(() => {
                                     validate={validate}
                                     onSubmit={handleSubmit}
                                     >
-                                {({ handleChange, handleBlur, handleSubmit, touched, values, errors }) => (
+                                {({ handleChange, handleSubmit, values, errors }) => (
 
                                 <Form>        
                                     <Form.Group id="username" className='mb-3'>
