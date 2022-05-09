@@ -64,8 +64,8 @@ const HeaderScreen = memo(({headerData}) => {     ///////////  'sanathorthotech'
             <span style={{paddingRight: '5px'}}>
               <img src="./images/atom.png" className="App-logo" alt="logo" />
             </span>
-            <span className='word' style={{color:theme.headerheadtextcolor}}>ART</span>{' '} 
-            <span className='word' style={{color:theme.headerheadtextcolor}}>GALLERY</span>
+            <span className='word' onClick={homeClick} style={{color:theme.headerheadtextcolor,cursor:'pointer'}}>ART</span>{' '} 
+            <span className='word' onClick={homeClick} style={{color:theme.headerheadtextcolor,cursor:'pointer'}}>GALLERY</span>
           </Navbar.Brand>
           
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -136,8 +136,8 @@ const HeaderScreen = memo(({headerData}) => {     ///////////  'sanathorthotech'
             <span style={{paddingRight: '5px'}}>
               <img src="./images/atom.png" className="App-logo" alt="logo" />
             </span>
-            <span className='word' style={{color:theme.headerheadtextcolor}}>ART</span>{' '} 
-            <span className='word' style={{color:theme.headerheadtextcolor}}>GALLERY</span>
+            <span className='word' onClick={homeClick} style={{color:theme.headerheadtextcolor,cursor:'pointer'}}>ART</span>{' '} 
+            <span className='word' onClick={homeClick} style={{color:theme.headerheadtextcolor,cursor:'pointer'}}>GALLERY</span>
           </Navbar.Brand>
           
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -197,8 +197,8 @@ const HeaderScreen = memo(({headerData}) => {     ///////////  'sanathorthotech'
             <span style={{paddingRight: '5px'}}>
               <img src="./images/atom.png" className="App-logo" alt="logo" />
             </span>
-            <span className='word' style={{color:theme.headerheadtextcolor}}>ART</span>{' '} 
-            <span className='word' style={{color:theme.headerheadtextcolor}}>GALLERY</span>
+            <span className='word' onClick={homeClick} style={{color:theme.headerheadtextcolor,cursor:'pointer'}}>ART</span>{' '} 
+            <span className='word' onClick={homeClick} style={{color:theme.headerheadtextcolor,cursor:'pointer'}}>GALLERY</span>
           </Navbar.Brand>
           
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -252,8 +252,8 @@ const HeaderScreen = memo(({headerData}) => {     ///////////  'sanathorthotech'
             <span style={{paddingRight: '5px'}}>
               <img src="./images/atom.png" className="App-logo" alt="logo" />
             </span>
-            <span className='word' style={{color:theme.headerheadtextcolor}}>ART</span>{' '} 
-            <span className='word' style={{color:theme.headerheadtextcolor}}>GALLERY</span>
+            <span className='word' onClick={homeClick} style={{color:theme.headerheadtextcolor,cursor:'pointer'}}>ART</span>{' '} 
+            <span className='word' onClick={homeClick} style={{color:theme.headerheadtextcolor,cursor:'pointer'}}>GALLERY</span>
           </Navbar.Brand>
           
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
