@@ -109,6 +109,10 @@
         height: 120px; 
         overflow: hidden; 
         border-radius: 50%;
+        transition: transform .5s ease-in-out;
+    }
+    .card-profile-image:hover img{
+        transform: scale(2.5);
     }
     .cardtitle-cont h2{
         font-size: 28px;
@@ -160,6 +164,10 @@
         height: 120px; 
         overflow: hidden; 
         border-radius: 50%;
+        transition: transform .5s ease-in-out;
+    }
+    .card-profile-image:hover img{
+        transform: scale(3);
     }
     .cardtitle-cont h2{
         font-size: 28px;
@@ -205,6 +213,10 @@
         height: 120px; 
         overflow: hidden; 
         border-radius: 50%;
+        transition: transform .5s ease-in-out;
+    }
+    .card-profile-image:hover img{
+        transform: scale(3);
     }
     .cardtitle-cont h2{
         font-size: 28px;

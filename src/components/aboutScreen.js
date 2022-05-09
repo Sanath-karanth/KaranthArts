@@ -1,4 +1,4 @@
-import React, { memo, useState, useContext, Fragment } from 'react'
+import React, { memo, useContext, Fragment } from 'react'
 import '../css/aboutScreenstyle.css';
 import { ThemeContext } from '../contexts/themeContext';
 import HeaderScreen from '../common/headerScreen';
