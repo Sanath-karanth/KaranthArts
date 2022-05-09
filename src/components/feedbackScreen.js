@@ -61,7 +61,7 @@ const FeedbackScreen = memo(() => {
         const errors = {};
     
         if (!values.username) {
-            errors.username = '* Username is required.';
+            errors.username = '* Username is required!';
         }else if (!/^[A-Za-z\b\s]+$/.test(values.username)) {
             errors.username = 'Please enter a Valid username.';
         }
