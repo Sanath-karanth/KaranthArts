@@ -503,8 +503,7 @@ img {
     --bs-gutter-y: 0px !important;
   }
     .HeadContainer{
-      margin: 0 auto;
-      max-width: 1280px;
+      margin: auto;
       height: fit-content;
     }
     .maincontentContainer{

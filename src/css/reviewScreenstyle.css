@@ -30,8 +30,7 @@
 /* Mobile View */
 @media (max-width: 767px) {
     .HeadContainer-review{
-        margin: 0 auto;
-        max-width: 1280px;
+        margin: auto;
         height: fit-content;
     }
     .reviewMain-cont{
@@ -116,8 +115,7 @@
         padding: 0px 20px 0px 20px;
     }    
     .HeadContainer-review{
-        margin: 0 auto;
-        max-width: 1280px;
+        margin: auto;
         height: fit-content;
     }
     .reviewcard-header-cont{
@@ -187,8 +185,7 @@
 /* Desktop View */
 @media (min-width: 1200px) {
     .HeadContainer-review{
-        margin: 0 auto;
-        max-width: 1280px;
+        margin: auto;
         height: fit-content;
     }
     .reviewMain-cont{

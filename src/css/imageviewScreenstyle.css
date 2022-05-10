@@ -41,8 +41,7 @@
 /* Mobile View */
 @media (max-width: 767px) {
     .HeadContainer-imageview{
-        margin: 0 auto;
-        max-width: 1280px;
+        margin: auto;
         height: fit-content;
     }
     .imagecolumn {
@@ -76,8 +75,7 @@
         height: fit-content;
     }    
     .HeadContainer-imageview{
-        margin: 0 auto;
-        max-width: 1280px;
+        margin: auto;
         height: fit-content;
     }  
     .imagecolumn {
@@ -101,8 +99,7 @@
 /* Desktop View */
 @media (min-width: 1200px) {
     .HeadContainer-imageview{
-        margin: 0 auto;
-        max-width: 1280px;
+        margin: auto;
         height: fit-content;
     }
     .gallery-header{

@@ -76,8 +76,7 @@
 /* Mobile View */
 @media (max-width: 767px) {
     .HeadContainer-about{
-        margin: 0 auto;
-        max-width: 1280px;
+        margin: auto;
         height: fit-content;
     }
     .MainAbout-cont{
@@ -132,8 +131,7 @@
         height: fit-content;
     }    
     .HeadContainer-about{
-        margin: 0 auto;
-        max-width: 1280px;
+        margin: auto;
         height: fit-content;
     }
     .MainAbout-cont{
@@ -181,8 +179,7 @@
 /* Desktop View */
 @media (min-width: 1200px) {
     .HeadContainer-about{
-        margin: 0 auto;
-        max-width: 1280px;
+        margin: auto;
         height: fit-content;
     }
     .MainAbout-cont{

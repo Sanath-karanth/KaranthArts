@@ -59,8 +59,7 @@
 /* Mobile View */
 @media (max-width: 767px) {
     .HeadContainer-feedback{
-        margin: 0 auto;
-        max-width: 1280px;
+        margin: auto;
         height: fit-content;
     }
     .labeltext {
@@ -92,8 +91,7 @@
         height: fit-content;
     }    
     .HeadContainer-feedback{
-        margin: 0 auto;
-        max-width: 1280px;
+        margin: auto;
         height: fit-content;
     }
     .labeltext {
@@ -120,8 +118,7 @@
 /* Desktop View */
 @media (min-width: 1200px) {
     .HeadContainer-feedback{
-        margin: 0 auto;
-        max-width: 1280px;
+        margin: auto;
         height: fit-content;
     }
     .labeltext {
