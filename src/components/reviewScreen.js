@@ -105,6 +105,7 @@ const deletepopup = (pathval,idval,usernameval) => {
 
 const deleteData = async() => {
   setDeletemodalShow(false);
+  setCarddatavalues([]);
   deletedata(pathvalue,idvalue)
   .then(() => {
     console.log('Data deleted successfully!');
